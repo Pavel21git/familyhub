@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Family Hub Café | Play Centre & Coffee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="The Family Hub Café is a parent-supervised children's play centre and family-friendly café offering activities, play sessions and fresh food. Parents or guardians remain responsible for their children at all times while using the play area."
+  />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sage: #a8b8a2;
+      --salmon: #f3a8a3;
+      --beige: #efe8dd;
+      --latte: #c8a98a;
+      --dark: #2b2724;
+      --text: #473f39;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--beige);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ---------- GLOBAL ---------- */
+
+    main {
+      margin-top: 76px;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--latte);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .section-text {
+      font-size: 15px;
+      max-width: 600px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--salmon);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 10px 20px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--sage);
+      color: var(--dark);
+      border-color: var(--sage);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--dark);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-ghost:hover {
+      background: var(--white);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+    }
+
+    /* маленькие кнопки языка */
+    .btn-lang {
+      padding: 6px 10px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(250, 245, 238, 0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      color: var(--dark);
+    }
+
+    .logo span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: block;
+      color: var(--latte);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 2px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--salmon);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-cta .cta-text {
+      display: none;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--latte);
+    }
+
+    /* ---------- HERO WITH VIDEO ---------- */
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.35);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        rgba(30, 34, 32, 0.78) 0%,
+        rgba(30, 34, 32, 0.45) 45%,
+        rgba(30, 34, 32, 0.15) 100%
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      width: 100%;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--salmon);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 5vw, 54px);
+      max-width: 520px;
+    }
+
+    .hero-subtitle {
+      max-width: 480px;
+      font-size: 15px;
+      opacity: 0.92;
+    }
+
+    .hero-subtext {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .hero-meta-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-row span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ---------- CARDS & MEDIA ---------- */
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px 20px 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-title {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .card-text {
+      font-size: 14px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fdf6f4;
+      color: #775249;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+
+    .media-item {
+      position: relative;
+      padding-top: 72%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #d8d2c9;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .media-item img,
+    .media-item video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .media-item:hover img,
+    .media-item:hover video {
+      transform: scale(1.05);
+    }
+
+    /* ---------- ACTIVITIES ---------- */
+
+    .activities-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .activity-card {
+      background: #fdf8f5;
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .activity-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .activity-meta {
+      font-size: 12px;
+      color: #7d6e63;
+      margin-bottom: 6px;
+    }
+
+    .activity-meta span + span::before {
+      content: "•";
+      margin: 0 4px;
+    }
+
+    .activity-text {
+      font-size: 13px;
+    }
+
+    /* ---------- SOCIAL / GALLERY ---------- */
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+      align-items: center;
+    }
+
+    .gallery-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      padding-top: 72%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #d5d0c7;
+    }
+
+    .gallery-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* ---------- FAQ ---------- */
+
+    .faq-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      font-size: 13px;
+    }
+
+    /* ---------- CONTACT & MAP ---------- */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-info {
+      font-size: 14px;
+    }
+
+    .contact-info p + p {
+      margin-top: 6px;
+    }
+
+    .map-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+      border: 3px solid var(--white);
+    }
+
+    .map-wrapper iframe {
+      display: block;
+      border: 0;
+      width: 100%;
+      height: 280px;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      background: #f4eee6;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      padding: 28px 20px 36px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 28px;
+      font-size: 13px;
+    }
+
+    .footer-title {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--latte);
+    }
+
+    .footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .footer-input-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-input-row input {
+      flex: 1;
+      min-width: 160px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 8px 10px;
+      font-size: 13px;
+      background: #fdf9f5;
+    }
+
+    .footer-bottom {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #7d7265;
+    }
+
+    .footer-social {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-social a {
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--dark);
+      border-bottom: 1px dotted rgba(0, 0, 0, 0.4);
+    }
+
+    /* ---------- REVEAL ANIMATION ---------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        padding: 10px 16px;
+      }
+
+      .nav-links {
+        display: none; /* можно потом сделать бургер */
+      }
+
+      .nav-cta .cta-text {
+        display: none;
+      }
+
+      .hero {
+        text-align: left;
+      }
+
+      .hero-inner {
+        padding: 0 18px;
+      }
+
+      section {
+        padding: 64px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav">
+      <div class="logo">
+        The Family Hub Café
+        <span>Play • Learn • Coffee</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#play">Play</a>
+        <a href="#cafe">Café</a>
+        <a href="#activities">Activities</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Visit</a>
+      </nav>
+      <div class="nav-cta">
+        <!-- переключатель языков -->
+        <a href="index.html" class="btn btn-ghost btn-lang" aria-label="English version">EN</a>
+        <a href="index-pt.html" class="btn btn-ghost btn-lang" aria-label="Portuguese version">PT</a>
+        <a href="#contact" class="btn btn-primary" style="font-size:11px;padding:8px 16px;">Book a visit</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <div class="hero-pill reveal">
+        <span class="hero-pill-dot"></span>
+        Parent-supervised children’s play centre & café
+      </div>
+
+      <h1 class="hero-title reveal delay-1">
+        A place where children play, learn and grow — while parents relax.
+      </h1>
+
+      <p class="hero-subtitle reveal delay-2">
+        The Family Hub Café is a family-focused play centre with an on-site café,
+        offering safe play, development activities and fresh food for both children and adults.
+      </p>
+
+      <div class="btn-row reveal delay-3">
+        <a href="#activities" class="btn btn-primary">Activities schedule</a>
+        <a href="#contact" class="btn btn-ghost">Plan your visit</a>
+      </div>
+
+      <div class="hero-meta-row reveal delay-3">
+        <span>Parent-supervised play</span>
+        <span>Parent / child activities</span>
+        <span>Café & fresh food</span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container grid-2">
+        <div class="reveal">
+          <div class="section-label">About</div>
+          <h2 class="section-title">The Family Hub Café</h2>
+          <p class="section-text">
+            The Family Hub Café is a parent-supervised children’s play centre offering
+            a series of parent/child activities focused on the physical, emotional and
+            social development of young children.
+            <br /><br />
+            Our open play structures and safe environment encourage movement, imagination
+            and group interaction. Parents or guardians must supervise their own children
+            at all times while using the play centre.
+          </p>
+
+          <div class="badge-row">
+            <span class="badge">0–7 years</span>
+            <span class="badge">Parent supervision</span>
+            <span class="badge">Development-focused play</span>
+          </div>
+        </div>
+
+        <div class="media-grid reveal delay-1">
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3661452/pexels-photo-3661452.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Children playing" />
+          </div>
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3662875/pexels-photo-3662875.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Family café" />
+          </div>
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3662801/pexels-photo-3662801.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Play centre" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY AREA & ACTIVITIES OVERVIEW -->
+    <section id="play">
+      <div class="container grid-2">
+        <div class="reveal">
+          <div class="section-label">Play centre</div>
+          <h2 class="section-title">A safe space to explore, move and imagine</h2>
+          <p class="section-text">
+            Our large, open play area is designed to entertain and stimulate children
+            through movement, exploration and creativity. From soft play zones to
+            imaginative corners and climbing structures, we create an environment where
+            children can build confidence and social skills through group play.
+            <br /><br />
+            All activity areas are parent-supervised. Parents or guardians must actively
+            supervise their own children at all times and are fully responsible for their
+            safety and behaviour while using the facilities.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Open play sessions</span>
+            <span class="badge">Group play</span>
+            <span class="badge">Social skills</span>
+          </div>
+        </div>
+
+        <div class="card reveal delay-1">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            What we offer
+          </div>
+          <h3 class="card-title" style="margin-top:8px;">Play, learn & connect</h3>
+          <p class="card-text">
+            • Large, open play structures<br />
+            • Baby and toddler-friendly zones<br />
+            • Activities for physical, emotional & social development<br />
+            • Parent/child sessions and themed events<br />
+            • Calm seating area for parents within sight of the play space
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAFE & MENU PREVIEW -->
+    <section id="cafe">
+      <div class="container grid-2">
+        <div class="reveal">
+          <div class="section-label">Café</div>
+          <h2 class="section-title">Family-friendly food & coffee</h2>
+          <p class="section-text">
+            Alongside the play centre, our café serves simple, fresh and family-friendly
+            food. We offer breakfast and lunch options, snacks for little ones, artisan
+            coffee, smoothies and juices — with allergy-conscious and child-friendly
+            choices available.
+            <br /><br />
+            Whether you’re joining us for a play session or just stopping by for a
+            coffee, The Family Hub Café is a warm place for families to gather.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Kids’ snacks</span>
+            <span class="badge">Coffee & tea</span>
+            <span class="badge">Smoothies & juices</span>
+          </div>
+        </div>
+
+        <div class="media-grid reveal delay-1">
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/4109997/pexels-photo-4109997.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brunch" />
+          </div>
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Coffee" />
+          </div>
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3738162/pexels-photo-3738162.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Family table" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MONTHLY ACTIVITIES -->
+<section id="activities">
+  <div class="container">
+    <div class="section-label">Play</div>
+    <h2 class="section-title">Children’s play area</h2>
+    <p class="section-text reveal">
+      Our play area is open throughout the day for free play. Children can explore, climb, imagine and enjoy the space,
+      while parents relax in the café with coffee, food or snacks.
+      <br><br>
+      We do not run scheduled classes or monthly programmes. Instead, we offer a relaxed, open environment designed
+      for natural play, social interaction and creativity, with parents supervising their own children at all times.
+    </p>
+  </div>
+</section>
+
+    <!-- SOCIAL / INSTAGRAM STYLE -->
+    <section id="social">
+      <div class="container">
+        <div class="section-label">Social</div>
+        <h2 class="section-title">Follow our family hub online</h2>
+        <p class="section-text reveal">
+          See what’s happening at The Family Hub Café — from new activities and seasonal
+          events to everyday play moments in the centre.
+        </p>
+
+        <div class="social-row reveal delay-1">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Instagram
+          </div>
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Facebook
+          </div>
+          <span style="font-size:13px;">@thefamilyhubcafe</span>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item reveal delay-1">
+            <img src="https://images.pexels.com/photos/3662877/pexels-photo-3662877.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Play corner" />
+          </div>
+          <div class="gallery-item reveal delay-2">
+            <img src="https://images.pexels.com/photos/3661484/pexels-photo-3661484.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Parents and kids" />
+          </div>
+          <div class="gallery-item reveal delay-3">
+            <img src="https://images.pexels.com/photos/3661400/pexels-photo-3661400.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Children playing" />
+          </div>
+          <div class="gallery-item reveal delay-3">
+            <img src="https://images.pexels.com/photos/3662874/pexels-photo-3662874.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cafe space" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Questions parents often ask</h2>
+
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <div class="faq-q">Do I need to book in advance?</div>
+            <div class="faq-a">
+              We recommend booking in advance, especially on weekends and during busy periods, to ensure a space for your child.
+            </div>
+          </div>
+
+          <div class="faq-item reveal delay-1">
+            <div class="faq-q">Is the play centre supervised?</div>
+            <div class="faq-a">
+              The play area is not supervised by staff. Parents or guardians must supervise their own children at all times
+              and are fully responsible for their safety and behaviour while using the facilities.
+            </div>
+          </div>
+
+          <div class="faq-item reveal delay-2">
+            <div class="faq-q">What ages is The Family Hub Café suitable for?</div>
+            <div class="faq-a">
+              The play centre is designed primarily for children aged 0–7. Please ask us if you have specific questions about your child’s needs.
+            </div>
+          </div>
+
+          <div class="faq-item reveal delay-3">
+            <div class="faq-q">Can I bring my own food?</div>
+            <div class="faq-a">
+              To keep the space safe and consistent for all families, we ask that you enjoy food and drinks from our café only,
+              except for specific medical or allergy-related requirements.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & VISIT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="section-label">Visit us</div>
+            <h2 class="section-title">Plan your visit to The Family Hub Café</h2>
+            <div class="contact-info">
+              <p><strong>Address:</strong> To be confirmed</p>
+              <p><strong>Opening hours:</strong> To be confirmed</p>
+              <p><strong>Email:</strong> <a href="mailto:info@thefamilyhubcafe.com">info@thefamilyhubcafe.com</a></p>
+              <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank" rel="noopener">+00 0000 0000</a></p>
+            </div>
+
+            <div class="btn-row">
+              <a href="https://wa.me/0000000000" target="_blank" rel="noopener" class="btn btn-primary">Message on WhatsApp</a>
+              <a href="mailto:info@thefamilyhubcafe.com" class="btn btn-ghost">Email us</a>
+            </div>
+
+            <p style="font-size:13px;margin-top:10px;opacity:0.8;">
+              Booking details, session times and pricing will be shared on our social media and confirmed once the café opens.
+            </p>
+          </div>
+
+          <div class="map-wrapper reveal delay-1">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.91410011213!2d-9.230249541881473!3d38.74360565376788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19331a61d40fbf%3A0xc5824c7d429f775d!2sLisbon!5e0!3m2!1sen!2spt!4v1700000000000"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-title">Family play café</div>
+        <div class="footer-logo">The Family Hub Café</div>
+        <p>
+          A warm, modern space where children can play, learn and socialise —
+          while parents enjoy good coffee, food and connection.
+        </p>
+        <div class="footer-bottom">
+          © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a The Family Hub Café. All rights reserved.
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Stay in the loop</div>
+        <p>Sign up to hear about our opening date, activities and special events.</p>
+        <div class="footer-input-row">
+          <input type="email" placeholder="Your email address" />
+          <button class="btn btn-primary" style="padding:8px 18px;font-size:11px;">Join</button>
+        </div>
+        <div class="footer-social">
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: reveal on scroll + year -->
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+      }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
