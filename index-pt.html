@@ -2,17 +2,17 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <title>The Family Hub Café | Espaço de Brincadeira & Café</title>
+  <title>The Family Hub Café | Comer • Brincar • Conectar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="The Family Hub Café é um espaço de brincadeira para crianças, supervisionado pelos pais, com café familiar, sessões de brincadeira e atividades para o desenvolvimento infantil."
+    content="The Family Hub Café – um espaço acolhedor para famílias com crianças pequenas. Comer, brincar e conectar num café com área de brincadeira gratuita e ambiente de comunidade."
   />
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* тот же CSS, что и в index.html — можно оставить без изменений */
     :root {
       --sage: #a8b8a2;
       --salmon: #f3a8a3;
@@ -40,10 +40,18 @@
       line-height: 1.6;
     }
 
-    main { margin-top: 76px; }
-    section { padding: 80px 20px; }
+    main {
+      margin-top: 76px;
+    }
 
-    .container { max-width: 1100px; margin: 0 auto; }
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
     .section-label {
       font-size: 12px;
@@ -63,12 +71,12 @@
 
     .section-text {
       font-size: 15px;
-      max-width: 600px;
+      max-width: 700px;
     }
 
     .grid-2 {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 40px;
       align-items: flex-start;
     }
@@ -89,13 +97,6 @@
       height: 6px;
       border-radius: 999px;
       background: var(--salmon);
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
     }
 
     .btn {
@@ -131,23 +132,7 @@
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
     }
 
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.85);
-      color: var(--dark);
-      border-color: rgba(0, 0, 0, 0.06);
-    }
-
-    .btn-ghost:hover {
-      background: var(--white);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
-    }
-
-    .btn-lang {
-      padding: 6px 10px;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-    }
+    /* ---------- NAVBAR ---------- */
 
     header {
       position: fixed;
@@ -217,9 +202,44 @@
 
     .nav-cta {
       display: flex;
-      gap: 8px;
+      gap: 12px;
       align-items: center;
     }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .lang-btn {
+      min-width: 60px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: none;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      color: var(--dark);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--sage);
+    }
+
+    .nav-book {
+      font-size: 11px;
+      padding: 8px 16px;
+    }
+
+    /* ---------- HERO ---------- */
 
     .hero {
       position: relative;
@@ -292,16 +312,16 @@
     }
 
     .hero-subtitle {
-      max-width: 480px;
+      max-width: 520px;
       font-size: 15px;
       opacity: 0.92;
     }
 
     .hero-meta-row {
       display: flex;
-      gap: 18px;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-top: 12px;
+      margin-top: 10px;
       font-size: 13px;
       opacity: 0.9;
     }
@@ -320,51 +340,11 @@
       background: rgba(255, 255, 255, 0.6);
     }
 
-    .card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 20px 20px 18px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-    }
-
-    .card-title {
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      margin-bottom: 6px;
-      color: var(--dark);
-    }
-
-    .card-text {
-      font-size: 14px;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .badge {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #fdf6f4;
-      color: #775249;
-    }
+    /* ---------- MEDIA / CARDS ---------- */
 
     .media-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 14px;
     }
 
@@ -392,70 +372,22 @@
       transform: scale(1.05);
     }
 
-    .activities-grid {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .activity-card {
-      background: #fdf8f5;
-      border-radius: 18px;
-      padding: 16px 16px 14px;
-      border: 1px solid rgba(0, 0, 0, 0.03);
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .activity-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      border-color: rgba(0, 0, 0, 0.06);
-    }
-
-    .activity-name { font-weight: 600; margin-bottom: 4px; font-size: 14px; }
-    .activity-meta { font-size: 12px; color: #7d6e63; margin-bottom: 6px; }
-    .activity-meta span + span::before { content: "•"; margin: 0 4px; }
-    .activity-text { font-size: 13px; }
-
-    .social-row {
+    .badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
     }
 
-    .gallery-grid {
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
+    .badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fdf6f4;
+      color: #775249;
     }
 
-    .gallery-item {
-      position: relative;
-      padding-top: 72%;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #d5d0c7;
-    }
-
-    .gallery-item img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.06);
-    }
+    /* ---------- FAQ ---------- */
 
     .faq-list {
       margin-top: 18px;
@@ -470,8 +402,17 @@
       border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
-    .faq-q { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-    .faq-a { font-size: 13px; }
+    .faq-q {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      font-size: 13px;
+    }
+
+    /* ---------- CONTACT & MAP ---------- */
 
     .contact-grid {
       display: grid;
@@ -480,8 +421,13 @@
       align-items: center;
     }
 
-    .contact-info { font-size: 14px; }
-    .contact-info p + p { margin-top: 6px; }
+    .contact-info {
+      font-size: 14px;
+    }
+
+    .contact-info p + p {
+      margin-top: 6px;
+    }
 
     .map-wrapper {
       border-radius: 20px;
@@ -496,6 +442,8 @@
       width: 100%;
       height: 280px;
     }
+
+    /* ---------- FOOTER ---------- */
 
     footer {
       background: #f4eee6;
@@ -564,6 +512,8 @@
       border-bottom: 1px dotted rgba(0, 0, 0, 0.4);
     }
 
+    /* ---------- REVEAL ---------- */
+
     .reveal {
       opacity: 0;
       transform: translateY(26px);
@@ -581,47 +531,76 @@
     .delay-2 { transition-delay: 0.2s; }
     .delay-3 { transition-delay: 0.3s; }
 
+    /* ---------- RESPONSIVE ---------- */
+
     @media (max-width: 900px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav { padding: 10px 16px; }
-      .nav-links { display: none; }
-      .hero-inner { padding: 0 18px; }
-      section { padding: 64px 16px; }
+      .nav {
+        padding: 10px 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner {
+        padding: 0 18px;
+      }
+
+      section {
+        padding: 64px 16px;
+      }
     }
 
     @media (max-width: 480px) {
-      .hero-title { font-size: 30px; }
+      .hero-title {
+        font-size: 30px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- NAVBAR -->
   <header>
     <div class="nav">
       <div class="logo">
         The Family Hub Café
-        <span>Brincar • Aprender • Café</span>
+        <span>Comer • Brincar • Conectar</span>
       </div>
+
       <nav class="nav-links">
         <a href="#about">Sobre</a>
-        <a href="#play">Brincadeira</a>
-        <a href="#cafe">Café</a>
-        <a href="#activities">Atividades</a>
+        <a href="#eat">Comer</a>
+        <a href="#play">Brincar</a>
+        <a href="#connect">Conectar</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Visitar</a>
+        <a href="#contact">Contacto</a>
       </nav>
+
       <div class="nav-cta">
-        <a href="index.html" class="btn btn-ghost btn-lang" aria-label="Versão em inglês">EN</a>
-        <a href="index-pt.html" class="btn btn-ghost btn-lang" aria-label="Versão em português">PT</a>
-        <a href="#contact" class="btn btn-primary" style="font-size:11px;padding:8px 16px;">Marcar visita</a>
+        <div class="lang-switch">
+          <a href="index.html" class="lang-btn">English</a>
+          <a href="index-pt.html" class="lang-btn active">Português</a>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-book">Marcar visita</a>
       </div>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero" id="home">
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="hero-video.mp4" type="video/mp4" />
@@ -632,242 +611,258 @@
     <div class="hero-inner">
       <div class="hero-pill reveal">
         <span class="hero-pill-dot"></span>
-        Espaço de brincadeira supervisionado pelos pais & café
+        Comer • Brincar • Conectar
       </div>
 
       <h1 class="hero-title reveal delay-1">
-        Um lugar onde as crianças brincam, aprendem e crescem — enquanto os pais relaxam.
+        Bem-vindo ao The Family Hub Café!
       </h1>
 
       <p class="hero-subtitle reveal delay-2">
-        The Family Hub Café é um espaço de brincadeira e café para famílias,
-        com atividades de desenvolvimento infantil e comida fresca para crianças e adultos.
+        O The Family Hub Café é um espaço pensado para famílias com crianças pequenas. Um ambiente acolhedor e vibrante,
+        criado para aproximar as famílias e oferecer um local divertido e seguro onde as crianças possam brincar, aprender e crescer.
       </p>
 
-      <div class="btn-row reveal delay-3">
-        <a href="#activities" class="btn btn-primary">Agenda de atividades</a>
-        <a href="#contact" class="btn btn-ghost">Planear visita</a>
-      </div>
-
       <div class="hero-meta-row reveal delay-3">
-        <span>Brincadeira supervisionada pelos pais</span>
-        <span>Atividades pais / crianças</span>
-        <span>Café & refeições ligeiras</span>
+        <span>Comida e bebidas para toda a família</span>
+        <span>Área de brincadeira gratuita para clientes do café</span>
+        <span>Um ponto de encontro para pais e cuidadores</span>
       </div>
     </div>
   </section>
 
   <main>
+    <!-- ABOUT -->
     <section id="about">
       <div class="container grid-2">
         <div class="reveal">
           <div class="section-label">Sobre</div>
           <h2 class="section-title">The Family Hub Café</h2>
           <p class="section-text">
-            The Family Hub Café é um espaço de brincadeira para crianças, supervisionado pelos pais,
-            que oferece uma série de atividades pais/crianças focadas no desenvolvimento físico,
-            emocional e social dos mais pequenos.
-            <br /><br />
-            A nossa área de brincadeira convida ao movimento, à imaginação e à interação em grupo.
-            Os pais ou encarregados de educação devem supervisionar os seus próprios filhos em todos os momentos
-            enquanto utilizam o espaço de brincadeira.
+            O The Family Hub Café é um espaço familiar acolhedor onde as crianças podem brincar enquanto os adultos relaxam.
+            Queremos criar um ambiente com espírito de comunidade – um lugar onde as famílias se encontram, nascem amizades e
+            os pequenos momentos do dia a dia se tornam especiais.
           </p>
-
           <div class="badge-row">
-            <span class="badge">0–7 anos</span>
-            <span class="badge">Supervisão pelos pais</span>
-            <span class="badge">Brincadeira com foco no desenvolvimento</span>
+            <span class="badge">Comer • Brincar • Conectar</span>
+            <span class="badge">Brincadeira sob supervisão dos pais</span>
+            <span class="badge">Café familiar</span>
           </div>
         </div>
 
+        <!-- IMAGENS PLAY -->
         <div class="media-grid reveal delay-1">
           <div class="media-item">
-            <img src="https://images.pexels.com/photos/3661452/pexels-photo-3661452.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Crianças a brincar" />
+            <img src="https://images.pexels.com/photos/3662877/pexels-photo-3662877.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Crianças a brincar com brinquedos" />
           </div>
           <div class="media-item">
-            <img src="https://images.pexels.com/photos/3662875/pexels-photo-3662875.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Família no café" />
+            <img src="https://images.pexels.com/photos/3661484/pexels-photo-3661484.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pais e crianças juntos" />
           </div>
           <div class="media-item">
-            <img src="https://images.pexels.com/photos/3662801/pexels-photo-3662801.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Centro de brincadeira" />
+            <img src="https://images.pexels.com/photos/3661400/pexels-photo-3661400.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Área de brincadeira" />
           </div>
         </div>
       </div>
     </section>
 
-    <section id="play">
+    <!-- EAT -->
+    <section id="eat">
       <div class="container grid-2">
         <div class="reveal">
-          <div class="section-label">Espaço de brincadeira</div>
-          <h2 class="section-title">Um espaço seguro para explorar, mexer e imaginar</h2>
+          <div class="section-label">Comer</div>
+          <h2 class="section-title">Comer.</h2>
           <p class="section-text">
-            A nossa área de brincadeira foi pensada para entreter e estimular as crianças
-            através do movimento, da exploração e da criatividade. Desde zonas soft play
-            até cantinhos imaginativos e estruturas para trepar, criamos um ambiente
-            onde as crianças podem ganhar confiança e competências sociais através da brincadeira em grupo.
-            <br /><br />
-            Todas as áreas de brincadeira são supervisionadas pelos pais. Os pais ou encarregados de educação
-            devem supervisionar ativamente os seus filhos em todos os momentos e são totalmente responsáveis
-            pela segurança e comportamento das crianças enquanto utilizam o espaço.
+            O nosso menu inclui várias opções saborosas e equilibradas para toda a família. Quer venha apenas para um café
+            e um snack, quer fique mais tempo enquanto as crianças brincam, queremos ter sempre algo que agrade a todos.
+            Desde refeições leves e opções para crianças até pequenos mimos e bebidas quentes, o objetivo é que se sinta em casa.
           </p>
-          <div class="badge-row">
-            <span class="badge">Sessões de brincadeira livre</span>
-            <span class="badge">Brincadeira em grupo</span>
-            <span class="badge">Competências sociais</span>
-          </div>
-        </div>
-
-        <div class="card reveal delay-1">
-          <div class="pill">
-            <span class="pill-dot"></span>
-            O que oferecemos
-          </div>
-          <h3 class="card-title" style="margin-top:8px;">Brincar, aprender & conviver</h3>
-          <p class="card-text">
-            • Estruturas de brincadeira amplas e abertas<br />
-            • Zonas adequadas para bebés e toddlers<br />
-            • Atividades focadas no desenvolvimento físico, emocional e social<br />
-            • Sessões pais/crianças e eventos temáticos<br />
-            • Zona de estar calma para pais, com vista para a área de brincadeira
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="cafe">
-      <div class="container grid-2">
-        <div class="reveal">
-          <div class="section-label">Café</div>
-          <h2 class="section-title">Comida e café para toda a família</h2>
-          <p class="section-text">
-            Em conjunto com o espaço de brincadeira, o nosso café serve comida simples, fresca e adequada a famílias.
-            Temos opções de pequeno-almoço e almoço, snacks para os mais pequenos, café de especialidade, smoothies
-            e sumos — com opções pensadas para alergias e crianças.
-            <br /><br />
-            Quer venha para uma sessão de brincadeira ou apenas para um café, o Family Hub Café é um lugar acolhedor
-            para famílias se encontrarem.
-          </p>
-          <div class="badge-row">
-            <span class="badge">Snacks para crianças</span>
-            <span class="badge">Café & chá</span>
-            <span class="badge">Smoothies & sumos</span>
-          </div>
         </div>
 
         <div class="media-grid reveal delay-1">
           <div class="media-item">
-            <img src="https://images.pexels.com/photos/4109997/pexels-photo-4109997.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brunch" />
+            <img src="https://images.pexels.com/photos/3738162/pexels-photo-3738162.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Família à mesa" />
           </div>
           <div class="media-item">
             <img src="https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Café" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY -->
+    <section id="play">
+      <div class="container grid-2">
+        <div class="reveal">
+          <div class="section-label">Brincar</div>
+          <h2 class="section-title">Brincar.</h2>
+          <p class="section-text">
+            A nossa área de brincadeira foi criada para estimular a imaginação e a curiosidade, dando às crianças liberdade
+            para explorar enquanto os adultos relaxam por perto.
+          </p>
+          <ul class="section-text" style="margin-top:10px; padding-left:18px;">
+            <li>Equipamento soft play e estruturas para trepar</li>
+            <li>Áreas sensoriais e cantinhos de imaginação</li>
+            <li>Momentos pontuais de histórias e música</li>
+            <li>Eventos e atividades interativas para pais e crianças</li>
+            <li>Espaço exterior para brincar (dependendo do tempo)</li>
+          </ul>
+          <p class="section-text" style="margin-top:12px; font-size:14px;">
+            A área de brincadeira é gratuita para os clientes do café. Os pais ou encarregados de educação supervisionam
+            sempre os seus próprios filhos e são responsáveis pela sua segurança e comportamento enquanto utilizam o espaço.
+          </p>
+        </div>
+
+        <div class="media-grid reveal delay-1">
           <div class="media-item">
-            <img src="https://images.pexels.com/photos/3738162/pexels-photo-3738162.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mesa em família" />
+            <img src="https://images.pexels.com/photos/3661452/pexels-photo-3661452.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Crianças a construir com blocos" />
+          </div>
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3662875/pexels-photo-3662875.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cantinho de brincadeira" />
+          </div>
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3662801/pexels-photo-3662801.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brincadeira em grupo" />
           </div>
         </div>
       </div>
     </section>
 
-   <section id="activities">
-  <div class="container">
-    <div class="section-label">Brincadeira</div>
-    <h2 class="section-title">Espaço de brincadeira para crianças</h2>
-    <p class="section-text reveal">
-      A nossa área de brincadeira está aberta ao longo do dia para brincadeira livre. As crianças podem explorar,
-      trepar, imaginar e aproveitar o espaço, enquanto os pais relaxam no café com café, comida ou snacks.
-      <br><br>
-      Não temos aulas agendadas nem programas mensais. Em vez disso, oferecemos um ambiente descontraído e aberto,
-      pensado para a brincadeira natural, a socialização e a criatividade, com os pais a supervisionarem sempre
-      os seus próprios filhos.
-    </p>
-  </div>
-</section>
+    <!-- CONNECT & EXPECTING PARENTS -->
+    <section id="connect">
+      <div class="container grid-2">
+        <div class="reveal">
+          <div class="section-label">Conectar</div>
+          <h2 class="section-title">Conectar.</h2>
+          <p class="section-text">
+            Sabemos que a parentalidade pode ser, por vezes, solitária. Por isso, criámos um espaço onde pode conhecer outros pais,
+            partilhar experiências e criar novas amizades. As nossas zonas de estar, interiores e exteriores, são perfeitas para
+            conversar, enquanto mantém os seus filhos à vista.
+          </p>
 
+          <h3 style="margin-top:18px; font-size:16px; font-family:'Playfair Display', serif;">Uma comunidade de apoio para futuros pais</h3>
+          <ul class="section-text" style="margin-top:8px; padding-left:18px; font-size:14px;">
+            <li>Um espaço seguro para se conectar com outros futuros pais</li>
+            <li>Sessões pontuais de ioga pré-natal e workshops de parentalidade</li>
+            <li>Eventos baby-friendly para se preparar para a chegada do bebé</li>
+          </ul>
+        </div>
+
+        <div class="media-grid reveal delay-1">
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3951628/pexels-photo-3951628.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pais a socializar no café" />
+          </div>
+          <div class="media-item">
+            <img src="https://images.pexels.com/photos/3738020/pexels-photo-3738020.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mães a conversar" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTIES -->
+    <section id="parties">
+      <div class="container">
+        <div class="section-label">Festas</div>
+        <h2 class="section-title">Festas & ocasiões especiais</h2>
+        <p class="section-text reveal">
+          O The Family Hub Café é um lugar ideal para festas de aniversário e outras celebrações especiais. Disponibilizamos
+          opções de aluguer do espaço e pacotes simples de festa, para que as crianças possam brincar enquanto a família relaxa
+          e aproveita o momento.
+          <br /><br />
+          Entre em contacto connosco para saber mais sobre disponibilidade, horários e detalhes dos pacotes de festa.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMMUNITY / SOCIAL -->
     <section id="social">
       <div class="container">
-        <div class="section-label">Redes sociais</div>
-        <h2 class="section-title">Acompanhe o nosso hub familiar online</h2>
+        <div class="section-label">Comunidade</div>
+        <h2 class="section-title">Junta-te à nossa comunidade familiar</h2>
         <p class="section-text reveal">
-          Veja o que está a acontecer no The Family Hub Café — desde novas atividades e eventos sazonais
-          até momentos de brincadeira do dia a dia no espaço.
+          Acompanha todas as novidades sobre aulas, eventos e o dia a dia no The Family Hub Café. Segue-nos nas redes sociais
+          para veres o que está a acontecer, conheceres a comunidade e ficares a par das próximas atividades.
         </p>
 
-        <div class="social-row reveal delay-1">
-          <div class="pill">
-            <span class="pill-dot"></span>
-            Instagram
-          </div>
-          <div class="pill">
-            <span class="pill-dot"></span>
-            Facebook
-          </div>
-          <span style="font-size:13px;">@thefamilyhubcafe</span>
-        </div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item reveal delay-1">
-            <img src="https://images.pexels.com/photos/3662877/pexels-photo-3662877.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cantinho de brincadeira" />
-          </div>
-          <div class="gallery-item reveal delay-2">
-            <img src="https://images.pexels.com/photos/3661484/pexels-photo-3661484.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pais e crianças" />
-          </div>
-          <div class="gallery-item reveal delay-3">
-            <img src="https://images.pexels.com/photos/3661400/pexels-photo-3661400.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Crianças a brincar" />
-          </div>
-          <div class="gallery-item reveal delay-3">
-            <img src="https://images.pexels.com/photos/3662874/pexels-photo-3662874.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Espaço de café" />
-          </div>
+        <div class="badge-row reveal delay-1">
+          <span class="badge">Instagram</span>
+          <span class="badge">Facebook</span>
+          <span class="badge">@thefamilyhubcafe</span>
         </div>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section id="faq">
       <div class="container">
         <div class="section-label">FAQ</div>
-        <h2 class="section-title">Perguntas frequentes dos pais</h2>
+        <h2 class="section-title">Perguntas frequentes</h2>
 
         <div class="faq-list">
           <div class="faq-item reveal">
             <div class="faq-q">Preciso de reservar com antecedência?</div>
             <div class="faq-a">
-              Recomendamos reserva antecipada, especialmente aos fins de semana e em períodos de maior procura,
-              para garantir lugar para o seu filho.
+              Nem sempre é necessário reservar, mas pode ser recomendado em horas de maior movimento, fins de semana
+              ou para eventos especiais. Consulta as nossas redes sociais para atualizações.
             </div>
           </div>
 
           <div class="faq-item reveal delay-1">
-            <div class="faq-q">A área de brincadeira é supervisionada?</div>
+            <div class="faq-q">Tenho de pagar para usar a área de brincadeira?</div>
             <div class="faq-a">
-              A área de brincadeira não é supervisionada por funcionários. Os pais ou encarregados de educação
-              devem supervisionar as suas crianças em todos os momentos e são totalmente responsáveis pela segurança
-              e comportamento das mesmas enquanto utilizam o espaço.
+              Não. A área de brincadeira é gratuita para os clientes do café. Apenas pedimos que faça um consumo durante a sua visita.
+            </div>
+          </div>
+
+          <div class="faq-item reveal delay-1">
+            <div class="faq-q">A área de brincadeira é supervisionada por funcionários?</div>
+            <div class="faq-a">
+              Não. A área de brincadeira não é supervisionada pela equipa. Os pais ou encarregados de educação devem
+              supervisionar sempre as suas crianças e são totalmente responsáveis pela sua segurança e comportamento
+              enquanto utilizam o espaço.
             </div>
           </div>
 
           <div class="faq-item reveal delay-2">
-            <div class="faq-q">Para que idades é adequado o The Family Hub Café?</div>
+            <div class="faq-q">Oferecem aluguer privado?</div>
             <div class="faq-a">
-              O espaço de brincadeira foi pensado principalmente para crianças dos 0 aos 7 anos. Fale connosco
-              se tiver questões específicas sobre as necessidades do seu filho.
+              Sim. Disponibilizamos aluguer privado para festas de aniversário e outras ocasiões. Fale connosco para saber mais
+              sobre pacotes, preços e disponibilidade.
+            </div>
+          </div>
+
+          <div class="faq-item reveal delay-2">
+            <div class="faq-q">É acessível a carrinhos de bebé?</div>
+            <div class="faq-a">
+              Sim. Existe um acesso adequado a carrinhos de bebé no lado direito do edifício, o que facilita a entrada
+              no café com carrinhos.
+            </div>
+          </div>
+
+          <div class="faq-item reveal delay-2">
+            <div class="faq-q">Há estacionamento perto?</div>
+            <div class="faq-a">
+              Sim. Existem várias opções de estacionamento a uma curta distância a pé, incluindo lugares gratuitos na rua
+              e estacionamento pago.
             </div>
           </div>
 
           <div class="faq-item reveal delay-3">
-            <div class="faq-q">Posso trazer comida de fora?</div>
+            <div class="faq-q">Quando é a próxima aula ou evento?</div>
             <div class="faq-a">
-              Para manter o espaço seguro e consistente para todas as famílias, pedimos que consuma apenas comida
-              e bebidas do nosso café, exceto em casos específicos relacionados com necessidades médicas ou alergias.
+              Segue-nos no Instagram e no Facebook para ficares a par das próximas aulas, workshops e eventos. Partilhamos lá
+              as datas, horários e informações de reserva em primeiro lugar.
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACTO -->
     <section id="contact">
       <div class="container">
         <div class="contact-grid">
           <div class="reveal">
-            <div class="section-label">Visitar</div>
-            <h2 class="section-title">Planeie a sua visita ao The Family Hub Café</h2>
+            <div class="section-label">Visita-nos</div>
+            <h2 class="section-title">Planeia a tua visita</h2>
             <div class="contact-info">
               <p><strong>Morada:</strong> A confirmar</p>
               <p><strong>Horário:</strong> A confirmar</p>
@@ -875,14 +870,8 @@
               <p><strong>Telefone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank" rel="noopener">+00 0000 0000</a></p>
             </div>
 
-            <div class="btn-row">
-              <a href="https://wa.me/0000000000" target="_blank" rel="noopener" class="btn btn-primary">Enviar mensagem no WhatsApp</a>
-              <a href="mailto:info@thefamilyhubcafe.com" class="btn btn-ghost">Enviar email</a>
-            </div>
-
             <p style="font-size:13px;margin-top:10px;opacity:0.8;">
-              Detalhes sobre reservas, horários das sessões e preços serão partilhados nas nossas redes sociais
-              e confirmados antes da abertura do café.
+              Acompanha as nossas redes sociais para saberes a data de abertura, horários, aulas e eventos.
             </p>
           </div>
 
@@ -898,14 +887,14 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div>
-        <div class="footer-title">Café familiar</div>
+        <div class="footer-title">Café com área de brincadeira</div>
         <div class="footer-logo">The Family Hub Café</div>
         <p>
-          Um espaço moderno e acolhedor onde as crianças podem brincar, aprender e socializar —
-          enquanto os pais desfrutam de bom café, comida e convívio.
+          Um espaço moderno e acolhedor onde as famílias podem comer, as crianças podem brincar e os adultos podem conectar-se uns com os outros.
         </p>
         <div class="footer-bottom">
           © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a The Family Hub Café. Todos os direitos reservados.
@@ -913,10 +902,10 @@
       </div>
 
       <div>
-        <div class="footer-title">Fique a par</div>
-        <p>Inscreva-se para saber mais sobre a data de abertura, atividades e eventos especiais.</p>
+        <div class="footer-title">Mantém-te a par</div>
+        <p>Inscreve-te para receber novidades sobre a data de abertura, aulas, eventos e notícias da comunidade.</p>
         <div class="footer-input-row">
-          <input type="email" placeholder="O seu email" />
+          <input type="email" placeholder="O teu endereço de email" />
           <button class="btn btn-primary" style="padding:8px 18px;font-size:11px;">Subscrever</button>
         </div>
         <div class="footer-social">
@@ -928,6 +917,7 @@
   </footer>
 
   <script>
+    // animação reveal ao fazer scroll
     const reveals = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(
@@ -944,6 +934,7 @@
 
     reveals.forEach((el) => observer.observe(el));
 
+    // ano no footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
