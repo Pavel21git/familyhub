@@ -612,6 +612,26 @@
         font-size: 30px;
       }
     }
+
+    @media (max-width: 768px) {
+
+      #eat .grid-2,
+      #connect .grid-2 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
+        order: 1;
+      }
+
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
+        order: 2;
+      }
+
+    }
   </style>
 </head>
 
@@ -843,7 +863,8 @@
       <div class="container">
         <h2 class="section-title">Festas</h2>
         <p class="section-text reveal">
-          Um local perfeito para festas de aniversário e ocasiões especiais. Contacte-nos para disponibilidade e horários
+          Um local perfeito para festas de aniversário e ocasiões especiais. Contacte-nos para disponibilidade e
+          horários
         </p>
 
         <div class="media-grid reveal delay-1" style="margin-top:18px;">
