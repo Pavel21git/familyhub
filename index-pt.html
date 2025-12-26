@@ -632,6 +632,26 @@
       }
 
     }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+
+      #eat .grid-2,
+      #connect .grid-2 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
+        order: 1;
+      }
+
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
+        order: 2;
+      }
+
+    }
   </style>
 </head>
 
