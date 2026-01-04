@@ -26,6 +26,16 @@
       --text: rgba(18, 18, 18, 0.86);
       --white: #ffffff;
       --header-h: 76px;
+
+      /* Typography */
+      --fs-body: 15px;
+      --fs-small: 13px;
+      --fs-nav: 11px;
+      --fs-faq-q: 14px;
+      --fs-section-title: 28px;
+
+      --ff-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ff-display: "Playfair Display", serif;
     }
 
     * {
@@ -36,13 +46,15 @@
 
     html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--ff-body);
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      font-size: var(--fs-body);
     }
 
     main {
@@ -58,7 +70,9 @@
       margin: 0 auto;
     }
 
+    /* 7) Same font as top headings for sub heading sections */
     .section-label {
+      font-family: var(--ff-display);
       font-size: 12px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -67,15 +81,16 @@
     }
 
     .section-title {
-      font-family: "Playfair Display", serif;
+      font-family: var(--ff-display);
       font-weight: 600;
-      font-size: 28px;
+      font-size: var(--fs-section-title);
       margin-bottom: 12px;
       color: var(--darkgrey);
     }
 
+    /* 2) Consistent body text size */
     .section-text {
-      font-size: 15px;
+      font-size: var(--fs-body);
       max-width: 700px;
     }
 
@@ -156,26 +171,23 @@
       gap: 24px;
     }
 
+    /* 3) Use logo at top to reduce repeated "Family Hub" text */
     .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      color: var(--darkgrey);
-      line-height: 1.1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .logo span {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+    .logo-img {
+      height: 34px;
+      width: auto;
       display: block;
-      color: rgba(111, 53, 38, 0.7);
-      margin-top: 4px;
     }
 
     .nav-links {
       display: flex;
       gap: 18px;
-      font-size: 13px;
+      font-size: var(--fs-nav);
     }
 
     .nav-links a {
@@ -185,7 +197,7 @@
       padding-bottom: 2px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      font-size: 11px;
+      font-size: var(--fs-nav);
     }
 
     .nav-links a::after {
@@ -203,6 +215,46 @@
       width: 100%;
     }
 
+    /* 1) Social icons between Contact and EN|PT */
+    .nav-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.75);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      text-decoration: none;
+      color: rgba(18, 18, 18, 0.88);
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      opacity: 0.9;
+    }
+
     .lang-switch {
       display: inline-flex;
       gap: 6px;
@@ -217,7 +269,7 @@
       padding: 4px 10px;
       border-radius: 999px;
       border: none;
-      font-size: 11px;
+      font-size: var(--fs-nav);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
@@ -268,6 +320,7 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: rgba(111, 53, 38, 0.72);
+      font-family: var(--ff-display);
     }
 
     .scroll-dot {
@@ -344,6 +397,12 @@
       gap: 18px;
     }
 
+    /* Move to centre + same font as headings + bigger + bold */
+    .hero-inner.hero-center {
+      align-items: center;
+      text-align: center;
+    }
+
     .hero-pill {
       display: inline-flex;
       align-items: center;
@@ -356,6 +415,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 4px;
+      font-family: var(--ff-display);
     }
 
     .hero-pill-dot {
@@ -366,15 +426,20 @@
     }
 
     .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(32px, 5vw, 54px);
-      max-width: 520px;
+      font-family: var(--ff-display);
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 700;
+      max-width: 720px;
     }
 
     .hero-subtitle {
-      max-width: 520px;
-      font-size: 15px;
+      max-width: 720px;
+      font-size: var(--fs-body);
       opacity: 0.92;
+    }
+
+    .hero-center .hero-subtitle {
+      text-align: center;
     }
 
     .hero-meta-row {
@@ -382,8 +447,10 @@
       gap: 14px;
       flex-wrap: wrap;
       margin-top: 10px;
-      font-size: 13px;
+      font-size: var(--fs-small);
       opacity: 0.9;
+      justify-content: center;
+      text-align: center;
     }
 
     .hero-meta-row span {
@@ -447,13 +514,13 @@
 
     .faq-q {
       font-weight: 600;
-      font-size: 14px;
+      font-size: var(--fs-faq-q);
       margin-bottom: 4px;
       color: rgba(18, 18, 18, 0.9);
     }
 
     .faq-a {
-      font-size: 13px;
+      font-size: var(--fs-small);
     }
 
     /* ---------- CONTACT & MAP ---------- */
@@ -465,7 +532,7 @@
     }
 
     .contact-info {
-      font-size: 14px;
+      font-size: var(--fs-body);
     }
 
     .contact-info p+p {
@@ -499,10 +566,12 @@
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
       gap: 28px;
-      font-size: 13px;
+      font-size: var(--fs-small);
     }
 
+    /* 7) Same font as top headings for sub heading sections */
     .footer-title {
+      font-family: var(--ff-display);
       font-size: 12px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -511,7 +580,7 @@
     }
 
     .footer-logo {
-      font-family: "Playfair Display", serif;
+      font-family: var(--ff-display);
       font-size: 20px;
       color: var(--darkgrey);
       margin-bottom: 6px;
@@ -530,7 +599,7 @@
       border-radius: 999px;
       border: 1px solid rgba(0, 0, 0, 0.12);
       padding: 8px 10px;
-      font-size: 13px;
+      font-size: var(--fs-small);
       background: rgba(255, 255, 255, 0.75);
     }
 
@@ -540,18 +609,13 @@
       color: rgba(18, 18, 18, 0.62);
     }
 
-    .footer-social {
+    /* 6) Add IG/FB icons to bottom of page */
+    .footer-social-icons {
       margin-top: 10px;
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-    }
-
-    .footer-social a {
-      font-size: 13px;
-      text-decoration: none;
-      color: rgba(18, 18, 18, 0.85);
-      border-bottom: 1px dotted rgba(18, 18, 18, 0.35);
+      align-items: center;
     }
 
     /* ---------- REVEAL ---------- */
@@ -609,7 +673,7 @@
 
     @media (max-width: 480px) {
       .hero-title {
-        font-size: 30px;
+        font-size: 36px;
       }
     }
 
@@ -659,13 +723,15 @@
   <!-- NAVBAR -->
   <header>
     <div class="nav">
-      <div class="logo">
-        Family Hub Café
-        <span>Eat • Play • Connect</span>
+      <!-- 3) FB logo at top (replace repeated text with logo image) -->
+      <div class="logo" aria-label="Family Hub Café">
+        <!-- Replace src with your actual logo file -->
+        <img class="logo-img" src="assets/fh-logo.svg" alt="Family Hub Café logo" />
       </div>
 
       <nav class="nav-links">
-        <a href="#welcome">Welcome</a>
+        <!-- 4) About us instead of Welcome -->
+        <a href="#about">About</a>
         <a href="#eat">Eat</a>
         <a href="#play">Play</a>
         <a href="#connect">Connect</a>
@@ -674,9 +740,29 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="lang-switch">
-        <a href="index.html" class="lang-btn active">EN</a>
-        <a href="index-pt.html" class="lang-btn">PT</a>
+      <div class="nav-right">
+        <!-- 1) Social icons between Contact and EN|PT -->
+        <div class="nav-social" aria-label="Social links">
+          <!-- Replace href with your real links -->
+          <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
+            </svg>
+          </a>
+
+          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="lang-switch">
+          <a href="index.html" class="lang-btn active">EN</a>
+          <a href="index-pt.html" class="lang-btn">PT</a>
+        </div>
       </div>
     </div>
   </header>
@@ -685,13 +771,13 @@
     <!-- LANDING -->
     <section class="landing" id="home">
       <div class="landing-inner reveal revealed">
-        <!-- Put your landing logo image here -->
         <img class="landing-logo" src="assets/assetslogo-landing.jpg" alt="Family Hub Café logo" />
 
         <div class="scroll-hint">
           <span class="scroll-dot"></span>
-          <span>Scroll to welcome</span>
-          <a class="scroll-btn" href="#welcome" aria-label="Scroll to welcome">
+          <!-- 5) Change content sent below (About instead of Welcome) -->
+          <span>Scroll to about</span>
+          <a class="scroll-btn" href="#about" aria-label="Scroll to about">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -709,10 +795,10 @@
       </video>
       <div class="hero-overlay"></div>
 
-      <div class="hero-inner">
+      <!-- Centered hero content -->
+      <div class="hero-inner hero-center">
         <div class="hero-pill reveal">
           <span class="hero-pill-dot"></span>
-
         </div>
 
         <h1 class="hero-title reveal delay-1">Eat • Play • Connect</h1>
@@ -731,12 +817,11 @@
       </div>
     </section>
 
-    <!-- WELCOME (ABOUT CONTENT MOVED HERE) -->
-    <section id="welcome">
+    <!-- 4) ABOUT US instead of WELCOME -->
+    <section id="about">
       <div class="container grid-2">
         <div class="reveal">
-
-          <h2 class="section-title">Welcome to Family Hub Café</h2>
+          <h2 class="section-title">About us</h2>
           <p class="section-text">
             Family Hub Café is a space for families with little ones. Our vibrant and welcoming space is designed
             to bring families together, while providing a fun and safe environment for kids to play, learn, and grow
@@ -772,8 +857,6 @@
     <!-- EAT -->
     <section id="eat">
       <div class="container grid-2">
-
-        <!-- CHANGED: media LEFT -->
         <div class="media-grid reveal delay-1">
           <div class="media-item">
             <img
@@ -787,14 +870,12 @@
           </div>
         </div>
 
-        <!-- CHANGED: text RIGHT -->
         <div class="reveal">
           <h2 class="section-title">Eat</h2>
           <p class="section-text">
             Our menu features a range of healthy and tasty options for all members of the family
           </p>
         </div>
-
       </div>
     </section>
 
@@ -802,7 +883,6 @@
     <section id="play">
       <div class="container grid-2">
         <div class="reveal">
-
           <h2 class="section-title">Play</h2>
           <p class="section-text">
             Our play area is designed to stimulate imagination and curiosity, with
@@ -814,7 +894,7 @@
             <li>Events and other interactive activities for parents and kids</li>
             <li>Outdoor play space with weather permitting</li>
           </ul>
-          <p class="section-text" style="margin-top:12px; font-size:14px;">
+          <p class="section-text" style="margin-top:12px; font-size: var(--fs-small);">
             The play area is free of charge for café users. Parents or guardians supervise their own children
             at all times and remain responsible for their safety and behaviour while using the facilities
           </p>
@@ -843,10 +923,7 @@
     <!-- CONNECT -->
     <section id="connect">
       <div class="container grid-2">
-
-        <!-- CHANGED: media LEFT -->
         <div class="media-grid reveal delay-1">
-          <!-- Replaced “mums talking together” image that was 404 -->
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/8732927/pexels-photo-8732927.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -859,7 +936,6 @@
           </div>
         </div>
 
-        <!-- CHANGED: text RIGHT -->
         <div class="reveal">
           <h2 class="section-title">Connect</h2>
           <p class="section-text">
@@ -870,23 +946,21 @@
           </p>
 
           <h3
-            style="margin-top:18px; font-size:16px; font-family:'Playfair Display', serif; color: rgba(18,18,18,0.9);">
+            style="margin-top:18px; font-size:16px; font-family: var(--ff-display); color: rgba(18,18,18,0.9);">
             A supportive community for expecting parents
           </h3>
-          <ul class="section-text" style="margin-top:8px; padding-left:18px; font-size:14px;">
+          <ul class="section-text" style="margin-top:8px; padding-left:18px; font-size: var(--fs-small);">
             <li>A safe space to connect with other expecting parents</li>
             <li>Prenatal yoga and parenting workshops</li>
             <li>Baby-friendly events and activities to prepare for parenthood</li>
           </ul>
         </div>
-
       </div>
     </section>
 
     <!-- PARTIES -->
     <section id="parties">
       <div class="container">
-
         <h2 class="section-title">Parties</h2>
         <p class="section-text reveal">
           A perfect spot for birthday parties and special occasions. Contact us for availability and timings
@@ -912,13 +986,12 @@
       </div>
     </section>
 
-    <!-- COMMUNITY / SOCIAL -->
+    <!-- COMMUNITY / SOCIAL (5) change content -->
     <section id="social">
       <div class="container">
-        <h2 class="section-title">Junte-se à nossa comunidade</h2>
+        <h2 class="section-title">Join our community</h2>
         <p class="section-text reveal">
-          Mal podemos esperar para o conhecer a si e aos seus pequenos. Visite-nos e sinta a energia e comunidade do
-          Family Hub Café
+          We can’t wait to meet you and your little ones. Visit us and feel the energy and community at Family Hub Café.
         </p>
 
         <div class="badge-row reveal delay-1">
@@ -929,12 +1002,9 @@
       </div>
     </section>
 
-
-
     <!-- FAQ -->
     <section id="faq">
       <div class="container">
-
         <h2 class="section-title">Frequently asked questions</h2>
 
         <div class="faq-list">
@@ -972,7 +1042,6 @@
       <div class="container">
         <div class="contact-grid">
           <div class="reveal">
-
             <h2 class="section-title">How to find us</h2>
             <div class="contact-info">
               <p><strong>Address:</strong> Potato Beach Apartment, Lagos, Faro District</p>
@@ -982,7 +1051,7 @@
                   rel="noopener">+00 0000 0000</a></p>
             </div>
 
-            <p style="font-size:13px;margin-top:10px;opacity:0.8;">
+            <p style="font-size: var(--fs-small); margin-top:10px; opacity:0.8;">
               Keep an eye on our social media for opening date, timetable updates, classes and events
             </p>
           </div>
@@ -1002,7 +1071,7 @@
       <div>
         <div class="footer-title">Family play café</div>
         <div class="footer-logo">Family Hub Café</div>
-        <p>
+        <p style="font-size: var(--fs-body);">
           A warm, modern space where families can eat, children can play and parents can connect with one another
         </p>
         <div class="footer-bottom">
@@ -1012,14 +1081,28 @@
 
       <div>
         <div class="footer-title">Stay in the loop</div>
-        <p>Sign up to hear about our opening date, classes, events and community news</p>
+        <p style="font-size: var(--fs-body);">Sign up to hear about our opening date, classes, events and community news</p>
         <div class="footer-input-row">
           <input type="email" placeholder="Your email address" />
-          <button class="btn btn-primary" style="padding:8px 18px;font-size:11px;">Join</button>
+          <button class="btn btn-primary" style="padding:8px 18px; font-size: var(--fs-nav);">Join</button>
         </div>
-        <div class="footer-social">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
-          <a href="#" target="_blank" rel="noopener">Facebook</a>
+
+        <!-- 6) IG/FB icons at bottom -->
+        <div class="footer-social-icons" aria-label="Social links">
+          <!-- Replace href with your real links -->
+          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
+            </svg>
+          </a>
+
+          <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
