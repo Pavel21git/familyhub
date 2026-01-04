@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Family Hub Café | Eat • Play • Connect</title>
+  <title>Family Hub Café</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Family Hub Café – a welcoming space for families with little ones. Eat, play and connect in a safe, parent-supervised play café with community events and parties." />
@@ -30,7 +30,8 @@
       /* Typography */
       --fs-body: 15px;
       --fs-small: 13px;
-      --fs-nav: 11px;
+      --fs-nav: 13px;
+      /* (8) bigger nav */
       --fs-faq-q: 14px;
       --fs-section-title: 28px;
 
@@ -70,7 +71,7 @@
       margin: 0 auto;
     }
 
-    /* 7) Same font as top headings for sub heading sections */
+    /* (7) Same font as top headings for sub heading sections */
     .section-label {
       font-family: var(--ff-display);
       font-size: 12px;
@@ -88,10 +89,18 @@
       color: var(--darkgrey);
     }
 
-    /* 2) Consistent body text size */
+    /* (2) Consistent body text size */
     .section-text {
       font-size: var(--fs-body);
       max-width: 700px;
+    }
+
+    /* (7) Sub headings inside sections */
+    .subheading {
+      margin-top: 18px;
+      font-family: var(--ff-display);
+      font-size: 18px;
+      color: rgba(18, 18, 18, 0.9);
     }
 
     .grid-2 {
@@ -171,7 +180,6 @@
       gap: 24px;
     }
 
-    /* 3) Use logo at top to reduce repeated "Family Hub" text */
     .logo {
       display: inline-flex;
       align-items: center;
@@ -215,7 +223,7 @@
       width: 100%;
     }
 
-    /* 1) Social icons between Contact and EN|PT */
+    /* (1) Social icons between Contact and EN|PT */
     .nav-right {
       display: inline-flex;
       align-items: center;
@@ -397,32 +405,10 @@
       gap: 18px;
     }
 
-    /* Move to centre + same font as headings + bigger + bold */
+    /* Centered hero content */
     .hero-inner.hero-center {
       align-items: center;
       text-align: center;
-    }
-
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      background: rgba(255, 255, 255, 0.08);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-      font-family: var(--ff-display);
-    }
-
-    .hero-pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--green);
     }
 
     .hero-title {
@@ -440,31 +426,6 @@
 
     .hero-center .hero-subtitle {
       text-align: center;
-    }
-
-    .hero-meta-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-      font-size: var(--fs-small);
-      opacity: 0.9;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .hero-meta-row span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta-row span::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.6);
     }
 
     /* ---------- MEDIA / CARDS ---------- */
@@ -567,9 +528,17 @@
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
       gap: 28px;
       font-size: var(--fs-small);
+      align-items: stretch;
     }
 
-    /* 7) Same font as top headings for sub heading sections */
+    /* push copyright to bottom-left */
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 100%;
+    }
+
     .footer-title {
       font-family: var(--ff-display);
       font-size: 12px;
@@ -577,13 +546,6 @@
       text-transform: uppercase;
       margin-bottom: 8px;
       color: rgba(111, 53, 38, 0.72);
-    }
-
-    .footer-logo {
-      font-family: var(--ff-display);
-      font-size: 20px;
-      color: var(--darkgrey);
-      margin-bottom: 6px;
     }
 
     .footer-input-row {
@@ -604,12 +566,15 @@
     }
 
     .footer-bottom {
-      margin-top: 10px;
+      max-width: 1100px;
+      margin: 20px auto 0;
+      padding: 14px 20px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
       font-size: 12px;
       color: rgba(18, 18, 18, 0.62);
     }
 
-    /* 6) Add IG/FB icons to bottom of page */
+    /* (6) Add IG/FB icons to bottom of page */
     .footer-social-icons {
       margin-top: 10px;
       display: flex;
@@ -723,14 +688,12 @@
   <!-- NAVBAR -->
   <header>
     <div class="nav">
-      <!-- 3) FB logo at top (replace repeated text with logo image) -->
+      <!-- (3) Header logo: Family Hub Cafe (top left) -->
       <div class="logo" aria-label="Family Hub Café">
-        <!-- Replace src with your actual logo file -->
-        <img class="logo-img" src="assets/fh-logo.svg" alt="Family Hub Café logo" />
+        <img class="logo-img" src="assets/assetslogo-header.jpg" alt="Family Hub Café logo" />
       </div>
 
       <nav class="nav-links">
-        <!-- 4) About us instead of Welcome -->
         <a href="#about">About</a>
         <a href="#eat">Eat</a>
         <a href="#play">Play</a>
@@ -741,9 +704,8 @@
       </nav>
 
       <div class="nav-right">
-        <!-- 1) Social icons between Contact and EN|PT -->
+        <!-- (1) Social icons between Contact and EN|PT -->
         <div class="nav-social" aria-label="Social links">
-          <!-- Replace href with your real links -->
           <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -771,11 +733,11 @@
     <!-- LANDING -->
     <section class="landing" id="home">
       <div class="landing-inner reveal revealed">
-        <img class="landing-logo" src="assets/assetslogo-landing.jpg" alt="Family Hub Café logo" />
+        <!-- (3) Main page FH logo -->
+        <img class="landing-logo" src="assets/assetslogo-landing.svg" alt="Family Hub Café FH logo" />
 
         <div class="scroll-hint">
           <span class="scroll-dot"></span>
-          <!-- 5) Change content sent below (About instead of Welcome) -->
           <span>Scroll to about</span>
           <a class="scroll-btn" href="#about" aria-label="Scroll to about">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -795,9 +757,7 @@
       </video>
       <div class="hero-overlay"></div>
 
-      <!-- Centered hero content -->
       <div class="hero-inner hero-center">
-
         <h1 class="hero-title reveal delay-1">Eat • Play • Connect</h1>
 
         <p class="hero-subtitle reveal delay-2">
@@ -808,11 +768,11 @@
           and everyone can enjoy delicious food and company
         </p>
 
-
+        <!-- (removed) the circled meta line under hero -->
       </div>
     </section>
 
-    <!-- 4) ABOUT US instead of WELCOME -->
+    <!-- ABOUT US -->
     <section id="about">
       <div class="container grid-2">
         <div class="reveal">
@@ -828,7 +788,6 @@
             can play and explore, while adults unwind, enjoy good food and company.
             A spot where everyone could dine together stress-free, and feel included
           </p>
-
         </div>
 
         <div class="media-grid reveal delay-1">
@@ -886,6 +845,8 @@
           <p class="section-text">
             Our play area is designed to stimulate imagination and curiosity, with
           </p>
+
+          <!-- (2) consistent text size (no inline font-size) -->
           <ul class="section-text" style="margin-top:10px; padding-left:18px;">
             <li>Soft play equipment and climbing structures</li>
             <li>Sensory play areas and imagination stations</li>
@@ -893,13 +854,6 @@
             <li>Events and other interactive activities for parents and kids</li>
             <li>Outdoor play space with weather permitting</li>
           </ul>
-          <p class="section-text" style="margin-top:12px; font-size: var(--fs-small);">
-            - Soft play equipment and climbing structures
-            - Sensory play areas and imagination stations
-            - Outdoor play space (weather permitting)
-            - We aim to host various events and interactive activities for parents
-            and children throughout the year
-          </p>
         </div>
 
         <div class="media-grid reveal delay-1">
@@ -952,10 +906,10 @@
             and events aimed at expecting parents throughtout the year
           </p>
 
-          <h3 style="margin-top:18px; font-size:16px; font-family: var(--ff-display); color: rgba(18,18,18,0.9);">
-            A supportive community for expecting parents
-          </h3>
-          <ul class="section-text" style="margin-top:8px; padding-left:18px; font-size: var(--fs-small);">
+          <!-- (7) sub heading same font as top headings -->
+          <h3 class="subheading">A supportive community for expecting parents</h3>
+
+          <ul class="section-text" style="margin-top:8px; padding-left:18px;">
             <li>A safe space to connect with other expecting parents</li>
             <li>Prenatal yoga and parenting workshops</li>
             <li>Baby-friendly events and activities to prepare for parenthood</li>
@@ -995,15 +949,13 @@
       </div>
     </section>
 
-    <!-- COMMUNITY / SOCIAL (5) change content -->
+    <!-- COMMUNITY / SOCIAL -->
     <section id="social">
       <div class="container">
         <h2 class="section-title">Join our community</h2>
         <p class="section-text reveal">
           We can’t wait to meet you and your little ones. Visit us and feel the energy and community at Family Hub Café
         </p>
-
-
       </div>
     </section>
 
@@ -1057,10 +1009,6 @@
               <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank"
                   rel="noopener">+00 0000 0000</a></p>
             </div>
-
-            <p style="font-size: var(--fs-small); margin-top:10px; opacity:0.8;">
-              
-            </p>
           </div>
 
           <div class="map-wrapper reveal delay-1">
@@ -1075,27 +1023,24 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div>
+      <!-- left column -->
+      <div class="footer-left"></div>
 
-        <div class="footer-bottom">
-          © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. All rights reserved
-        </div>
-      </div>
-
+      <!-- right column -->
       <div>
         <div class="footer-title">Stay in the loop</div>
-        <p style="font-size: var(--fs-body);">Keep an eye on our social media for opening date, timetable updates, 
-          classes and events.
-          Sign up to hear about our opening date, classes, events and community news
+        <p class="section-text" style="max-width:none;">
+          Keep an eye on our social media for opening date, timetable updates,
+          classes and events. Sign up to hear about our opening date, classes, events and community news
         </p>
+
         <div class="footer-input-row">
           <input type="email" placeholder="Your email address" />
           <button class="btn btn-primary" style="padding:8px 18px; font-size: var(--fs-nav);">Join</button>
         </div>
 
-        <!-- 6) IG/FB icons at bottom -->
+        <!-- (6) IG/FB icons at bottom -->
         <div class="footer-social-icons" aria-label="Social links">
-          <!-- Replace href with your real links -->
           <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -1112,7 +1057,13 @@
         </div>
       </div>
     </div>
+
+    <!-- moved to the very bottom of the footer -->
+    <div class="footer-bottom">
+      © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. All rights reserved
+    </div>
   </footer>
+
 
   <script>
     // reveal on scroll
