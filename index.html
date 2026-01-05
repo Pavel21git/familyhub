@@ -25,7 +25,7 @@
       --bg: var(--peach);
       --text: rgba(18, 18, 18, 0.86);
       --white: #ffffff;
-      --header-h: 82px; /* чуть выше, чтобы большой логотип не ломал шапку */
+      --header-h: 82px;
 
       /* Typography */
       --fs-body: 15px;
@@ -38,16 +38,9 @@
       --ff-display: "Playfair Display", serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
       font-family: var(--ff-body);
@@ -57,18 +50,11 @@
       font-size: var(--fs-body);
     }
 
-    main {
-      margin-top: var(--header-h);
-    }
+    main { margin-top: var(--header-h); }
 
-    section {
-      padding: 80px 20px;
-    }
+    section { padding: 80px 20px; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .container { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
       font-family: var(--ff-display);
@@ -87,10 +73,7 @@
       color: var(--darkgrey);
     }
 
-    .section-text {
-      font-size: var(--fs-body);
-      max-width: 700px;
-    }
+    .section-text { font-size: var(--fs-body); max-width: 700px; }
 
     .subheading {
       margin-top: 18px;
@@ -153,9 +136,7 @@
     /* ---------- NAVBAR ---------- */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
       background: rgba(248, 221, 217, 0.92);
       backdrop-filter: blur(18px);
@@ -165,15 +146,10 @@
       align-items: center;
     }
 
-    /*
-      FIX:
-      - логотип слева ближе к левому краю и больше
-      - правый блок ближе к правому краю
-      - меню строго по центру (не зависит от ширины левого/правого блока)
-    */
     .nav {
       width: 100%;
-      padding: 12px 18px;              /* меньше отступы => ближе к краям */
+      /* было меньше — теперь отступы от краёв больше (как просил клиент/ты) */
+      padding: 12px 76px;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -187,7 +163,7 @@
     }
 
     .logo-img {
-      height: 66px;          /* больше */
+      height: 66px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -221,9 +197,7 @@
       transition: width 0.25s ease;
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
 
     .nav-right {
       display: inline-flex;
@@ -314,35 +288,27 @@
       text-align: center;
     }
 
+    /* было слишком огромное — сделали меньше (как ты просил) */
     .landing-logo {
-      width: min(1100px, 98vw);
-      max-height: 74vh;
+      width: min(760px, 90vw);
+      max-height: 62vh;
       height: auto;
       display: block;
       object-fit: contain;
     }
 
+    /* scroll: убрали текст и зелёную точку, оставили только круг и центрировали */
     .scroll-hint {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(111, 53, 38, 0.72);
-      font-family: var(--ff-display);
-    }
-
-    .scroll-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--green);
+      justify-content: center;
+      width: 100%;
+      margin-top: 4px;
     }
 
     .scroll-btn {
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
       border-radius: 999px;
       border: 1px solid rgba(111, 53, 38, 0.18);
       background: rgba(255, 255, 255, 0.55);
@@ -425,9 +391,7 @@
       opacity: 0.92;
     }
 
-    .hero-center .hero-subtitle {
-      text-align: center;
-    }
+    .hero-center .hero-subtitle { text-align: center; }
 
     /* ---------- MEDIA / CARDS ---------- */
     .media-grid {
@@ -456,9 +420,7 @@
     }
 
     .media-item:hover img,
-    .media-item:hover video {
-      transform: scale(1.05);
-    }
+    .media-item:hover video { transform: scale(1.05); }
 
     /* ---------- FAQ ---------- */
     .faq-list {
@@ -481,9 +443,7 @@
       color: rgba(18, 18, 18, 0.9);
     }
 
-    .faq-a {
-      font-size: var(--fs-small);
-    }
+    .faq-a { font-size: var(--fs-small); }
 
     /* ---------- CONTACT & MAP ---------- */
     .contact-grid {
@@ -493,13 +453,8 @@
       align-items: center;
     }
 
-    .contact-info {
-      font-size: var(--fs-body);
-    }
-
-    .contact-info p+p {
-      margin-top: 6px;
-    }
+    .contact-info { font-size: var(--fs-body); }
+    .contact-info p + p { margin-top: 6px; }
 
     .map-wrapper {
       border-radius: 20px;
@@ -589,10 +544,7 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
 
     .delay-1 { transition-delay: 0.1s; }
     .delay-2 { transition-delay: 0.2s; }
@@ -606,12 +558,11 @@
     }
 
     @media (max-width: 768px) {
-      .nav {
-        padding: 10px 16px;
-      }
+      .nav { padding: 10px 16px; }
       .nav-links { display: none; }
-      .logo-img { height: 54px; } /* чтобы не распирало шапку на мобиле */
+      .logo-img { height: 54px; }
       section { padding: 64px 16px; }
+      .landing-logo { width: min(520px, 92vw); max-height: 56vh; }
     }
 
     @media (max-width: 480px) {
@@ -644,7 +595,7 @@
   <!-- NAVBAR -->
   <header>
     <div class="nav">
-      <!-- Header logo: Family Hub Cafe (top left) -->
+      <!-- Header logo: FH (top left) -->
       <div class="logo" aria-label="Family Hub Café">
         <img class="logo-img" src="assets/assetslogo-landing.svg" alt="Family Hub Café FH logo" />
       </div>
@@ -688,11 +639,11 @@
     <!-- LANDING -->
     <section class="landing" id="home">
       <div class="landing-inner reveal revealed">
+        <!-- Central logo: Family Hub Cafe (landing) -->
         <img class="landing-logo" src="assets/assetslogo-header.png" alt="Family Hub Café logo" />
 
+        <!-- Only the centered circle button (no text, no green dot) -->
         <div class="scroll-hint">
-          <span class="scroll-dot"></span>
-          <span>Scroll to about</span>
           <a class="scroll-btn" href="#about" aria-label="Scroll to about">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -877,7 +828,6 @@
           and cost.
         </p>
 
-        <!-- Added per client -->
         <h3 class="subheading reveal delay-1">Party sessions</h3>
         <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">
           <li>4:30PM – 6:30PM on Monday – Friday (weekend timings apply between July – September).</li>
@@ -958,7 +908,6 @@
             <div class="contact-info">
               <p><strong>Address:</strong> Potato Beach Apartment, Lagos, Faro District</p>
 
-              <!-- Updated per client -->
               <p><strong>Opening hours:</strong><br>
                 Monday – Friday: 9:00AM – 4:00PM (5:00PM between July – September)<br>
                 Saturday &amp; Sunday: 9:00AM – 5:00PM
