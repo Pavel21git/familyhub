@@ -25,13 +25,12 @@
       --bg: var(--peach);
       --text: rgba(18, 18, 18, 0.86);
       --white: #ffffff;
-      --header-h: 76px;
+      --header-h: 82px; /* чуть выше, чтобы большой логотип не ломал шапку */
 
       /* Typography */
       --fs-body: 15px;
       --fs-small: 13px;
       --fs-nav: 13px;
-      /* (8) bigger nav */
       --fs-faq-q: 14px;
       --fs-section-title: 28px;
 
@@ -71,7 +70,6 @@
       margin: 0 auto;
     }
 
-    /* (7) Same font as top headings for sub heading sections */
     .section-label {
       font-family: var(--ff-display);
       font-size: 12px;
@@ -89,13 +87,11 @@
       color: var(--darkgrey);
     }
 
-    /* (2) Consistent body text size */
     .section-text {
       font-size: var(--fs-body);
       max-width: 700px;
     }
 
-    /* (7) Sub headings inside sections */
     .subheading {
       margin-top: 18px;
       font-family: var(--ff-display);
@@ -170,16 +166,16 @@
     }
 
     /*
-      FIX (по твоей задаче):
-      - левый логотип крупнее и ближе к левому краю
+      FIX:
+      - логотип слева ближе к левому краю и больше
       - правый блок ближе к правому краю
-      - меню строго по центру страницы (независимо от ширины левого/правого блока)
+      - меню строго по центру (не зависит от ширины левого/правого блока)
     */
     .nav {
       width: 100%;
-      padding: 14px 24px;              /* одинаковые отступы слева/справа */
+      padding: 12px 18px;              /* меньше отступы => ближе к краям */
       display: grid;
-      grid-template-columns: 1fr auto 1fr; /* центр всегда по центру */
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 18px;
     }
@@ -190,9 +186,8 @@
       justify-self: start;
     }
 
-    /* bigger header logo */
     .logo-img {
-      height: 60px;          /* было 52px — делаем заметно больше */
+      height: 66px;          /* больше */
       width: auto;
       display: block;
       object-fit: contain;
@@ -202,7 +197,7 @@
       display: flex;
       gap: 18px;
       font-size: var(--fs-nav);
-      justify-self: center;  /* меню в центр */
+      justify-self: center;
     }
 
     .nav-links a {
@@ -230,12 +225,11 @@
       width: 100%;
     }
 
-    /* Social icons between Contact and EN|PT */
     .nav-right {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      justify-self: end;     /* правый блок к правому краю */
+      justify-self: end;
     }
 
     .nav-social {
@@ -413,7 +407,6 @@
       gap: 18px;
     }
 
-    /* Centered hero content */
     .hero-inner.hero-center {
       align-items: center;
       text-align: center;
@@ -539,7 +532,6 @@
       align-items: stretch;
     }
 
-    /* push copyright to bottom-left */
     .footer-left {
       display: flex;
       flex-direction: column;
@@ -582,7 +574,6 @@
       color: rgba(18, 18, 18, 0.62);
     }
 
-    /* (6) Add IG/FB icons to bottom of page */
     .footer-social-icons {
       margin-top: 10px;
       display: flex;
@@ -603,91 +594,48 @@
       transform: translateY(0);
     }
 
-    .delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .delay-3 {
-      transition-delay: 0.3s;
-    }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
+      .grid-2 { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
       .nav {
         padding: 10px 16px;
       }
-
-      .nav-links {
-        display: none;
-      }
-
-      section {
-        padding: 64px 16px;
-      }
+      .nav-links { display: none; }
+      .logo-img { height: 54px; } /* чтобы не распирало шапку на мобиле */
+      section { padding: 64px 16px; }
     }
 
     @media (max-width: 480px) {
-      .hero-title {
-        font-size: 36px;
-      }
+      .hero-title { font-size: 36px; }
     }
 
     /* MOBILE: headings above images for Eat & Connect (portrait) */
     @media (max-width: 768px) {
-
-      #eat .grid-2,
-      #connect .grid-2 {
+      #eat .grid-2, #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
-
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
-        order: 1;
-      }
-
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
-        order: 2;
-      }
+      #eat .grid-2>.reveal, #connect .grid-2>.reveal { order: 1; }
+      #eat .grid-2>.media-grid, #connect .grid-2>.media-grid { order: 2; }
     }
 
     /* MOBILE: headings above images for Eat & Connect (landscape) */
     @media (orientation: landscape) and (max-height: 720px) {
-
-      #eat .grid-2,
-      #connect .grid-2 {
+      #eat .grid-2, #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
-
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
-        order: 1;
-      }
-
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
-        order: 2;
-      }
+      #eat .grid-2>.reveal, #connect .grid-2>.reveal { order: 1; }
+      #eat .grid-2>.media-grid, #connect .grid-2>.media-grid { order: 2; }
     }
   </style>
 </head>
@@ -926,10 +874,15 @@
         <h2 class="section-title">Parties</h2>
         <p class="section-text reveal">
           A perfect spot for birthday parties and special occasions. Contact us for availability
-          and cost. Join Our Family-Friendly Community
-          We can't wait to meet you and your little ones! Visit us today and experience
-          the warmth and community of The Family Hub Café
+          and cost.
         </p>
+
+        <!-- Added per client -->
+        <h3 class="subheading reveal delay-1">Party sessions</h3>
+        <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">
+          <li>4:30PM – 6:30PM on Monday – Friday (weekend timings apply between July – September).</li>
+          <li>5:30PM – 7:30PM on Saturday &amp; Sunday</li>
+        </ul>
 
         <div class="media-grid reveal delay-1" style="margin-top:18px;">
           <div class="media-item">
@@ -968,10 +921,8 @@
 
         <div class="faq-list">
           <div class="faq-item reveal delay-2">
-            <div class="faq-q">Cost of using play area?</div>
-            <div class="faq-a">Playtime's on us! Grab a play area ticket for €7.50,
-              and we'll give you a €7.50 voucher to spend on food and drinks in our cafe on the same day.
-              Win-win for play and yum!</div>
+            <div class="faq-q">Cost of using play area</div>
+            <div class="faq-a">The play area is €5 (siblings go free).</div>
           </div>
 
           <div class="faq-item reveal delay-1">
@@ -1006,7 +957,13 @@
             <h2 class="section-title">Contacts</h2>
             <div class="contact-info">
               <p><strong>Address:</strong> Potato Beach Apartment, Lagos, Faro District</p>
-              <p><strong>Opening hours:</strong> To be confirmed</p>
+
+              <!-- Updated per client -->
+              <p><strong>Opening hours:</strong><br>
+                Monday – Friday: 9:00AM – 4:00PM (5:00PM between July – September)<br>
+                Saturday &amp; Sunday: 9:00AM – 5:00PM
+              </p>
+
               <p><strong>Email:</strong> <a href="mailto:info@familyhubcafe.com">info@familyhubcafe.com</a></p>
               <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank"
                   rel="noopener">+00 0000 0000</a></p>
