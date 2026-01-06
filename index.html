@@ -176,7 +176,29 @@
     }
 
     .logo {
+      display: inline-flex;
+      align-items: center;
       justify-self: start;
+    }
+
+    /* NEW: make logo clickable (link wrapper) */
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .logo-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .logo-img {
+      height: 66px;
+      width: auto;
+      display: block;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -624,6 +646,10 @@
         display: none;
       }
 
+      .logo-img {
+        height: 54px;
+      }
+
       section {
         padding: 64px 16px;
       }
@@ -678,41 +704,6 @@
       #connect .grid-2>.media-grid {
         order: 2;
       }
-    }
-
-    /* LOGO AS CLICKABLE BUTTON (smooth lift like other hover elements) */
-    .logo {
-      width: 56px;
-      height: 56px;
-      background: #ffffff;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .logo:hover {
-      transform: translateY(-1px);
-    }
-
-    .logo-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .logo .logo-img {
-      height: 28px;
-      width: auto;
-      display: block;
-      object-fit: contain;
     }
   </style>
 </head>
