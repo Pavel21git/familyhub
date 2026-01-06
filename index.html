@@ -38,9 +38,16 @@
       --ff-display: "Playfair Display", serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
 
     body {
       font-family: var(--ff-body);
@@ -50,11 +57,18 @@
       font-size: var(--fs-body);
     }
 
-    main { margin-top: var(--header-h); }
+    main {
+      margin-top: var(--header-h);
+    }
 
-    section { padding: 80px 20px; }
+    section {
+      padding: 80px 20px;
+    }
 
-    .container { max-width: 1100px; margin: 0 auto; }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
     .section-label {
       font-family: var(--ff-display);
@@ -73,7 +87,10 @@
       color: var(--darkgrey);
     }
 
-    .section-text { font-size: var(--fs-body); max-width: 700px; }
+    .section-text {
+      font-size: var(--fs-body);
+      max-width: 700px;
+    }
 
     .subheading {
       margin-top: 18px;
@@ -136,7 +153,9 @@
     /* ---------- NAVBAR ---------- */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
       background: rgba(248, 221, 217, 0.92);
       backdrop-filter: blur(18px);
@@ -170,7 +189,10 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    .logo-link:hover { transform: translateY(-1px); }
+
+    .logo-link:hover {
+      transform: translateY(-1px);
+    }
 
     .logo-img {
       height: 66px;
@@ -211,8 +233,13 @@
       transition: width 0.25s ease;
     }
 
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { transform: translateY(-1px); }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-1px);
+    }
 
     .nav-right {
       display: inline-flex;
@@ -282,7 +309,9 @@
       transition: transform 0.2s ease;
     }
 
-    .lang-btn:hover { transform: translateY(-1px); }
+    .lang-btn:hover {
+      transform: translateY(-1px);
+    }
 
     .lang-btn.active {
       background: var(--green);
@@ -412,7 +441,9 @@
       opacity: 0.92;
     }
 
-    .hero-center .hero-subtitle { text-align: center; }
+    .hero-center .hero-subtitle {
+      text-align: center;
+    }
 
     /* ---------- MEDIA / CARDS ---------- */
     .media-grid {
@@ -441,7 +472,9 @@
     }
 
     .media-item:hover img,
-    .media-item:hover video { transform: scale(1.05); }
+    .media-item:hover video {
+      transform: scale(1.05);
+    }
 
     /* ---------- FAQ ---------- */
     .faq-list {
@@ -464,7 +497,9 @@
       color: rgba(18, 18, 18, 0.9);
     }
 
-    .faq-a { font-size: var(--fs-small); }
+    .faq-a {
+      font-size: var(--fs-small);
+    }
 
     /* ---------- CONTACT & MAP ---------- */
     .contact-grid {
@@ -474,8 +509,13 @@
       align-items: center;
     }
 
-    .contact-info { font-size: var(--fs-body); }
-    .contact-info p + p { margin-top: 6px; }
+    .contact-info {
+      font-size: var(--fs-body);
+    }
+
+    .contact-info p+p {
+      margin-top: 6px;
+    }
 
     .map-wrapper {
       border-radius: 20px;
@@ -565,49 +605,105 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav { padding: 10px 16px; }
-      .nav-links { display: none; }
-      .logo-img { height: 54px; }
-      section { padding: 64px 16px; }
-      .landing-logo { width: min(520px, 92vw); max-height: 56vh; }
+      .nav {
+        padding: 10px 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .logo-img {
+        height: 54px;
+      }
+
+      section {
+        padding: 64px 16px;
+      }
+
+      .landing-logo {
+        width: min(520px, 92vw);
+        max-height: 56vh;
+      }
     }
 
     @media (max-width: 480px) {
-      .hero-title { font-size: 36px; }
+      .hero-title {
+        font-size: 36px;
+      }
     }
 
     /* MOBILE: headings above images for Eat & Connect (portrait) */
     @media (max-width: 768px) {
-      #eat .grid-2, #connect .grid-2 {
+
+      #eat .grid-2,
+      #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
-      #eat .grid-2>.reveal, #connect .grid-2>.reveal { order: 1; }
-      #eat .grid-2>.media-grid, #connect .grid-2>.media-grid { order: 2; }
+
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
+        order: 1;
+      }
+
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
+        order: 2;
+      }
     }
 
     /* MOBILE: headings above images for Eat & Connect (landscape) */
     @media (orientation: landscape) and (max-height: 720px) {
-      #eat .grid-2, #connect .grid-2 {
+
+      #eat .grid-2,
+      #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
-      #eat .grid-2>.reveal, #connect .grid-2>.reveal { order: 1; }
-      #eat .grid-2>.media-grid, #connect .grid-2>.media-grid { order: 2; }
+
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
+        order: 1;
+      }
+
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
+        order: 2;
+      }
     }
   </style>
 </head>
@@ -689,11 +785,11 @@
         <h1 class="hero-title reveal delay-1">Eat • Play • Connect</h1>
 
         <p class="hero-subtitle reveal delay-2">
-          Family Hub Café is a perfect spot for everyone. 
-          Whether you are a family with little ones, a couple, 
-          or enjoying time solo, our vibrant and welcoming space 
-          is designed to bring people together. We provide a fun 
-          and safe environment where children can play, learn 
+          Family Hub Café is a perfect spot for everyone.
+          Whether you are a family with little ones, a couple,
+          or enjoying time solo, our vibrant and welcoming space
+          is designed to bring people together. We provide a fun
+          and safe environment where children can play, learn
           & explore, and everyone can enjoy delicious food and company
         </p>
       </div>
@@ -778,8 +874,8 @@
             <li>Sensory play areas and imagination stations</li>
             <li>Outdoor play space (weather permitting)</li>
             <li>Events and other interactive activities for parents and kids</li>
-            <li>We aim to host various events and interactive activities 
-                for parents and children throughout the year</li>
+            <li>We aim to host various events and interactive activities
+              for parents and children throughout the year</li>
           </ul>
         </div>
 
@@ -879,16 +975,6 @@
       </div>
     </section>
 
-    <!-- COMMUNITY / SOCIAL -->
-    <section id="social">
-      <div class="container">
-        <h2 class="section-title">Join our community</h2>
-        <p class="section-text reveal">
-          We can’t wait to meet you and your little ones. Visit us and feel the energy and community at Family Hub Café
-        </p>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section id="faq">
       <div class="container">
@@ -921,6 +1007,16 @@
             <div class="faq-a">Keep up to date with classes and events on our Instagram and Facebook</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY / SOCIAL -->
+    <section id="social">
+      <div class="container">
+        <h2 class="section-title">Join our community</h2>
+        <p class="section-text reveal">
+          We can’t wait to meet you and your little ones. Visit us and feel the energy and community at Family Hub Café
+        </p>
       </div>
     </section>
 
