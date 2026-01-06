@@ -162,6 +162,16 @@
       justify-self: start;
     }
 
+    /* NEW: make logo clickable (link wrapper) */
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .logo-link:hover { transform: translateY(-1px); }
+
     .logo-img {
       height: 66px;
       width: auto;
@@ -184,6 +194,10 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-size: var(--fs-nav);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
     }
 
     .nav-links a::after {
@@ -198,6 +212,7 @@
     }
 
     .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { transform: translateY(-1px); }
 
     .nav-right {
       display: inline-flex;
@@ -261,7 +276,13 @@
       color: rgba(18, 18, 18, 0.88);
       background: transparent;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
     }
+
+    .lang-btn:hover { transform: translateY(-1px); }
 
     .lang-btn.active {
       background: var(--green);
@@ -597,7 +618,9 @@
     <div class="nav">
       <!-- Header logo: FH (top left) -->
       <div class="logo" aria-label="Family Hub Café">
-        <img class="logo-img" src="assets/assetslogo-landing.svg" alt="Family Hub Café FH logo" />
+        <a class="logo-link" href="#hero" aria-label="Go to video section">
+          <img class="logo-img" src="assets/assetslogo-landing.svg" alt="Family Hub Café FH logo" />
+        </a>
       </div>
 
       <nav class="nav-links">
@@ -673,7 +696,7 @@
           and safe environment where children can play, learn 
           & explore, and everyone can enjoy delicious food and company
         </p>
-      </div>S
+      </div>
     </section>
 
     <!-- ABOUT US -->
