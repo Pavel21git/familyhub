@@ -1,3 +1,6 @@
+<!-- =========================
+     index-pt.html (PT)
+========================= -->
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -6,11 +9,11 @@
   <title>Family Hub Café</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Family Hub Café – um espaço acolhedor para famílias com crianças pequenas. Comer, brincar e conviver num café infantil seguro, com supervisão dos pais, eventos comunitários e festas." />
+    content="Family Hub Café – um espaço acolhedor para famílias com crianças pequenas. Comer, brincar e conviver num play café seguro com eventos e festas." />
 
   <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
 
   <style>
@@ -65,6 +68,11 @@
       padding: 80px 20px;
     }
 
+    /* ===== Anchor offset: 10mm gap below fixed header for all section targets ===== */
+    section[id] {
+      scroll-margin-top: calc(var(--header-h) + 10mm);
+    }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -79,32 +87,35 @@
       margin-bottom: 6px;
     }
 
+    /* CLIENT: remove the white pill background */
     .section-title {
       font-family: var(--ff-display);
       font-weight: 600;
       font-size: var(--fs-section-title);
       margin-bottom: 12px;
       color: var(--darkgrey);
-
-      /* NEW: white pill background like language switch */
       display: inline-block;
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 999px;
-      padding: 10px 18px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
       line-height: 1.1;
     }
 
+    /* Client: easier to read – add spacing after paragraphs/blocks */
     .section-text {
       font-size: var(--fs-body);
       max-width: 700px;
+      margin-bottom: 14px;
     }
 
+    /* Client note: use same font as text below, just bold */
     .subheading {
       margin-top: 18px;
-      font-family: var(--ff-display);
-      font-size: 18px;
-      color: rgba(18, 18, 18, 0.9);
+      font-family: var(--ff-body);
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(18, 18, 18, 0.92);
     }
 
     .grid-2 {
@@ -112,22 +123,6 @@
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 40px;
       align-items: start;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .badge {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.7);
-      color: rgba(111, 53, 38, 0.85);
-      border: 1px solid rgba(111, 53, 38, 0.12);
     }
 
     .btn {
@@ -189,13 +184,13 @@
       background: #ffffff;
       border-radius: 50%;
       border: 1px solid #ffffff;
-      /* ≈ 1mm белая окантовка */
       display: inline-flex;
       align-items: center;
       justify-content: center;
       justify-self: start;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s ease;
+      flex: 0 0 auto;
     }
 
     .logo:hover {
@@ -266,12 +261,15 @@
       align-items: center;
       gap: 10px;
       justify-self: end;
+      flex: 0 0 auto;
+      min-width: 0;
     }
 
     .nav-social {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      flex: 0 0 auto;
     }
 
     .icon-btn {
@@ -287,6 +285,7 @@
       transition: transform 0.2s ease, background 0.2s ease;
       text-decoration: none;
       color: rgba(18, 18, 18, 0.88);
+      flex: 0 0 auto;
     }
 
     .icon-btn:hover {
@@ -309,6 +308,7 @@
       padding: 4px;
       border-radius: 999px;
       border: 1px solid rgba(0, 0, 0, 0.06);
+      flex: 0 0 auto;
     }
 
     .lang-btn {
@@ -339,20 +339,64 @@
       color: var(--white);
     }
 
-    /* NEW: center only the "Join our community" block */
-    #social .container {
-      text-align: center;
+    /* ---------- MOBILE MENU (client: mobile friendly to see menu options) ---------- */
+    .menu-btn {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.75);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+      color: rgba(18, 18, 18, 0.88);
+      flex: 0 0 auto;
     }
 
-    #social .section-title {
-      display: inline-block;
-      margin-left: auto;
-      margin-right: auto;
+    .menu-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.9);
     }
 
-    #social .section-text {
-      margin-left: auto;
-      margin-right: auto;
+    .menu-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      opacity: 0.9;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      background: rgba(248, 221, 217, 0.98);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      z-index: 999;
+      padding: 14px 16px 18px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 10px 6px;
+      text-decoration: none;
+      color: rgba(18, 18, 18, 0.88);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: var(--fs-nav);
+      border-radius: 12px;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255, 255, 255, 0.55);
     }
 
     /* ---------- LANDING (FULLSCREEN LOGO) ---------- */
@@ -375,16 +419,15 @@
       text-align: center;
     }
 
-    /* было слишком огромное — сделали меньше (как ты просил) */
+    /* ===== Landing logo reduced by 1/3 ===== */
     .landing-logo {
-      width: min(760px, 90vw);
-      max-height: 62vh;
+      width: min(510px, 60vw);
+      max-height: 41vh;
       height: auto;
       display: block;
       object-fit: contain;
     }
 
-    /* scroll: убрали текст и зелёную точку, оставили только круг и центрировали */
     .scroll-hint {
       display: flex;
       align-items: center;
@@ -554,6 +597,38 @@
       margin-top: 6px;
     }
 
+    /* Client: opening hours listed like picture (no lines) */
+    .hours {
+      margin-top: 8px;
+      display: grid;
+      gap: 6px;
+      max-width: 420px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: var(--fs-small);
+    }
+
+    .hours-day {
+      font-weight: 500;
+      color: rgba(18, 18, 18, 0.86);
+      white-space: nowrap;
+    }
+
+    .hours-time {
+      color: rgba(18, 18, 18, 0.74);
+      white-space: nowrap;
+    }
+
+    .hours-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(18, 18, 18, 0.62);
+    }
+
     .map-wrapper {
       border-radius: 20px;
       overflow: hidden;
@@ -674,26 +749,66 @@
       }
     }
 
+    /* Mobile: show menu + keep header items inside screen */
     @media (max-width: 768px) {
       .nav {
         padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
       }
 
       .nav-links {
         display: none;
       }
 
-      .logo-img {
-        height: 54px;
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .nav-right {
+        gap: 8px;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
       }
 
       section {
         padding: 64px 16px;
       }
 
+      /* Landing logo reduced by 1/3 (mobile too) */
       .landing-logo {
-        width: min(520px, 92vw);
-        max-height: 56vh;
+        width: min(510px, 60vw);
+        max-height: 41vh;
+      }
+    }
+
+    /* Landscape on phones: prevent right-side overflow */
+    @media (orientation: landscape) and (max-height: 720px) {
+      .nav {
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .nav-right {
+        gap: 6px;
+      }
+
+      .icon-btn {
+        width: 34px;
+        height: 34px;
+      }
+
+      .lang-btn {
+        padding: 4px 8px;
+        min-width: 32px;
       }
     }
 
@@ -751,23 +866,30 @@
     <div class="nav">
       <!-- Header logo: FH (top left) -->
       <div class="logo" aria-label="Family Hub Café">
-        <a class="logo-link" href="#hero" aria-label="Ir para a secção do vídeo">
+        <a class="logo-link" href="#hero" aria-label="Ir para a secção de vídeo">
           <img class="logo-img" src="assets/assetslogo-landing.svg" alt="Family Hub Café FH logo" />
         </a>
       </div>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Navegação principal">
         <a href="#about">Sobre</a>
         <a href="#eat">Comer</a>
         <a href="#play">Brincar</a>
-        <a href="#connect">Conviver</a>
+        <a href="#connect">Conectar</a>
         <a href="#parties">Festas</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Contacto</a>
+        <a href="#contact">Contactos</a>
       </nav>
 
       <div class="nav-right">
-        <div class="nav-social" aria-label="Social links">
+        <!-- Mobile menu button -->
+        <button class="menu-btn" type="button" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16v2H4V7zm0 6h16v2H4v-2zm0 6h16v2H4v-2z"></path>
+          </svg>
+        </button>
+
+        <div class="nav-social" aria-label="Redes sociais">
           <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -781,6 +903,13 @@
                 d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
             </svg>
           </a>
+
+          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />
+            </svg>
+          </a>
         </div>
 
         <div class="lang-switch">
@@ -791,14 +920,22 @@
     </div>
   </header>
 
+  <!-- Mobile menu panel -->
+  <div class="mobile-menu" id="mobileMenu" aria-label="Navegação mobile">
+    <a href="#about">Sobre</a>
+    <a href="#eat">Comer</a>
+    <a href="#play">Brincar</a>
+    <a href="#connect">Conectar</a>
+    <a href="#parties">Festas</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contactos</a>
+  </div>
+
   <main>
     <!-- LANDING -->
     <section class="landing" id="home">
       <div class="landing-inner reveal revealed">
-        <!-- Central logo: Family Hub Cafe (landing) -->
         <img class="landing-logo" src="assets/assetslogo-header.png" alt="Family Hub Café logo" />
-
-        <!-- Only the centered circle button (no text, no green dot) -->
         <div class="scroll-hint">
           <a class="scroll-btn" href="#about" aria-label="Descer para Sobre">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -814,20 +951,22 @@
     <section class="hero" id="hero">
       <video class="hero-video" autoplay muted loop playsinline>
         <source src="hero-video.mp4" type="video/mp4" />
-        O seu navegador não suporta o elemento de vídeo.
+        O seu navegador não suporta vídeo.
       </video>
       <div class="hero-overlay"></div>
 
       <div class="hero-inner hero-center">
-        <h1 class="hero-title reveal delay-1">Comer • Brincar • Conviver</h1>
+        <h1 class="hero-title reveal delay-1">Comer • Brincar • Conectar</h1>
 
         <p class="hero-subtitle reveal delay-2">
-          O Family Hub Café é o local perfeito para todos.
+          O Family Hub Café é um local perfeito para todos.
           Quer seja uma família com crianças pequenas, um casal,
-          ou esteja a aproveitar um momento a sós, o nosso espaço vibrante e acolhedor
-          foi criado para juntar pessoas. Oferecemos um ambiente divertido
-          e seguro onde as crianças podem brincar, aprender
-          e explorar, e todos podem desfrutar de comida deliciosa e boa companhia.
+          ou alguém a aproveitar o tempo a solo, o nosso espaço vibrante e acolhedor
+          foi pensado para aproximar pessoas.
+        </p>
+        <p class="section-text">
+          Oferecemos um ambiente divertido e seguro onde as crianças podem brincar,
+          aprender e explorar, e onde todos podem desfrutar de comida deliciosa e boa companhia.
         </p>
       </div>
     </section>
@@ -838,15 +977,16 @@
         <div class="reveal">
           <h2 class="section-title">Sobre nós</h2>
           <p class="section-text">
-            Somos uma família que deu o grande passo de se mudar para Portugal e sabemos, em primeira mão, como
-            pode ser desafiante integrar-se
-            numa nova comunidade e conhecer pessoas novas. Sentíamos falta da sensação de ter
-            “uma aldeia” à nossa volta, especialmente como pais de primeira viagem.
-            Também compreendemos a dificuldade de tentar comer qualquer coisa com
-            um bebé/criança a acompanhar, as opções limitadas, e o malabarismo constante para manter toda a gente
-            feliz. No Family Hub Café, a nossa visão é criar um espaço onde as crianças
-            possam brincar e explorar, enquanto os adultos relaxam e desfrutam de boa comida e companhia.
-            Um local onde todos possam comer juntos sem stress e se sintam incluídos.
+            Somos uma família que decidiu mudar-se para Portugal. Sabemos em primeira mão como pode ser
+            desafiante integrar-se numa nova comunidade e conhecer novas pessoas.
+            Sentimos falta da sensação de ter “uma aldeia” à nossa volta, especialmente como novos pais.
+            Também compreendemos a dificuldade de tentar comer qualquer coisa com uma criança pequena:
+            as opções limitadas e o malabarismo constante para manter todos felizes.
+          </p>
+          <p class="section-text">
+            No Family Hub Café, a nossa visão é criar um espaço onde as crianças possam brincar e explorar,
+            enquanto os adultos relaxam e desfrutam de boa comida e companhia — um lugar onde todos possam comer juntos,
+            sem stress, e sentir-se incluídos.
           </p>
         </div>
 
@@ -864,7 +1004,7 @@
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/3661400/pexels-photo-3661400.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Área de brincadeira" />
+              alt="Área de brincar" />
           </div>
         </div>
       </div>
@@ -882,14 +1022,14 @@
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Café numa mesa" />
+              alt="Café na mesa" />
           </div>
         </div>
 
         <div class="reveal">
           <h2 class="section-title">Comer</h2>
           <p class="section-text">
-            O nosso menu inclui uma variedade de opções saudáveis e saborosas, provenientes de fornecedores locais.
+            O nosso menu inclui opções saudáveis e saborosas, com ingredientes de fornecedores locais.
             Procuramos usar ingredientes biológicos sempre que possível.
             Temos opções para todos os membros da família.
           </p>
@@ -903,16 +1043,15 @@
         <div class="reveal">
           <h2 class="section-title">Brincar</h2>
           <p class="section-text">
-            A nossa área de brincadeiras foi concebida para estimular a imaginação e a curiosidade, com:
+            A nossa área de brincar foi pensada para estimular a imaginação e a curiosidade, com:
           </p>
 
           <ul class="section-text" style="margin-top:10px; padding-left:18px;">
-            <li>Equipamentos de soft play e estruturas de escalada</li>
-            <li>Zonas sensoriais e espaços de imaginação</li>
-            <li>Espaço exterior (dependente das condições meteorológicas)</li>
+            <li>Equipamento de soft play e estruturas de escalada</li>
+            <li>Áreas sensoriais e estações de imaginação</li>
+            <li>Espaço exterior (dependente do tempo)</li>
             <li>Eventos e outras atividades interativas para pais e crianças</li>
-            <li>Pretendemos organizar várias atividades e eventos
-              para pais e crianças ao longo do ano</li>
+            <li>Queremos organizar vários eventos e atividades interativas para pais e crianças ao longo do ano</li>
           </ul>
         </div>
 
@@ -920,12 +1059,12 @@
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/3661452/pexels-photo-3661452.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Crianças a construir com blocos" />
+              alt="Crianças a brincar com blocos" />
           </div>
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/3662875/pexels-photo-3662875.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Canto de brincadeiras" />
+              alt="Canto infantil" />
           </div>
           <div class="media-item">
             <img
@@ -943,36 +1082,30 @@
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/8732927/pexels-photo-8732927.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Casal a conversar numa mesa de café" />
+              alt="Casal a conversar num café" />
           </div>
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/5722871/pexels-photo-5722871.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Pessoas com chávenas de café num café" />
+              alt="Pessoas com chávenas de café" />
           </div>
         </div>
 
         <div class="reveal">
-          <h2 class="section-title">Conviver</h2>
-          <p class="section-text">
-            Sabemos que a parentalidade pode ser isolante,
-            por isso criámos um espaço onde pode conhecer outros pais,
-            partilhar experiências e fazer novas amizades. As nossas áreas de estar confortáveis
-            e os espaços exteriores são perfeitos para conversar enquanto come ou bebe algo,
-            mantendo sempre os mais pequenos sob vigilância.
+          <h2 class="section-title">Conectar</h2>
 
-            No Family Hub Café, estamos a criar uma comunidade de apoio para futuros pais.
-            Junte-se a nós num espaço seguro para conviver com outras pessoas. Pretendemos organizar várias atividades
-            e eventos destinados a futuros pais ao longo do ano.
+          <p class="section-text">
+            Sabemos que a parentalidade pode ser isolante, por isso criámos um espaço onde pode conhecer outros pais,
+            partilhar experiências e fazer novas amizades. As nossas áreas de estar e espaços exteriores são perfeitos
+            para conversar com comida e bebida, enquanto mantém um olhar atento nos mais pequenos.
           </p>
 
-          <h3 class="subheading">Uma comunidade de apoio para futuros pais</h3>
+          <p class="section-text">
+            No Family Hub Café, estamos a criar uma comunidade de apoio para pais em espera. Junte-se a nós para um espaço
+            seguro onde pode conectar-se com outras pessoas. Queremos organizar várias atividades e eventos para grávidas
+            e futuros pais ao longo do ano.
+          </p>
 
-          <ul class="section-text" style="margin-top:8px; padding-left:18px;">
-            <li>Um espaço seguro para conviver com outros futuros pais</li>
-            <li>Yoga pré-natal e workshops de parentalidade</li>
-            <li>Eventos e atividades baby-friendly para se preparar para a parentalidade</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -981,35 +1114,40 @@
     <section id="parties">
       <div class="container">
         <h2 class="section-title">Festas</h2>
+
         <p class="section-text reveal">
-          O local perfeito para festas de aniversário e ocasiões especiais. Contacte-nos para verificar disponibilidade
-          e custos.
+          Um local perfeito para festas de aniversário e ocasiões especiais. Contacte-nos para disponibilidade e preços.
         </p>
 
-        <h3 class="subheading reveal delay-1">Sessões de festa</h3>
-        <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">
-          <li>4:30PM – 6:30PM de segunda a sexta-feira (entre julho e setembro aplicam-se horários de fim de semana).</li>
-          <li>5:30PM – 7:30PM ao sábado e domingo</li>
-        </ul>
+        <!--<h3 class="subheading reveal delay-1">Horários</h3>-->
 
-        <div class="media-grid reveal delay-1" style="margin-top:32px;">
-          <div class="media-item">
-            <img
-              src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Família a celebrar uma festa de aniversário infantil" />
-          </div>
-          <div class="media-item">
-            <img
-              src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Celebração festiva" />
-          </div>
-          <div class="media-item">
-            <img
-              src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Donuts de festa num prato" />
-          </div>
-        </div>
+        <p class="section-text reveal delay-1" style="margin-top:8px;">
+          <strong>Basta</strong> escolher um horário:
+        </p>
+
+        <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">
+          <li>16:30 – 18:30 (segunda–sexta) <span style="opacity:0.8;">(horários de fim de semana aplicam-se entre
+              julho–setembro)</span></li>
+          <li>17:30 – 19:30 (sábado e domingo)</li>
+        </ul>
       </div>
+    </section>
+
+    <div class="media-grid reveal delay-1" style="margin-top:32px;">
+      <div class="media-item">
+        <img src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Família a celebrar um aniversário" />
+      </div>
+      <div class="media-item">
+        <img src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Celebração festiva" />
+      </div>
+      <div class="media-item">
+        <img src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Donuts de festa" />
+      </div>
+    </div>
+    </div>
     </section>
 
     <!-- FAQ -->
@@ -1019,28 +1157,28 @@
 
         <div class="faq-list">
           <div class="faq-item reveal delay-2">
-            <div class="faq-q">Custo de utilização da área de brincadeiras</div>
-            <div class="faq-a">A área de brincadeiras custa 5€ (irmãos não pagam).</div>
+            <div class="faq-q">Custo de utilização da área de brincar</div>
+            <div class="faq-a">Custa 5€ por criança (irmãos não pagam)</div>
           </div>
 
           <div class="faq-item reveal delay-1">
-            <div class="faq-q">Têm aluguer exclusivo (private hire)?</div>
-            <div class="faq-a">Sim, oferecemos aluguer exclusivo. Contacte-nos para pacotes de festa e disponibilidade.</div>
+            <div class="faq-q">Fazem aluguer privado?</div>
+            <div class="faq-a">Sim. Contacte-nos para pacotes de festa e disponibilidade.</div>
           </div>
 
           <div class="faq-item reveal delay-1">
-            <div class="faq-q">É acessível para carrinhos de bebé?</div>
-            <div class="faq-a">Sim, existe um percurso acessível para carrinhos à direita do complexo do edifício.</div>
+            <div class="faq-q">É acessível a carrinhos de bebé?</div>
+            <div class="faq-a">Sim, existe um percurso acessível à direita do complexo do edifício.</div>
           </div>
 
           <div class="faq-item reveal delay-2">
-            <div class="faq-q">Há estacionamento nas proximidades?</div>
-            <div class="faq-a">Sim, existem opções de estacionamento a poucos minutos a pé, incluindo estacionamento gratuito na rua e estacionamento com parquímetro.</div>
+            <div class="faq-q">Há estacionamento por perto?</div>
+            <div class="faq-a">Sim, existem opções a poucos minutos, incluindo estacionamento gratuito na rua e parquímetro.</div>
           </div>
 
           <div class="faq-item reveal delay-3">
             <div class="faq-q">Quando é a próxima aula?</div>
-            <div class="faq-a">Acompanhe as aulas e eventos no nosso Instagram e Facebook.</div>
+            <div class="faq-a">Acompanhe aulas e eventos no nosso Instagram e Facebook.</div>
           </div>
         </div>
       </div>
@@ -1051,8 +1189,7 @@
       <div class="container">
         <h2 class="section-title">Junte-se à nossa comunidade</h2>
         <p class="section-text reveal">
-          Mal podemos esperar para conhecer você e os seus pequeninos. Visite-nos e sinta a energia e a comunidade do
-          Family Hub Café.
+          Mal podemos esperar para conhecer você e os seus pequenos. Visite-nos e sinta a energia e a comunidade no Family Hub Café.
         </p>
       </div>
     </section>
@@ -1064,14 +1201,26 @@
           <div class="reveal">
             <h2 class="section-title">Contactos</h2>
             <div class="contact-info">
-              <p><strong>Morada:</strong> Potato Beach Apartment, Lagos, Distrito de Faro</p>
-
-              <p><strong>Horário de funcionamento:</strong><br>
-                Segunda a sexta-feira: 9:00AM – 4:00PM (5:00PM entre julho e setembro)<br>
-                Sábado e domingo: 9:00AM – 5:00PM
+              <p class="section-text">
+                <strong>Morada:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos
+                Descobrimentos,
+                8600-645, Lagos, Portugal
               </p>
 
-              <p><strong>Email:</strong> <a href="mailto:info@familyhubcafe.com">info@familyhubcafe.com</a></p>
+              <p><strong>Horário:</strong></p>
+              <div class="hours" aria-label="Horário de funcionamento">
+                <div class="hours-row"><span class="hours-day">Segunda</span><span class="hours-time">9h – 16h</span></div>
+                <div class="hours-row"><span class="hours-day">Terça</span><span class="hours-time">9h – 16h</span></div>
+                <div class="hours-row"><span class="hours-day">Quarta</span><span class="hours-time">9h – 16h</span></div>
+                <div class="hours-row"><span class="hours-day">Quinta</span><span class="hours-time">9h – 16h</span></div>
+                <div class="hours-row"><span class="hours-day">Sexta</span><span class="hours-time">9h – 16h</span></div>
+                <div class="hours-row"><span class="hours-day">Sábado</span><span class="hours-time">9h – 17h</span></div>
+                <div class="hours-row"><span class="hours-day">Domingo</span><span class="hours-time">9h – 17h</span></div>
+
+                <div class="hours-note">O horário de fim de semana aplica-se entre junho e setembro</div>
+              </div>
+
+              <!-- Client: remove email line -->
               <p><strong>Telefone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank"
                   rel="noopener">+00 0000 0000</a></p>
             </div>
@@ -1079,7 +1228,7 @@
 
           <div class="map-wrapper reveal delay-1">
             <iframe src="https://www.google.com/maps?q=37.098125,-8.6689545&z=18&output=embed" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" title="Mapa do Potato Beach Apartment"></iframe>
+              referrerpolicy="no-referrer-when-downgrade" title="Mapa do Family Hub Café"></iframe>
           </div>
         </div>
       </div>
@@ -1094,16 +1243,10 @@
       <div>
         <div class="footer-title">Fique a par</div>
         <p class="section-text" style="max-width:none;">
-          Acompanhe as nossas redes sociais para saber a data de abertura, atualizações de horários,
-          aulas e eventos. Inscreva-se para receber novidades sobre a nossa abertura, aulas, eventos e notícias da comunidade.
+          Acompanhe as nossas redes sociais para horários, aulas e eventos.
         </p>
 
-        <div class="footer-input-row">
-          <input type="email" placeholder="O seu endereço de email" />
-          <button class="btn btn-primary" style="padding:8px 18px; font-size: var(--fs-nav);">Juntar</button>
-        </div>
-
-        <div class="footer-social-icons" aria-label="Social links">
+        <div class="footer-social-icons" aria-label="Redes sociais">
           <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -1117,16 +1260,24 @@
                 d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
             </svg>
           </a>
+
+          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. Todos os direitos reservados.
+      © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. Todos os direitos reservados
     </div>
   </footer>
 
   <script>
+    // Reveal on scroll
     const reveals = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(
@@ -1144,6 +1295,30 @@
     reveals.forEach((el) => observer.observe(el));
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector(".menu-btn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", closeMobileMenu);
+    });
+
+    // Close menu on resize to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) closeMobileMenu();
+    });
   </script>
 </body>
 

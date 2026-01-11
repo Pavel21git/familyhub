@@ -10,7 +10,7 @@
 
   <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
 
   <style>
@@ -79,7 +79,7 @@
       margin-bottom: 6px;
     }
 
-    /* CLIENT: remove the white pill background */
+    /* CLIENT REQUEST: remove the white "pill" around headings */
     .section-title {
       font-family: var(--ff-display);
       font-weight: 600;
@@ -94,20 +94,22 @@
       line-height: 1.1;
     }
 
-    /* Client: easier to read – add spacing after paragraphs/blocks */
-    .section-text {
-      font-size: var(--fs-body);
-      max-width: 700px;
+    /* CLIENT REQUEST: add paragraph spacing to make it easier to read */
+    p.section-text {
       margin-bottom: 14px;
     }
 
-    /* Client note: use same font as text below, just bold */
+    .section-text {
+      font-size: var(--fs-body);
+      max-width: 700px;
+    }
+
     .subheading {
       margin-top: 18px;
-      font-family: var(--ff-body);
-      font-size: 15px;
-      font-weight: 700;
-      color: rgba(18, 18, 18, 0.92);
+      font-family: var(--ff-display);
+      font-size: 18px;
+      color: rgba(18, 18, 18, 0.9);
+      font-weight: 700; /* bold as requested for headings like the sample */
     }
 
     .grid-2 {
@@ -115,6 +117,22 @@
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 40px;
       align-items: start;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      color: rgba(111, 53, 38, 0.85);
+      border: 1px solid rgba(111, 53, 38, 0.12);
     }
 
     .btn {
@@ -182,7 +200,6 @@
       justify-self: start;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s ease;
-      flex: 0 0 auto;
     }
 
     .logo:hover {
@@ -253,7 +270,7 @@
       align-items: center;
       gap: 10px;
       justify-self: end;
-      flex: 0 0 auto;
+      flex-wrap: nowrap;
       min-width: 0;
     }
 
@@ -261,7 +278,6 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      flex: 0 0 auto;
     }
 
     .icon-btn {
@@ -331,7 +347,7 @@
       color: var(--white);
     }
 
-    /* ---------- MOBILE MENU (client: mobile friendly to see menu options) ---------- */
+    /* ---------- MOBILE MENU (CLIENT REQUEST: mobile-friendly so menu options are visible) ---------- */
     .menu-btn {
       display: none;
       width: 38px;
@@ -344,7 +360,6 @@
       justify-content: center;
       transition: transform 0.2s ease, background 0.2s ease;
       color: rgba(18, 18, 18, 0.88);
-      flex: 0 0 auto;
     }
 
     .menu-btn:hover {
@@ -360,16 +375,16 @@
     }
 
     .mobile-menu {
-      display: none;
       position: fixed;
       top: var(--header-h);
       left: 0;
       right: 0;
-      background: rgba(248, 221, 217, 0.98);
+      background: rgba(248, 221, 217, 0.96);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      padding: 12px 16px 18px;
+      display: none;
       z-index: 999;
-      padding: 14px 16px 18px;
     }
 
     .mobile-menu.open {
@@ -384,11 +399,10 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-size: var(--fs-nav);
-      border-radius: 12px;
     }
 
-    .mobile-menu a:hover {
-      background: rgba(255, 255, 255, 0.55);
+    .mobile-menu a + a {
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     /* ---------- LANDING (FULLSCREEN LOGO) ---------- */
@@ -584,34 +598,27 @@
       font-size: var(--fs-body);
     }
 
-    .contact-info p+p {
-      margin-top: 6px;
+    .contact-info p + p {
+      margin-top: 10px;
     }
 
-    /* Client: opening hours listed like picture (no lines) */
-    .hours {
-      margin-top: 8px;
-      display: grid;
-      gap: 6px;
-      max-width: 420px;
+    /* CLIENT REQUEST: Opening hours as a clean list (no lines) */
+    .hours-wrap {
+      margin-top: 6px;
+      max-width: 460px;
     }
 
     .hours-row {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      gap: 18px;
+      padding: 6px 0;
       font-size: var(--fs-small);
+      color: rgba(18, 18, 18, 0.84);
     }
 
-    .hours-day {
+    .hours-row span:first-child {
       font-weight: 500;
-      color: rgba(18, 18, 18, 0.86);
-      white-space: nowrap;
-    }
-
-    .hours-time {
-      color: rgba(18, 18, 18, 0.74);
-      white-space: nowrap;
     }
 
     .hours-note {
@@ -740,66 +747,47 @@
       }
     }
 
-    /* Mobile: show menu + keep header items inside screen */
     @media (max-width: 768px) {
       .nav {
         padding: 10px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
       }
 
-      .nav-links {
-        display: none;
-      }
-
+      /* show mobile menu button */
       .menu-btn {
         display: inline-flex;
       }
 
-      .nav-right {
-        gap: 8px;
+      /* hide desktop links */
+      .nav-links {
+        display: none;
       }
 
-      .icon-btn {
-        width: 36px;
-        height: 36px;
+      .logo-img {
+        height: 54px;
       }
 
       section {
         padding: 64px 16px;
       }
 
-      /* Keep landing logo as-is (client did not request change now) */
       .landing-logo {
-        width: min(760px, 90vw);
-        max-height: 62vh;
-      }
-    }
-
-    /* Landscape on phones: prevent right-side overflow */
-    @media (orientation: landscape) and (max-height: 720px) {
-      .nav {
-        padding: 10px 14px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
+        width: min(520px, 92vw);
+        max-height: 56vh;
       }
 
-      .nav-right {
-        gap: 6px;
-      }
-
+      /* prevent icons from going off-screen */
       .icon-btn {
         width: 34px;
         height: 34px;
       }
 
       .lang-btn {
+        min-width: 30px;
         padding: 4px 8px;
-        min-width: 32px;
+      }
+
+      .nav-right {
+        gap: 8px;
       }
     }
 
@@ -811,40 +799,38 @@
 
     /* MOBILE: headings above images for Eat & Connect (portrait) */
     @media (max-width: 768px) {
-
       #eat .grid-2,
       #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
 
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
+      #eat .grid-2 > .reveal,
+      #connect .grid-2 > .reveal {
         order: 1;
       }
 
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
+      #eat .grid-2 > .media-grid,
+      #connect .grid-2 > .media-grid {
         order: 2;
       }
     }
 
     /* MOBILE: headings above images for Eat & Connect (landscape) */
     @media (orientation: landscape) and (max-height: 720px) {
-
       #eat .grid-2,
       #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
 
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
+      #eat .grid-2 > .reveal,
+      #connect .grid-2 > .reveal {
         order: 1;
       }
 
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
+      #eat .grid-2 > .media-grid,
+      #connect .grid-2 > .media-grid {
         order: 2;
       }
     }
@@ -862,7 +848,7 @@
         </a>
       </div>
 
-      <nav class="nav-links" aria-label="Primary navigation">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#eat">Eat</a>
         <a href="#play">Play</a>
@@ -873,14 +859,22 @@
       </nav>
 
       <div class="nav-right">
-        <!-- Mobile menu button (client: mobile-friendly menu) -->
-        <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <!-- Mobile menu toggle (visible on mobile only) -->
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 7h16v2H4V7zm0 6h16v2H4v-2zm0 6h16v2H4v-2z"></path>
+            <path d="M4 7h16v2H4V7zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
           </svg>
         </button>
 
         <div class="nav-social" aria-label="Social links">
+          <!-- WhatsApp (CLIENT REQUEST: add WhatsApp icon next to Instagram/Facebook) -->
+          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.53 0 .25 5.28.25 11.8c0 2.08.55 4.11 1.59 5.9L0 24l6.45-1.69a11.77 11.77 0 0 0 5.61 1.43h.01c6.52 0 11.8-5.28 11.8-11.8 0-3.15-1.23-6.11-3.35-8.46zM12.07 21.55h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.83 1 1.03-3.73-.24-.39a9.79 9.79 0 0 1-1.5-5.14c0-5.4 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.87a9.75 9.75 0 0 1 2.86 6.93c0 5.41-4.4 9.84-9.69 9.84zm5.66-7.35c-.31-.16-1.82-.9-2.1-1-.28-.1-.49-.16-.7.16-.2.31-.8 1-.98 1.2-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.54-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.13-.64.14-.14.31-.36.47-.54.16-.18.2-.31.31-.52.1-.2.05-.39-.03-.54-.08-.16-.7-1.68-.96-2.3-.25-.6-.5-.52-.7-.53h-.6c-.2 0-.54.08-.82.39-.28.31-1.08 1.06-1.08 2.58s1.1 2.99 1.26 3.2c.16.2 2.16 3.3 5.24 4.63.73.32 1.3.51 1.75.66.74.23 1.42.2 1.95.12.6-.09 1.82-.74 2.08-1.45.26-.7.26-1.31.18-1.45-.08-.13-.28-.21-.59-.36z" />
+            </svg>
+          </a>
+
           <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -894,17 +888,9 @@
                 d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
             </svg>
           </a>
-
-          <!-- Client: add WhatsApp icon (same style as other icons) -->
-          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />
-            </svg>
-          </a>
         </div>
 
-        <div class="lang-switch">
+        <div class="lang-switch" aria-label="Language switch">
           <a href="index.html" class="lang-btn active">EN</a>
           <a href="index-pt.html" class="lang-btn">PT</a>
         </div>
@@ -928,6 +914,7 @@
     <section class="landing" id="home">
       <div class="landing-inner reveal revealed">
         <img class="landing-logo" src="assets/assetslogo-header.png" alt="Family Hub Café logo" />
+
         <div class="scroll-hint">
           <a class="scroll-btn" href="#about" aria-label="Scroll to about">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -954,12 +941,9 @@
           Family Hub Café is a perfect spot for everyone.
           Whether you are a family with little ones, a couple,
           or enjoying time solo, our vibrant and welcoming space
-          is designed to bring people together.
-        </p>
-        <p class="section-text">
-
-          We provide a fun and safe environment where children can play,
-          learn & explore, and everyone can enjoy delicious food and company.
+          is designed to bring people together. We provide a fun
+          and safe environment where children can play, learn
+          &amp; explore, and everyone can enjoy delicious food and company.
         </p>
       </div>
     </section>
@@ -970,16 +954,17 @@
         <div class="reveal">
           <h2 class="section-title">About us</h2>
           <p class="section-text">
-            We are a family who made the leap to move to Portugal. We know firsthand how
-            challenging it can be to integrate into a new community and meet new people.
-            We missed the feeling of having “a village” around you, especially as new parents.
-            We also understand the struggle of trying to grab a bite to eat with a little one in tow:
-            the limited options and the constant juggle to keep everyone happy.
+            We are a family who made the leap to move to Portugal. We know firsthand how challenging it can be to
+            integrate into a new community and meet new people.
           </p>
           <p class="section-text">
-            At Family Hub Café, our vision is to create a space where children can play and explore,
-            while adults unwind and enjoy good food and company — a spot where everyone can dine together
-            stress-free and feel included.
+            We missed the feeling of having “a village” around you, especially as new parents. We also understand the
+            struggle of trying to grab a bite to eat with a little one in tow — the limited options, the constant juggle
+            to keep everyone happy.
+          </p>
+          <p class="section-text">
+            At Family Hub Café, our vision is to create a space where children can play and explore, while adults unwind
+            and enjoy good food and company — a spot where everyone can dine together stress-free and feel included.
           </p>
         </div>
 
@@ -1022,9 +1007,8 @@
         <div class="reveal">
           <h2 class="section-title">Eat</h2>
           <p class="section-text">
-            Our menu features a range of healthy and tasty options sourced from local suppliers.
-            We strive to use organic ingredients where possible.
-            We have options for all members of the family.
+            Our menu features a range of healthy and tasty options sourced from local suppliers. We strive to use
+            organic ingredients where possible. We have options for all members of the family.
           </p>
         </div>
       </div>
@@ -1044,8 +1028,7 @@
             <li>Sensory play areas and imagination stations</li>
             <li>Outdoor play space (weather permitting)</li>
             <li>Events and other interactive activities for parents and children</li>
-            <li>We aim to host various events and interactive activities for parents and children throughout the year
-            </li>
+            <li>We aim to host various events and interactive activities for parents and children throughout the year</li>
           </ul>
         </div>
 
@@ -1058,7 +1041,7 @@
           <div class="media-item">
             <img
               src="https://images.pexels.com/photos/3662875/pexels-photo-3662875.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Kids play corner" />
+              alt="Children play corner" />
           </div>
           <div class="media-item">
             <img
@@ -1089,16 +1072,28 @@
           <h2 class="section-title">Connect</h2>
 
           <p class="section-text">
-            We understand that parenting can be isolating, which is why we’ve created a space where you can meet fellow
-            parents, share experiences, and make new friends. Our comfortable seating areas and outdoor spaces are
-            perfect for catching up over food and a drink while keeping a watchful eye on your little ones.
+            We understand that parenting can be isolating, which is why we've created a space where you can meet fellow
+            parents, share experiences, and make new friends.
           </p>
 
           <p class="section-text">
-            At Family Hub Café, we’re creating a supportive community for expecting parents. Join us for a safe space to
-            connect with others. We aim to host various activities and events for expecting parents throughout the year.
+            Our comfortable seating areas and outdoor spaces are perfect for catching up over food and a drink, while
+            keeping a watchful eye on your little ones.
           </p>
 
+          <p class="section-text">
+            At Family Hub Café, we're creating a supportive community for expecting parents. Join us for a safe space to
+            connect with others. We aim to host various activities and events aimed at expecting parents throughout the
+            year.
+          </p>
+
+          <h3 class="subheading">A supportive community for expecting parents</h3>
+
+          <ul class="section-text" style="margin-top:8px; padding-left:18px;">
+            <li>A safe space to connect with other expecting parents</li>
+            <li>Prenatal yoga and parenting workshops</li>
+            <li>Baby-friendly events and activities to prepare for parenthood</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1107,41 +1102,34 @@
     <section id="parties">
       <div class="container">
         <h2 class="section-title">Parties</h2>
-
         <p class="section-text reveal">
           A perfect spot for birthday parties and special occasions. Contact us for availability and cost.
         </p>
 
-        <!--<h3 class="subheading reveal delay-1">Party Times</h3>-->
-
-        <p class="section-text reveal delay-1" style="margin-top:8px;">
-          <strong>Just</strong> pick a time:
-        </p>
-
+        <h3 class="subheading reveal delay-1">Party sessions</h3>
         <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">
-          <li>4:30PM – 6:30PM (Monday–Friday) <span style="opacity:0.8;">(weekend timings apply between
-              July–September)</span></li>
-          <li>5:30PM – 7:30PM (Saturday &amp; Sunday)</li>
+          <li>4:30PM – 6:30PM on Monday – Friday (weekend timings apply between July – September).</li>
+          <li>5:30PM – 7:30PM on Saturday &amp; Sunday.</li>
         </ul>
-      </div>
-    </section>
 
-
-    <div class="media-grid reveal delay-1" style="margin-top:32px;">
-      <div class="media-item">
-        <img src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Family celebrating a child's birthday party" />
+        <div class="media-grid reveal delay-1" style="margin-top:32px;">
+          <div class="media-item">
+            <img
+              src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Family celebrating a child's birthday party" />
+          </div>
+          <div class="media-item">
+            <img
+              src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Festive celebration" />
+          </div>
+          <div class="media-item">
+            <img
+              src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Party donuts on a plate" />
+          </div>
+        </div>
       </div>
-      <div class="media-item">
-        <img src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Festive celebration" />
-      </div>
-      <div class="media-item">
-        <img src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Party donuts on a plate" />
-      </div>
-    </div>
-    </div>
     </section>
 
     <!-- FAQ -->
@@ -1152,6 +1140,7 @@
         <div class="faq-list">
           <div class="faq-item reveal delay-2">
             <div class="faq-q">Cost of using play area</div>
+            <!-- CLIENT REQUEST: replace with text below (no full stops needed) -->
             <div class="faq-a">It costs €5 to use the play area per child (siblings go free)</div>
           </div>
 
@@ -1179,7 +1168,7 @@
       </div>
     </section>
 
-    <!-- COMMUNITY / SOCIAL -->
+    <!-- COMMUNITY / SOCIAL (CLIENT REQUEST: move back to left, heading above text) -->
     <section id="social">
       <div class="container">
         <h2 class="section-title">Join our community</h2>
@@ -1196,36 +1185,26 @@
           <div class="reveal">
             <h2 class="section-title">Contacts</h2>
             <div class="contact-info">
-              <!-- Client: new address -->
-              <p class="section-text">
-                <strong>Address:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos
-                Descobrimentos,
-                8600-645, Lagos, Portugal
-              </p>
+              <!-- CLIENT REQUEST: new address -->
+              <p><strong>Address:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos Descobrimentos,
+                8600-645, Lagos, Portugal</p>
 
-              <!-- Client: opening hours format like picture (no lines) -->
-              <p><strong>Opening hours:</strong></p>
-              <div class="hours" aria-label="Opening hours">
-                <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">9am – 4pm</span>
-                </div>
-                <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">9am – 4pm</span>
-                </div>
-                <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">9am – 4pm</span>
-                </div>
-                <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">9am – 4pm</span>
-                </div>
-                <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">9am – 4pm</span>
-                </div>
-                <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9am – 5pm</span>
-                </div>
-                <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">9am – 5pm</span>
-                </div>
-
-                <div class="hours-note">Weekend hours apply between June and September</div>
+              <!-- CLIENT REQUEST: opening hours in list style -->
+              <p style="margin-top:12px;"><strong>Opening hours:</strong></p>
+              <div class="hours-wrap" aria-label="Opening hours">
+                <div class="hours-row"><span>Monday</span><span>9am – 4pm</span></div>
+                <div class="hours-row"><span>Tuesday</span><span>9am – 4pm</span></div>
+                <div class="hours-row"><span>Wednesday</span><span>9am – 4pm</span></div>
+                <div class="hours-row"><span>Thursday</span><span>9am – 4pm</span></div>
+                <div class="hours-row"><span>Friday</span><span>9am – 4pm</span></div>
+                <div class="hours-row"><span>Saturday</span><span>9am – 5pm</span></div>
+                <div class="hours-row"><span>Sunday</span><span>9am – 5pm</span></div>
+                <div class="hours-note">Weekend hours apply between June and September.</div>
               </div>
 
-              <p style="margin-top: 12px;"><strong>Email:</strong> <a
+              <p style="margin-top:12px;"><strong>Email:</strong> <a
                   href="mailto:info@familyhubcafe.com">info@familyhubcafe.com</a></p>
+
               <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank"
                   rel="noopener">+00 0000 0000</a></p>
             </div>
@@ -1247,14 +1226,25 @@
 
       <div>
         <div class="footer-title">Stay in the loop</div>
-        <!-- Client: remove green-marked part ("Sign up...") -->
+        <!-- CLIENT REQUEST: remove marked green areas (shorter copy only) -->
         <p class="section-text" style="max-width:none;">
-          Keep an eye on our social media for timetable updates, classes and events.
+          Keep an eye on our social media for opening date, timetable updates, classes and events.
         </p>
 
-
+        <div class="footer-input-row">
+          <input type="email" placeholder="Your email address" />
+          <button class="btn btn-primary" style="padding:8px 18px; font-size: var(--fs-nav);">Join</button>
+        </div>
 
         <div class="footer-social-icons" aria-label="Social links">
+          <!-- CLIENT REQUEST: add WhatsApp icon here too -->
+          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.53 0 .25 5.28.25 11.8c0 2.08.55 4.11 1.59 5.9L0 24l6.45-1.69a11.77 11.77 0 0 0 5.61 1.43h.01c6.52 0 11.8-5.28 11.8-11.8 0-3.15-1.23-6.11-3.35-8.46zM12.07 21.55h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.83 1 1.03-3.73-.24-.39a9.79 9.79 0 0 1-1.5-5.14c0-5.4 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.87a9.75 9.75 0 0 1 2.86 6.93c0 5.41-4.4 9.84-9.69 9.84zm5.66-7.35c-.31-.16-1.82-.9-2.1-1-.28-.1-.49-.16-.7.16-.2.31-.8 1-.98 1.2-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.54-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.13-.64.14-.14.31-.36.47-.54.16-.18.2-.31.31-.52.1-.2.05-.39-.03-.54-.08-.16-.7-1.68-.96-2.3-.25-.6-.5-.52-.7-.53h-.6c-.2 0-.54.08-.82.39-.28.31-1.08 1.06-1.08 2.58s1.1 2.99 1.26 3.2c.16.2 2.16 3.3 5.24 4.63.73.32 1.3.51 1.75.66.74.23 1.42.2 1.95.12.6-.09 1.82-.74 2.08-1.45.26-.7.26-1.31.18-1.45-.08-.13-.28-.21-.59-.36z" />
+            </svg>
+          </a>
+
           <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -1268,14 +1258,6 @@
                 d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
             </svg>
           </a>
-
-          <!-- Client: add WhatsApp icon here too -->
-          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />
-            </svg>
-          </a>
         </div>
       </div>
     </div>
@@ -1286,7 +1268,7 @@
   </footer>
 
   <script>
-    // Reveal on scroll
+    // Reveal animations
     const reveals = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(
@@ -1302,31 +1284,30 @@
     );
 
     reveals.forEach((el) => observer.observe(el));
-
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Mobile menu toggle
-    const menuBtn = document.querySelector(".menu-btn");
+    const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
 
-    function closeMobileMenu() {
+    function closeMenu() {
       mobileMenu.classList.remove("open");
       menuBtn.setAttribute("aria-expanded", "false");
     }
 
     menuBtn.addEventListener("click", () => {
       const isOpen = mobileMenu.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // Close menu when clicking a link
+    // Close menu after clicking a link
     mobileMenu.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", closeMobileMenu);
+      a.addEventListener("click", closeMenu);
     });
 
     // Close menu on resize to desktop
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) closeMobileMenu();
+      if (window.innerWidth > 768) closeMenu();
     });
   </script>
 </body>
