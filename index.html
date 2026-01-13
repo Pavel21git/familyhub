@@ -109,7 +109,8 @@
       font-family: var(--ff-display);
       font-size: 18px;
       color: rgba(18, 18, 18, 0.9);
-      font-weight: 700; /* bold as requested for headings like the sample */
+      font-weight: 700;
+      /* bold as requested for headings like the sample */
     }
 
     .grid-2 {
@@ -401,7 +402,7 @@
       font-size: var(--fs-nav);
     }
 
-    .mobile-menu a + a {
+    .mobile-menu a+a {
       border-top: 1px solid rgba(0, 0, 0, 0.04);
     }
 
@@ -598,7 +599,7 @@
       font-size: var(--fs-body);
     }
 
-    .contact-info p + p {
+    .contact-info p+p {
       margin-top: 10px;
     }
 
@@ -799,38 +800,40 @@
 
     /* MOBILE: headings above images for Eat & Connect (portrait) */
     @media (max-width: 768px) {
+
       #eat .grid-2,
       #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
 
-      #eat .grid-2 > .reveal,
-      #connect .grid-2 > .reveal {
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
         order: 1;
       }
 
-      #eat .grid-2 > .media-grid,
-      #connect .grid-2 > .media-grid {
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
         order: 2;
       }
     }
 
     /* MOBILE: headings above images for Eat & Connect (landscape) */
     @media (orientation: landscape) and (max-height: 720px) {
+
       #eat .grid-2,
       #connect .grid-2 {
         display: flex;
         flex-direction: column;
       }
 
-      #eat .grid-2 > .reveal,
-      #connect .grid-2 > .reveal {
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
         order: 1;
       }
 
-      #eat .grid-2 > .media-grid,
-      #connect .grid-2 > .media-grid {
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
         order: 2;
       }
     }
@@ -1028,7 +1031,8 @@
             <li>Sensory play areas and imagination stations</li>
             <li>Outdoor play space (weather permitting)</li>
             <li>Events and other interactive activities for parents and children</li>
-            <li>We aim to host various events and interactive activities for parents and children throughout the year</li>
+            <li>We aim to host various events and interactive activities for parents and children throughout the year
+            </li>
           </ul>
         </div>
 
@@ -1186,7 +1190,8 @@
             <h2 class="section-title">Contacts</h2>
             <div class="contact-info">
               <!-- CLIENT REQUEST: new address -->
-              <p><strong>Address:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos Descobrimentos,
+              <p><strong>Address:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos
+                Descobrimentos,
                 8600-645, Lagos, Portugal</p>
 
               <!-- CLIENT REQUEST: opening hours in list style -->
@@ -1231,10 +1236,6 @@
           Keep an eye on our social media for opening date, timetable updates, classes and events.
         </p>
 
-        <div class="footer-input-row">
-          <input type="email" placeholder="Your email address" />
-          <button class="btn btn-primary" style="padding:8px 18px; font-size: var(--fs-nav);">Join</button>
-        </div>
 
         <div class="footer-social-icons" aria-label="Social links">
           <!-- CLIENT REQUEST: add WhatsApp icon here too -->

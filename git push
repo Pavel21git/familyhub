@@ -1,0 +1,1562 @@
+[1mdiff --git a/index-pt.html b/index-pt.html[m
+[1mindex 960f963..0a1b775 100644[m
+[1m--- a/index-pt.html[m
+[1m+++ b/index-pt.html[m
+[36m@@ -1,3 +1,6 @@[m
+[32m+[m[32m<!-- =========================[m
+[32m+[m[32m     index-pt.html (PT)[m
+[32m+[m[32m========================= -->[m
+ <!DOCTYPE html>[m
+ <html lang="pt">[m
+ [m
+[36m@@ -6,11 +9,11 @@[m
+   <title>Family Hub Café</title>[m
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />[m
+   <meta name="description"[m
+[31m-    content="Family Hub Café – um espaço acolhedor para famílias com crianças pequenas. Comer, brincar e conviver num café infantil seguro, com supervisão dos pais, eventos comunitários e festas." />[m
+[32m+[m[32m    content="Family Hub Café – um espaço acolhedor para famílias com crianças pequenas. Comer, brincar e conviver num play café seguro com eventos e festas." />[m
+ [m
+   <!-- Google Fonts -->[m
+   <link[m
+[31m-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"[m
+[32m+[m[32m    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"[m
+     rel="stylesheet" />[m
+ [m
+   <style>[m
+[36m@@ -65,6 +68,11 @@[m
+       padding: 80px 20px;[m
+     }[m
+ [m
+[32m+[m[32m    /* ===== Anchor offset: 10mm gap below fixed header for all section targets ===== */[m
+[32m+[m[32m    section[id] {[m
+[32m+[m[32m      scroll-margin-top: calc(var(--header-h) + 10mm);[m
+[32m+[m[32m    }[m
+[32m+[m
+     .container {[m
+       max-width: 1100px;[m
+       margin: 0 auto;[m
+[36m@@ -79,32 +87,35 @@[m
+       margin-bottom: 6px;[m
+     }[m
+ [m
+[32m+[m[32m    /* CLIENT: remove the white pill background */[m
+     .section-title {[m
+       font-family: var(--ff-display);[m
+       font-weight: 600;[m
+       font-size: var(--fs-section-title);[m
+       margin-bottom: 12px;[m
+       color: var(--darkgrey);[m
+[31m-[m
+[31m-      /* NEW: white pill background like language switch */[m
+       display: inline-block;[m
+[31m-      background: rgba(255, 255, 255, 0.75);[m
+[31m-      border: 1px solid rgba(0, 0, 0, 0.06);[m
+[31m-      border-radius: 999px;[m
+[31m-      padding: 10px 18px;[m
+[32m+[m[32m      background: transparent;[m
+[32m+[m[32m      border: none;[m
+[32m+[m[32m      border-radius: 0;[m
+[32m+[m[32m      padding: 0;[m
+       line-height: 1.1;[m
+     }[m
+ [m
+[32m+[m[32m    /* Client: easier to read – add spacing after paragraphs/blocks */[m
+     .section-text {[m
+       font-size: var(--fs-body);[m
+       max-width: 700px;[m
+[32m+[m[32m      margin-bottom: 14px;[m
+     }[m
+ [m
+[32m+[m[32m    /* Client note: use same font as text below, just bold */[m
+     .subheading {[m
+       margin-top: 18px;[m
+[31m-      font-family: var(--ff-display);[m
+[31m-      font-size: 18px;[m
+[31m-      color: rgba(18, 18, 18, 0.9);[m
+[32m+[m[32m      font-family: var(--ff-body);[m
+[32m+[m[32m      font-size: 15px;[m
+[32m+[m[32m      font-weight: 700;[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.92);[m
+     }[m
+ [m
+     .grid-2 {[m
+[36m@@ -114,22 +125,6 @@[m
+       align-items: start;[m
+     }[m
+ [m
+[31m-    .badge-row {[m
+[31m-      display: flex;[m
+[31m-      flex-wrap: wrap;[m
+[31m-      gap: 8px;[m
+[31m-      margin-top: 12px;[m
+[31m-    }[m
+[31m-[m
+[31m-    .badge {[m
+[31m-      font-size: 11px;[m
+[31m-      padding: 4px 10px;[m
+[31m-      border-radius: 999px;[m
+[31m-      background: rgba(255, 255, 255, 0.7);[m
+[31m-      color: rgba(111, 53, 38, 0.85);[m
+[31m-      border: 1px solid rgba(111, 53, 38, 0.12);[m
+[31m-    }[m
+[31m-[m
+     .btn {[m
+       border-radius: 999px;[m
+       padding: 10px 20px;[m
+[36m@@ -189,13 +184,13 @@[m
+       background: #ffffff;[m
+       border-radius: 50%;[m
+       border: 1px solid #ffffff;[m
+[31m-      /* ≈ 1mm белая окантовка */[m
+       display: inline-flex;[m
+       align-items: center;[m
+       justify-content: center;[m
+       justify-self: start;[m
+       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);[m
+       transition: transform 0.2s ease;[m
+[32m+[m[32m      flex: 0 0 auto;[m
+     }[m
+ [m
+     .logo:hover {[m
+[36m@@ -266,12 +261,15 @@[m
+       align-items: center;[m
+       gap: 10px;[m
+       justify-self: end;[m
+[32m+[m[32m      flex: 0 0 auto;[m
+[32m+[m[32m      min-width: 0;[m
+     }[m
+ [m
+     .nav-social {[m
+       display: inline-flex;[m
+       align-items: center;[m
+       gap: 8px;[m
+[32m+[m[32m      flex: 0 0 auto;[m
+     }[m
+ [m
+     .icon-btn {[m
+[36m@@ -287,6 +285,7 @@[m
+       transition: transform 0.2s ease, background 0.2s ease;[m
+       text-decoration: none;[m
+       color: rgba(18, 18, 18, 0.88);[m
+[32m+[m[32m      flex: 0 0 auto;[m
+     }[m
+ [m
+     .icon-btn:hover {[m
+[36m@@ -309,6 +308,7 @@[m
+       padding: 4px;[m
+       border-radius: 999px;[m
+       border: 1px solid rgba(0, 0, 0, 0.06);[m
+[32m+[m[32m      flex: 0 0 auto;[m
+     }[m
+ [m
+     .lang-btn {[m
+[36m@@ -339,20 +339,64 @@[m
+       color: var(--white);[m
+     }[m
+ [m
+[31m-    /* NEW: center only the "Join our community" block */[m
+[31m-    #social .container {[m
+[31m-      text-align: center;[m
+[32m+[m[32m    /* ---------- MOBILE MENU (client: mobile friendly to see menu options) ---------- */[m
+[32m+[m[32m    .menu-btn {[m
+[32m+[m[32m      display: none;[m
+[32m+[m[32m      width: 38px;[m
+[32m+[m[32m      height: 38px;[m
+[32m+[m[32m      border-radius: 999px;[m
+[32m+[m[32m      border: 1px solid rgba(0, 0, 0, 0.06);[m
+[32m+[m[32m      background: rgba(255, 255, 255, 0.75);[m
+[32m+[m[32m      cursor: pointer;[m
+[32m+[m[32m      align-items: center;[m
+[32m+[m[32m      justify-content: center;[m
+[32m+[m[32m      transition: transform 0.2s ease, background 0.2s ease;[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.88);[m
+[32m+[m[32m      flex: 0 0 auto;[m
+     }[m
+ [m
+[31m-    #social .section-title {[m
+[31m-      display: inline-block;[m
+[31m-      margin-left: auto;[m
+[31m-      margin-right: auto;[m
+[32m+[m[32m    .menu-btn:hover {[m
+[32m+[m[32m      transform: translateY(-1px);[m
+[32m+[m[32m      background: rgba(255, 255, 255, 0.9);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .menu-btn svg {[m
+[32m+[m[32m      width: 18px;[m
+[32m+[m[32m      height: 18px;[m
+[32m+[m[32m      fill: currentColor;[m
+[32m+[m[32m      opacity: 0.9;[m
+     }[m
+ [m
+[31m-    #social .section-text {[m
+[31m-      margin-left: auto;[m
+[31m-      margin-right: auto;[m
+[32m+[m[32m    .mobile-menu {[m
+[32m+[m[32m      display: none;[m
+[32m+[m[32m      position: fixed;[m
+[32m+[m[32m      top: var(--header-h);[m
+[32m+[m[32m      left: 0;[m
+[32m+[m[32m      right: 0;[m
+[32m+[m[32m      background: rgba(248, 221, 217, 0.98);[m
+[32m+[m[32m      backdrop-filter: blur(18px);[m
+[32m+[m[32m      border-bottom: 1px solid rgba(0, 0, 0, 0.06);[m
+[32m+[m[32m      z-index: 999;[m
+[32m+[m[32m      padding: 14px 16px 18px;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .mobile-menu.open {[m
+[32m+[m[32m      display: block;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .mobile-menu a {[m
+[32m+[m[32m      display: block;[m
+[32m+[m[32m      padding: 10px 6px;[m
+[32m+[m[32m      text-decoration: none;[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.88);[m
+[32m+[m[32m      letter-spacing: 0.14em;[m
+[32m+[m[32m      text-transform: uppercase;[m
+[32m+[m[32m      font-size: var(--fs-nav);[m
+[32m+[m[32m      border-radius: 12px;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .mobile-menu a:hover {[m
+[32m+[m[32m      background: rgba(255, 255, 255, 0.55);[m
+     }[m
+ [m
+     /* ---------- LANDING (FULLSCREEN LOGO) ---------- */[m
+[36m@@ -375,16 +419,15 @@[m
+       text-align: center;[m
+     }[m
+ [m
+[31m-    /* было слишком огромное — сделали меньше (как ты просил) */[m
+[32m+[m[32m    /* ===== Landing logo reduced by 1/3 ===== */[m
+     .landing-logo {[m
+[31m-      width: min(760px, 90vw);[m
+[31m-      max-height: 62vh;[m
+[32m+[m[32m      width: min(510px, 60vw);[m
+[32m+[m[32m      max-height: 41vh;[m
+       height: auto;[m
+       display: block;[m
+       object-fit: contain;[m
+     }[m
+ [m
+[31m-    /* scroll: убрали текст и зелёную точку, оставили только круг и центрировали */[m
+     .scroll-hint {[m
+       display: flex;[m
+       align-items: center;[m
+[36m@@ -554,6 +597,38 @@[m
+       margin-top: 6px;[m
+     }[m
+ [m
+[32m+[m[32m    /* Client: opening hours listed like picture (no lines) */[m
+[32m+[m[32m    .hours {[m
+[32m+[m[32m      margin-top: 8px;[m
+[32m+[m[32m      display: grid;[m
+[32m+[m[32m      gap: 6px;[m
+[32m+[m[32m      max-width: 420px;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .hours-row {[m
+[32m+[m[32m      display: flex;[m
+[32m+[m[32m      justify-content: space-between;[m
+[32m+[m[32m      gap: 14px;[m
+[32m+[m[32m      font-size: var(--fs-small);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .hours-day {[m
+[32m+[m[32m      font-weight: 500;[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.86);[m
+[32m+[m[32m      white-space: nowrap;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .hours-time {[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.74);[m
+[32m+[m[32m      white-space: nowrap;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .hours-note {[m
+[32m+[m[32m      margin-top: 10px;[m
+[32m+[m[32m      font-size: 12px;[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.62);[m
+[32m+[m[32m    }[m
+[32m+[m
+     .map-wrapper {[m
+       border-radius: 20px;[m
+       overflow: hidden;[m
+[36m@@ -674,26 +749,66 @@[m
+       }[m
+     }[m
+ [m
+[32m+[m[32m    /* Mobile: show menu + keep header items inside screen */[m
+     @media (max-width: 768px) {[m
+       .nav {[m
+         padding: 10px 16px;[m
+[32m+[m[32m        display: flex;[m
+[32m+[m[32m        align-items: center;[m
+[32m+[m[32m        justify-content: space-between;[m
+[32m+[m[32m        gap: 10px;[m
+       }[m
+ [m
+       .nav-links {[m
+         display: none;[m
+       }[m
+ [m
+[31m-      .logo-img {[m
+[31m-        height: 54px;[m
+[32m+[m[32m      .menu-btn {[m
+[32m+[m[32m        display: inline-flex;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      .nav-right {[m
+[32m+[m[32m        gap: 8px;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      .icon-btn {[m
+[32m+[m[32m        width: 36px;[m
+[32m+[m[32m        height: 36px;[m
+       }[m
+ [m
+       section {[m
+         padding: 64px 16px;[m
+       }[m
+ [m
+[32m+[m[32m      /* Landing logo reduced by 1/3 (mobile too) */[m
+       .landing-logo {[m
+[31m-        width: min(520px, 92vw);[m
+[31m-        max-height: 56vh;[m
+[32m+[m[32m        width: min(510px, 60vw);[m
+[32m+[m[32m        max-height: 41vh;[m
+[32m+[m[32m      }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /* Landscape on phones: prevent right-side overflow */[m
+[32m+[m[32m    @media (orientation: landscape) and (max-height: 720px) {[m
+[32m+[m[32m      .nav {[m
+[32m+[m[32m        padding: 10px 14px;[m
+[32m+[m[32m        display: flex;[m
+[32m+[m[32m        align-items: center;[m
+[32m+[m[32m        justify-content: space-between;[m
+[32m+[m[32m        gap: 10px;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      .nav-right {[m
+[32m+[m[32m        gap: 6px;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      .icon-btn {[m
+[32m+[m[32m        width: 34px;[m
+[32m+[m[32m        height: 34px;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      .lang-btn {[m
+[32m+[m[32m        padding: 4px 8px;[m
+[32m+[m[32m        min-width: 32px;[m
+       }[m
+     }[m
+ [m
+[36m@@ -751,23 +866,30 @@[m
+     <div class="nav">[m
+       <!-- Header logo: FH (top left) -->[m
+       <div class="logo" aria-label="Family Hub Café">[m
+[31m-        <a class="logo-link" href="#hero" aria-label="Ir para a secção do vídeo">[m
+[32m+[m[32m        <a class="logo-link" href="#hero" aria-label="Ir para a secção de vídeo">[m
+           <img class="logo-img" src="assets/assetslogo-landing.svg" alt="Family Hub Café FH logo" />[m
+         </a>[m
+       </div>[m
+ [m
+[31m-      <nav class="nav-links">[m
+[32m+[m[32m      <nav class="nav-links" aria-label="Navegação principal">[m
+         <a href="#about">Sobre</a>[m
+         <a href="#eat">Comer</a>[m
+         <a href="#play">Brincar</a>[m
+[31m-        <a href="#connect">Conviver</a>[m
+[32m+[m[32m        <a href="#connect">Conectar</a>[m
+         <a href="#parties">Festas</a>[m
+         <a href="#faq">FAQ</a>[m
+[31m-        <a href="#contact">Contacto</a>[m
+[32m+[m[32m        <a href="#contact">Contactos</a>[m
+       </nav>[m
+ [m
+       <div class="nav-right">[m
+[31m-        <div class="nav-social" aria-label="Social links">[m
+[32m+[m[32m        <!-- Mobile menu button -->[m
+[32m+[m[32m        <button class="menu-btn" type="button" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">[m
+[32m+[m[32m          <svg viewBox="0 0 24 24" aria-hidden="true">[m
+[32m+[m[32m            <path d="M4 7h16v2H4V7zm0 6h16v2H4v-2zm0 6h16v2H4v-2z"></path>[m
+[32m+[m[32m          </svg>[m
+[32m+[m[32m        </button>[m
+[32m+[m
+[32m+[m[32m        <div class="nav-social" aria-label="Redes sociais">[m
+           <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[36m@@ -781,6 +903,13 @@[m
+                 d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />[m
+             </svg>[m
+           </a>[m
+[32m+[m
+[32m+[m[32m          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">[m
+[32m+[m[32m            <svg viewBox="0 0 24 24" aria-hidden="true">[m
+[32m+[m[32m              <path[m
+[32m+[m[32m                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />[m
+[32m+[m[32m            </svg>[m
+[32m+[m[32m          </a>[m
+         </div>[m
+ [m
+         <div class="lang-switch">[m
+[36m@@ -791,14 +920,22 @@[m
+     </div>[m
+   </header>[m
+ [m
+[32m+[m[32m  <!-- Mobile menu panel -->[m
+[32m+[m[32m  <div class="mobile-menu" id="mobileMenu" aria-label="Navegação mobile">[m
+[32m+[m[32m    <a href="#about">Sobre</a>[m
+[32m+[m[32m    <a href="#eat">Comer</a>[m
+[32m+[m[32m    <a href="#play">Brincar</a>[m
+[32m+[m[32m    <a href="#connect">Conectar</a>[m
+[32m+[m[32m    <a href="#parties">Festas</a>[m
+[32m+[m[32m    <a href="#faq">FAQ</a>[m
+[32m+[m[32m    <a href="#contact">Contactos</a>[m
+[32m+[m[32m  </div>[m
+[32m+[m
+   <main>[m
+     <!-- LANDING -->[m
+     <section class="landing" id="home">[m
+       <div class="landing-inner reveal revealed">[m
+[31m-        <!-- Central logo: Family Hub Cafe (landing) -->[m
+         <img class="landing-logo" src="assets/assetslogo-header.png" alt="Family Hub Café logo" />[m
+[31m-[m
+[31m-        <!-- Only the centered circle button (no text, no green dot) -->[m
+         <div class="scroll-hint">[m
+           <a class="scroll-btn" href="#about" aria-label="Descer para Sobre">[m
+             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">[m
+[36m@@ -814,20 +951,22 @@[m
+     <section class="hero" id="hero">[m
+       <video class="hero-video" autoplay muted loop playsinline>[m
+         <source src="hero-video.mp4" type="video/mp4" />[m
+[31m-        O seu navegador não suporta o elemento de vídeo.[m
+[32m+[m[32m        O seu navegador não suporta vídeo.[m
+       </video>[m
+       <div class="hero-overlay"></div>[m
+ [m
+       <div class="hero-inner hero-center">[m
+[31m-        <h1 class="hero-title reveal delay-1">Comer • Brincar • Conviver</h1>[m
+[32m+[m[32m        <h1 class="hero-title reveal delay-1">Comer • Brincar • Conectar</h1>[m
+ [m
+         <p class="hero-subtitle reveal delay-2">[m
+[31m-          O Family Hub Café é o local perfeito para todos.[m
+[32m+[m[32m          O Family Hub Café é um local perfeito para todos.[m
+           Quer seja uma família com crianças pequenas, um casal,[m
+[31m-          ou esteja a aproveitar um momento a sós, o nosso espaço vibrante e acolhedor[m
+[31m-          foi criado para juntar pessoas. Oferecemos um ambiente divertido[m
+[31m-          e seguro onde as crianças podem brincar, aprender[m
+[31m-          e explorar, e todos podem desfrutar de comida deliciosa e boa companhia.[m
+[32m+[m[32m          ou alguém a aproveitar o tempo a solo, o nosso espaço vibrante e acolhedor[m
+[32m+[m[32m          foi pensado para aproximar pessoas.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p class="section-text">[m
+[32m+[m[32m          Oferecemos um ambiente divertido e seguro onde as crianças podem brincar,[m
+[32m+[m[32m          aprender e explorar, e onde todos podem desfrutar de comida deliciosa e boa companhia.[m
+         </p>[m
+       </div>[m
+     </section>[m
+[36m@@ -838,15 +977,16 @@[m
+         <div class="reveal">[m
+           <h2 class="section-title">Sobre nós</h2>[m
+           <p class="section-text">[m
+[31m-            Somos uma família que deu o grande passo de se mudar para Portugal e sabemos, em primeira mão, como[m
+[31m-            pode ser desafiante integrar-se[m
+[31m-            numa nova comunidade e conhecer pessoas novas. Sentíamos falta da sensação de ter[m
+[31m-            “uma aldeia” à nossa volta, especialmente como pais de primeira viagem.[m
+[31m-            Também compreendemos a dificuldade de tentar comer qualquer coisa com[m
+[31m-            um bebé/criança a acompanhar, as opções limitadas, e o malabarismo constante para manter toda a gente[m
+[31m-            feliz. No Family Hub Café, a nossa visão é criar um espaço onde as crianças[m
+[31m-            possam brincar e explorar, enquanto os adultos relaxam e desfrutam de boa comida e companhia.[m
+[31m-            Um local onde todos possam comer juntos sem stress e se sintam incluídos.[m
+[32m+[m[32m            Somos uma família que decidiu mudar-se para Portugal. Sabemos em primeira mão como pode ser[m
+[32m+[m[32m            desafiante integrar-se numa nova comunidade e conhecer novas pessoas.[m
+[32m+[m[32m            Sentimos falta da sensação de ter “uma aldeia” à nossa volta, especialmente como novos pais.[m
+[32m+[m[32m            Também compreendemos a dificuldade de tentar comer qualquer coisa com uma criança pequena:[m
+[32m+[m[32m            as opções limitadas e o malabarismo constante para manter todos felizes.[m
+[32m+[m[32m          </p>[m
+[32m+[m[32m          <p class="section-text">[m
+[32m+[m[32m            No Family Hub Café, a nossa visão é criar um espaço onde as crianças possam brincar e explorar,[m
+[32m+[m[32m            enquanto os adultos relaxam e desfrutam de boa comida e companhia — um lugar onde todos possam comer juntos,[m
+[32m+[m[32m            sem stress, e sentir-se incluídos.[m
+           </p>[m
+         </div>[m
+ [m
+[36m@@ -864,7 +1004,7 @@[m
+           <div class="media-item">[m
+             <img[m
+               src="https://images.pexels.com/photos/3661400/pexels-photo-3661400.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Área de brincadeira" />[m
+[32m+[m[32m              alt="Área de brincar" />[m
+           </div>[m
+         </div>[m
+       </div>[m
+[36m@@ -882,14 +1022,14 @@[m
+           <div class="media-item">[m
+             <img[m
+               src="https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Café numa mesa" />[m
+[32m+[m[32m              alt="Café na mesa" />[m
+           </div>[m
+         </div>[m
+ [m
+         <div class="reveal">[m
+           <h2 class="section-title">Comer</h2>[m
+           <p class="section-text">[m
+[31m-            O nosso menu inclui uma variedade de opções saudáveis e saborosas, provenientes de fornecedores locais.[m
+[32m+[m[32m            O nosso menu inclui opções saudáveis e saborosas, com ingredientes de fornecedores locais.[m
+             Procuramos usar ingredientes biológicos sempre que possível.[m
+             Temos opções para todos os membros da família.[m
+           </p>[m
+[36m@@ -903,16 +1043,15 @@[m
+         <div class="reveal">[m
+           <h2 class="section-title">Brincar</h2>[m
+           <p class="section-text">[m
+[31m-            A nossa área de brincadeiras foi concebida para estimular a imaginação e a curiosidade, com:[m
+[32m+[m[32m            A nossa área de brincar foi pensada para estimular a imaginação e a curiosidade, com:[m
+           </p>[m
+ [m
+           <ul class="section-text" style="margin-top:10px; padding-left:18px;">[m
+[31m-            <li>Equipamentos de soft play e estruturas de escalada</li>[m
+[31m-            <li>Zonas sensoriais e espaços de imaginação</li>[m
+[31m-            <li>Espaço exterior (dependente das condições meteorológicas)</li>[m
+[32m+[m[32m            <li>Equipamento de soft play e estruturas de escalada</li>[m
+[32m+[m[32m            <li>Áreas sensoriais e estações de imaginação</li>[m
+[32m+[m[32m            <li>Espaço exterior (dependente do tempo)</li>[m
+             <li>Eventos e outras atividades interativas para pais e crianças</li>[m
+[31m-            <li>Pretendemos organizar várias atividades e eventos[m
+[31m-              para pais e crianças ao longo do ano</li>[m
+[32m+[m[32m            <li>Queremos organizar vários eventos e atividades interativas para pais e crianças ao longo do ano</li>[m
+           </ul>[m
+         </div>[m
+ [m
+[36m@@ -920,12 +1059,12 @@[m
+           <div class="media-item">[m
+             <img[m
+               src="https://images.pexels.com/photos/3661452/pexels-photo-3661452.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Crianças a construir com blocos" />[m
+[32m+[m[32m              alt="Crianças a brincar com blocos" />[m
+           </div>[m
+           <div class="media-item">[m
+             <img[m
+               src="https://images.pexels.com/photos/3662875/pexels-photo-3662875.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Canto de brincadeiras" />[m
+[32m+[m[32m              alt="Canto infantil" />[m
+           </div>[m
+           <div class="media-item">[m
+             <img[m
+[36m@@ -943,36 +1082,30 @@[m
+           <div class="media-item">[m
+             <img[m
+               src="https://images.pexels.com/photos/8732927/pexels-photo-8732927.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Casal a conversar numa mesa de café" />[m
+[32m+[m[32m              alt="Casal a conversar num café" />[m
+           </div>[m
+           <div class="media-item">[m
+             <img[m
+               src="https://images.pexels.com/photos/5722871/pexels-photo-5722871.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Pessoas com chávenas de café num café" />[m
+[32m+[m[32m              alt="Pessoas com chávenas de café" />[m
+           </div>[m
+         </div>[m
+ [m
+         <div class="reveal">[m
+[31m-          <h2 class="section-title">Conviver</h2>[m
+[32m+[m[32m          <h2 class="section-title">Conectar</h2>[m
+[32m+[m
+           <p class="section-text">[m
+[31m-            Sabemos que a parentalidade pode ser isolante,[m
+[31m-            por isso criámos um espaço onde pode conhecer outros pais,[m
+[31m-            partilhar experiências e fazer novas amizades. As nossas áreas de estar confortáveis[m
+[31m-            e os espaços exteriores são perfeitos para conversar enquanto come ou bebe algo,[m
+[31m-            mantendo sempre os mais pequenos sob vigilância.[m
+[31m-[m
+[31m-            No Family Hub Café, estamos a criar uma comunidade de apoio para futuros pais.[m
+[31m-            Junte-se a nós num espaço seguro para conviver com outras pessoas. Pretendemos organizar várias atividades[m
+[31m-            e eventos destinados a futuros pais ao longo do ano.[m
+[32m+[m[32m            Sabemos que a parentalidade pode ser isolante, por isso criámos um espaço onde pode conhecer outros pais,[m
+[32m+[m[32m            partilhar experiências e fazer novas amizades. As nossas áreas de estar e espaços exteriores são perfeitos[m
+[32m+[m[32m            para conversar com comida e bebida, enquanto mantém um olhar atento nos mais pequenos.[m
+           </p>[m
+ [m
+[31m-          <h3 class="subheading">Uma comunidade de apoio para futuros pais</h3>[m
+[32m+[m[32m          <p class="section-text">[m
+[32m+[m[32m            No Family Hub Café, estamos a criar uma comunidade de apoio para pais em espera. Junte-se a nós para um espaço[m
+[32m+[m[32m            seguro onde pode conectar-se com outras pessoas. Queremos organizar várias atividades e eventos para grávidas[m
+[32m+[m[32m            e futuros pais ao longo do ano.[m
+[32m+[m[32m          </p>[m
+ [m
+[31m-          <ul class="section-text" style="margin-top:8px; padding-left:18px;">[m
+[31m-            <li>Um espaço seguro para conviver com outros futuros pais</li>[m
+[31m-            <li>Yoga pré-natal e workshops de parentalidade</li>[m
+[31m-            <li>Eventos e atividades baby-friendly para se preparar para a parentalidade</li>[m
+[31m-          </ul>[m
+         </div>[m
+       </div>[m
+     </section>[m
+[36m@@ -981,35 +1114,40 @@[m
+     <section id="parties">[m
+       <div class="container">[m
+         <h2 class="section-title">Festas</h2>[m
+[32m+[m
+         <p class="section-text reveal">[m
+[31m-          O local perfeito para festas de aniversário e ocasiões especiais. Contacte-nos para verificar disponibilidade[m
+[31m-          e custos.[m
+[32m+[m[32m          Um local perfeito para festas de aniversário e ocasiões especiais. Contacte-nos para disponibilidade e preços.[m
+[32m+[m[32m        </p>[m
+[32m+[m
+[32m+[m[32m        <!--<h3 class="subheading reveal delay-1">Horários</h3>-->[m
+[32m+[m
+[32m+[m[32m        <p class="section-text reveal delay-1" style="margin-top:8px;">[m
+[32m+[m[32m          <strong>Basta</strong> escolher um horário:[m
+         </p>[m
+ [m
+[31m-        <h3 class="subheading reveal delay-1">Sessões de festa</h3>[m
+         <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">[m
+[31m-          <li>4:30PM – 6:30PM de segunda a sexta-feira (entre julho e setembro aplicam-se horários de fim de semana).</li>[m
+[31m-          <li>5:30PM – 7:30PM ao sábado e domingo</li>[m
+[32m+[m[32m          <li>16:30 – 18:30 (segunda–sexta) <span style="opacity:0.8;">(horários de fim de semana aplicam-se entre[m
+[32m+[m[32m              julho–setembro)</span></li>[m
+[32m+[m[32m          <li>17:30 – 19:30 (sábado e domingo)</li>[m
+         </ul>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m    </section>[m
+ [m
+[31m-        <div class="media-grid reveal delay-1" style="margin-top:32px;">[m
+[31m-          <div class="media-item">[m
+[31m-            <img[m
+[31m-              src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Família a celebrar uma festa de aniversário infantil" />[m
+[31m-          </div>[m
+[31m-          <div class="media-item">[m
+[31m-            <img[m
+[31m-              src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Celebração festiva" />[m
+[31m-          </div>[m
+[31m-          <div class="media-item">[m
+[31m-            <img[m
+[31m-              src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Donuts de festa num prato" />[m
+[31m-          </div>[m
+[31m-        </div>[m
+[32m+[m[32m    <div class="media-grid reveal delay-1" style="margin-top:32px;">[m
+[32m+[m[32m      <div class="media-item">[m
+[32m+[m[32m        <img src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[32m+[m[32m          alt="Família a celebrar um aniversário" />[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <div class="media-item">[m
+[32m+[m[32m        <img src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[32m+[m[32m          alt="Celebração festiva" />[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <div class="media-item">[m
+[32m+[m[32m        <img src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[32m+[m[32m          alt="Donuts de festa" />[m
+       </div>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m    </div>[m
+     </section>[m
+ [m
+     <!-- FAQ -->[m
+[36m@@ -1019,28 +1157,28 @@[m
+ [m
+         <div class="faq-list">[m
+           <div class="faq-item reveal delay-2">[m
+[31m-            <div class="faq-q">Custo de utilização da área de brincadeiras</div>[m
+[31m-            <div class="faq-a">A área de brincadeiras custa 5€ (irmãos não pagam).</div>[m
+[32m+[m[32m            <div class="faq-q">Custo de utilização da área de brincar</div>[m
+[32m+[m[32m            <div class="faq-a">Custa 5€ por criança (irmãos não pagam)</div>[m
+           </div>[m
+ [m
+           <div class="faq-item reveal delay-1">[m
+[31m-            <div class="faq-q">Têm aluguer exclusivo (private hire)?</div>[m
+[31m-            <div class="faq-a">Sim, oferecemos aluguer exclusivo. Contacte-nos para pacotes de festa e disponibilidade.</div>[m
+[32m+[m[32m            <div class="faq-q">Fazem aluguer privado?</div>[m
+[32m+[m[32m            <div class="faq-a">Sim. Contacte-nos para pacotes de festa e disponibilidade.</div>[m
+           </div>[m
+ [m
+           <div class="faq-item reveal delay-1">[m
+[31m-            <div class="faq-q">É acessível para carrinhos de bebé?</div>[m
+[31m-            <div class="faq-a">Sim, existe um percurso acessível para carrinhos à direita do complexo do edifício.</div>[m
+[32m+[m[32m            <div class="faq-q">É acessível a carrinhos de bebé?</div>[m
+[32m+[m[32m            <div class="faq-a">Sim, existe um percurso acessível à direita do complexo do edifício.</div>[m
+           </div>[m
+ [m
+           <div class="faq-item reveal delay-2">[m
+[31m-            <div class="faq-q">Há estacionamento nas proximidades?</div>[m
+[31m-            <div class="faq-a">Sim, existem opções de estacionamento a poucos minutos a pé, incluindo estacionamento gratuito na rua e estacionamento com parquímetro.</div>[m
+[32m+[m[32m            <div class="faq-q">Há estacionamento por perto?</div>[m
+[32m+[m[32m            <div class="faq-a">Sim, existem opções a poucos minutos, incluindo estacionamento gratuito na rua e parquímetro.</div>[m
+           </div>[m
+ [m
+           <div class="faq-item reveal delay-3">[m
+             <div class="faq-q">Quando é a próxima aula?</div>[m
+[31m-            <div class="faq-a">Acompanhe as aulas e eventos no nosso Instagram e Facebook.</div>[m
+[32m+[m[32m            <div class="faq-a">Acompanhe aulas e eventos no nosso Instagram e Facebook.</div>[m
+           </div>[m
+         </div>[m
+       </div>[m
+[36m@@ -1051,8 +1189,7 @@[m
+       <div class="container">[m
+         <h2 class="section-title">Junte-se à nossa comunidade</h2>[m
+         <p class="section-text reveal">[m
+[31m-          Mal podemos esperar para conhecer você e os seus pequeninos. Visite-nos e sinta a energia e a comunidade do[m
+[31m-          Family Hub Café.[m
+[32m+[m[32m          Mal podemos esperar para conhecer você e os seus pequenos. Visite-nos e sinta a energia e a comunidade no Family Hub Café.[m
+         </p>[m
+       </div>[m
+     </section>[m
+[36m@@ -1064,14 +1201,26 @@[m
+           <div class="reveal">[m
+             <h2 class="section-title">Contactos</h2>[m
+             <div class="contact-info">[m
+[31m-              <p><strong>Morada:</strong> Potato Beach Apartment, Lagos, Distrito de Faro</p>[m
+[31m-[m
+[31m-              <p><strong>Horário de funcionamento:</strong><br>[m
+[31m-                Segunda a sexta-feira: 9:00AM – 4:00PM (5:00PM entre julho e setembro)<br>[m
+[31m-                Sábado e domingo: 9:00AM – 5:00PM[m
+[32m+[m[32m              <p class="section-text">[m
+[32m+[m[32m                <strong>Morada:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos[m
+[32m+[m[32m                Descobrimentos,[m
+[32m+[m[32m                8600-645, Lagos, Portugal[m
+               </p>[m
+ [m
+[31m-              <p><strong>Email:</strong> <a href="mailto:info@familyhubcafe.com">info@familyhubcafe.com</a></p>[m
+[32m+[m[32m              <p><strong>Horário:</strong></p>[m
+[32m+[m[32m              <div class="hours" aria-label="Horário de funcionamento">[m
+[32m+[m[32m                <div class="hours-row"><span class="hours-day">Segunda</span><span class="hours-time">9h – 16h</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span class="hours-day">Terça</span><span class="hours-time">9h – 16h</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span class="hours-day">Quarta</span><span class="hours-time">9h – 16h</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span class="hours-day">Quinta</span><span class="hours-time">9h – 16h</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span class="hours-day">Sexta</span><span class="hours-time">9h – 16h</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span class="hours-day">Sábado</span><span class="hours-time">9h – 17h</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span class="hours-day">Domingo</span><span class="hours-time">9h – 17h</span></div>[m
+[32m+[m
+[32m+[m[32m                <div class="hours-note">O horário de fim de semana aplica-se entre junho e setembro</div>[m
+[32m+[m[32m              </div>[m
+[32m+[m
+[32m+[m[32m              <!-- Client: remove email line -->[m
+               <p><strong>Telefone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank"[m
+                   rel="noopener">+00 0000 0000</a></p>[m
+             </div>[m
+[36m@@ -1079,7 +1228,7 @@[m
+ [m
+           <div class="map-wrapper reveal delay-1">[m
+             <iframe src="https://www.google.com/maps?q=37.098125,-8.6689545&z=18&output=embed" loading="lazy"[m
+[31m-              referrerpolicy="no-referrer-when-downgrade" title="Mapa do Potato Beach Apartment"></iframe>[m
+[32m+[m[32m              referrerpolicy="no-referrer-when-downgrade" title="Mapa do Family Hub Café"></iframe>[m
+           </div>[m
+         </div>[m
+       </div>[m
+[36m@@ -1094,16 +1243,10 @@[m
+       <div>[m
+         <div class="footer-title">Fique a par</div>[m
+         <p class="section-text" style="max-width:none;">[m
+[31m-          Acompanhe as nossas redes sociais para saber a data de abertura, atualizações de horários,[m
+[31m-          aulas e eventos. Inscreva-se para receber novidades sobre a nossa abertura, aulas, eventos e notícias da comunidade.[m
+[32m+[m[32m          Acompanhe as nossas redes sociais para horários, aulas e eventos.[m
+         </p>[m
+ [m
+[31m-        <div class="footer-input-row">[m
+[31m-          <input type="email" placeholder="O seu endereço de email" />[m
+[31m-          <button class="btn btn-primary" style="padding:8px 18px; font-size: var(--fs-nav);">Juntar</button>[m
+[31m-        </div>[m
+[31m-[m
+[31m-        <div class="footer-social-icons" aria-label="Social links">[m
+[32m+[m[32m        <div class="footer-social-icons" aria-label="Redes sociais">[m
+           <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[36m@@ -1117,16 +1260,24 @@[m
+                 d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />[m
+             </svg>[m
+           </a>[m
+[32m+[m
+[32m+[m[32m          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">[m
+[32m+[m[32m            <svg viewBox="0 0 24 24" aria-hidden="true">[m
+[32m+[m[32m              <path[m
+[32m+[m[32m                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />[m
+[32m+[m[32m            </svg>[m
+[32m+[m[32m          </a>[m
+         </div>[m
+       </div>[m
+     </div>[m
+ [m
+     <div class="footer-bottom">[m
+[31m-      © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. Todos os direitos reservados.[m
+[32m+[m[32m      © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. Todos os direitos reservados[m
+     </div>[m
+   </footer>[m
+ [m
+   <script>[m
+[32m+[m[32m    // Reveal on scroll[m
+     const reveals = document.querySelectorAll(".reveal");[m
+ [m
+     const observer = new IntersectionObserver([m
+[36m@@ -1144,6 +1295,30 @@[m
+     reveals.forEach((el) => observer.observe(el));[m
+ [m
+     document.getElementById("year").textContent = new Date().getFullYear();[m
+[32m+[m
+[32m+[m[32m    // Mobile menu toggle[m
+[32m+[m[32m    const menuBtn = document.querySelector(".menu-btn");[m
+[32m+[m[32m    const mobileMenu = document.getElementById("mobileMenu");[m
+[32m+[m
+[32m+[m[32m    function closeMobileMenu() {[m
+[32m+[m[32m      mobileMenu.classList.remove("open");[m
+[32m+[m[32m      menuBtn.setAttribute("aria-expanded", "false");[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    menuBtn.addEventListener("click", () => {[m
+[32m+[m[32m      const isOpen = mobileMenu.classList.toggle("open");[m
+[32m+[m[32m      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    // Close menu when clicking a link[m
+[32m+[m[32m    mobileMenu.querySelectorAll("a").forEach((a) => {[m
+[32m+[m[32m      a.addEventListener("click", closeMobileMenu);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    // Close menu on resize to desktop[m
+[32m+[m[32m    window.addEventListener("resize", () => {[m
+[32m+[m[32m      if (window.innerWidth > 768) closeMobileMenu();[m
+[32m+[m[32m    });[m
+   </script>[m
+ </body>[m
+ [m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 1ba16c4..8b1a01a 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -10,7 +10,7 @@[m
+ [m
+   <!-- Google Fonts -->[m
+   <link[m
+[31m-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"[m
+[32m+[m[32m    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"[m
+     rel="stylesheet" />[m
+ [m
+   <style>[m
+[36m@@ -79,7 +79,7 @@[m
+       margin-bottom: 6px;[m
+     }[m
+ [m
+[31m-    /* CLIENT: remove the white pill background */[m
+[32m+[m[32m    /* CLIENT REQUEST: remove the white "pill" around headings */[m
+     .section-title {[m
+       font-family: var(--ff-display);[m
+       font-weight: 600;[m
+[36m@@ -94,20 +94,22 @@[m
+       line-height: 1.1;[m
+     }[m
+ [m
+[31m-    /* Client: easier to read – add spacing after paragraphs/blocks */[m
+[32m+[m[32m    /* CLIENT REQUEST: add paragraph spacing to make it easier to read */[m
+[32m+[m[32m    p.section-text {[m
+[32m+[m[32m      margin-bottom: 14px;[m
+[32m+[m[32m    }[m
+[32m+[m
+     .section-text {[m
+       font-size: var(--fs-body);[m
+       max-width: 700px;[m
+[31m-      margin-bottom: 14px;[m
+     }[m
+ [m
+[31m-    /* Client note: use same font as text below, just bold */[m
+     .subheading {[m
+       margin-top: 18px;[m
+[31m-      font-family: var(--ff-body);[m
+[31m-      font-size: 15px;[m
+[31m-      font-weight: 700;[m
+[31m-      color: rgba(18, 18, 18, 0.92);[m
+[32m+[m[32m      font-family: var(--ff-display);[m
+[32m+[m[32m      font-size: 18px;[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.9);[m
+[32m+[m[32m      font-weight: 700; /* bold as requested for headings like the sample */[m
+     }[m
+ [m
+     .grid-2 {[m
+[36m@@ -117,6 +119,22 @@[m
+       align-items: start;[m
+     }[m
+ [m
+[32m+[m[32m    .badge-row {[m
+[32m+[m[32m      display: flex;[m
+[32m+[m[32m      flex-wrap: wrap;[m
+[32m+[m[32m      gap: 8px;[m
+[32m+[m[32m      margin-top: 12px;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .badge {[m
+[32m+[m[32m      font-size: 11px;[m
+[32m+[m[32m      padding: 4px 10px;[m
+[32m+[m[32m      border-radius: 999px;[m
+[32m+[m[32m      background: rgba(255, 255, 255, 0.7);[m
+[32m+[m[32m      color: rgba(111, 53, 38, 0.85);[m
+[32m+[m[32m      border: 1px solid rgba(111, 53, 38, 0.12);[m
+[32m+[m[32m    }[m
+[32m+[m
+     .btn {[m
+       border-radius: 999px;[m
+       padding: 10px 20px;[m
+[36m@@ -182,7 +200,6 @@[m
+       justify-self: start;[m
+       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);[m
+       transition: transform 0.2s ease;[m
+[31m-      flex: 0 0 auto;[m
+     }[m
+ [m
+     .logo:hover {[m
+[36m@@ -253,7 +270,7 @@[m
+       align-items: center;[m
+       gap: 10px;[m
+       justify-self: end;[m
+[31m-      flex: 0 0 auto;[m
+[32m+[m[32m      flex-wrap: nowrap;[m
+       min-width: 0;[m
+     }[m
+ [m
+[36m@@ -261,7 +278,6 @@[m
+       display: inline-flex;[m
+       align-items: center;[m
+       gap: 8px;[m
+[31m-      flex: 0 0 auto;[m
+     }[m
+ [m
+     .icon-btn {[m
+[36m@@ -331,7 +347,7 @@[m
+       color: var(--white);[m
+     }[m
+ [m
+[31m-    /* ---------- MOBILE MENU (client: mobile friendly to see menu options) ---------- */[m
+[32m+[m[32m    /* ---------- MOBILE MENU (CLIENT REQUEST: mobile-friendly so menu options are visible) ---------- */[m
+     .menu-btn {[m
+       display: none;[m
+       width: 38px;[m
+[36m@@ -344,7 +360,6 @@[m
+       justify-content: center;[m
+       transition: transform 0.2s ease, background 0.2s ease;[m
+       color: rgba(18, 18, 18, 0.88);[m
+[31m-      flex: 0 0 auto;[m
+     }[m
+ [m
+     .menu-btn:hover {[m
+[36m@@ -360,16 +375,16 @@[m
+     }[m
+ [m
+     .mobile-menu {[m
+[31m-      display: none;[m
+       position: fixed;[m
+       top: var(--header-h);[m
+       left: 0;[m
+       right: 0;[m
+[31m-      background: rgba(248, 221, 217, 0.98);[m
+[32m+[m[32m      background: rgba(248, 221, 217, 0.96);[m
+       backdrop-filter: blur(18px);[m
+[31m-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);[m
+[32m+[m[32m      border-bottom: 1px solid rgba(0, 0, 0, 0.04);[m
+[32m+[m[32m      padding: 12px 16px 18px;[m
+[32m+[m[32m      display: none;[m
+       z-index: 999;[m
+[31m-      padding: 14px 16px 18px;[m
+     }[m
+ [m
+     .mobile-menu.open {[m
+[36m@@ -384,11 +399,10 @@[m
+       letter-spacing: 0.14em;[m
+       text-transform: uppercase;[m
+       font-size: var(--fs-nav);[m
+[31m-      border-radius: 12px;[m
+     }[m
+ [m
+[31m-    .mobile-menu a:hover {[m
+[31m-      background: rgba(255, 255, 255, 0.55);[m
+[32m+[m[32m    .mobile-menu a + a {[m
+[32m+[m[32m      border-top: 1px solid rgba(0, 0, 0, 0.04);[m
+     }[m
+ [m
+     /* ---------- LANDING (FULLSCREEN LOGO) ---------- */[m
+[36m@@ -584,34 +598,27 @@[m
+       font-size: var(--fs-body);[m
+     }[m
+ [m
+[31m-    .contact-info p+p {[m
+[31m-      margin-top: 6px;[m
+[32m+[m[32m    .contact-info p + p {[m
+[32m+[m[32m      margin-top: 10px;[m
+     }[m
+ [m
+[31m-    /* Client: opening hours listed like picture (no lines) */[m
+[31m-    .hours {[m
+[31m-      margin-top: 8px;[m
+[31m-      display: grid;[m
+[31m-      gap: 6px;[m
+[31m-      max-width: 420px;[m
+[32m+[m[32m    /* CLIENT REQUEST: Opening hours as a clean list (no lines) */[m
+[32m+[m[32m    .hours-wrap {[m
+[32m+[m[32m      margin-top: 6px;[m
+[32m+[m[32m      max-width: 460px;[m
+     }[m
+ [m
+     .hours-row {[m
+       display: flex;[m
+       justify-content: space-between;[m
+[31m-      gap: 14px;[m
+[32m+[m[32m      gap: 18px;[m
+[32m+[m[32m      padding: 6px 0;[m
+       font-size: var(--fs-small);[m
+[32m+[m[32m      color: rgba(18, 18, 18, 0.84);[m
+     }[m
+ [m
+[31m-    .hours-day {[m
+[32m+[m[32m    .hours-row span:first-child {[m
+       font-weight: 500;[m
+[31m-      color: rgba(18, 18, 18, 0.86);[m
+[31m-      white-space: nowrap;[m
+[31m-    }[m
+[31m-[m
+[31m-    .hours-time {[m
+[31m-      color: rgba(18, 18, 18, 0.74);[m
+[31m-      white-space: nowrap;[m
+     }[m
+ [m
+     .hours-note {[m
+[36m@@ -740,66 +747,47 @@[m
+       }[m
+     }[m
+ [m
+[31m-    /* Mobile: show menu + keep header items inside screen */[m
+     @media (max-width: 768px) {[m
+       .nav {[m
+         padding: 10px 16px;[m
+[31m-        display: flex;[m
+[31m-        align-items: center;[m
+[31m-        justify-content: space-between;[m
+[31m-        gap: 10px;[m
+[31m-      }[m
+[31m-[m
+[31m-      .nav-links {[m
+[31m-        display: none;[m
+       }[m
+ [m
+[32m+[m[32m      /* show mobile menu button */[m
+       .menu-btn {[m
+         display: inline-flex;[m
+       }[m
+ [m
+[31m-      .nav-right {[m
+[31m-        gap: 8px;[m
+[32m+[m[32m      /* hide desktop links */[m
+[32m+[m[32m      .nav-links {[m
+[32m+[m[32m        display: none;[m
+       }[m
+ [m
+[31m-      .icon-btn {[m
+[31m-        width: 36px;[m
+[31m-        height: 36px;[m
+[32m+[m[32m      .logo-img {[m
+[32m+[m[32m        height: 54px;[m
+       }[m
+ [m
+       section {[m
+         padding: 64px 16px;[m
+       }[m
+ [m
+[31m-      /* Keep landing logo as-is (client did not request change now) */[m
+       .landing-logo {[m
+[31m-        width: min(760px, 90vw);[m
+[31m-        max-height: 62vh;[m
+[31m-      }[m
+[31m-    }[m
+[31m-[m
+[31m-    /* Landscape on phones: prevent right-side overflow */[m
+[31m-    @media (orientation: landscape) and (max-height: 720px) {[m
+[31m-      .nav {[m
+[31m-        padding: 10px 14px;[m
+[31m-        display: flex;[m
+[31m-        align-items: center;[m
+[31m-        justify-content: space-between;[m
+[31m-        gap: 10px;[m
+[31m-      }[m
+[31m-[m
+[31m-      .nav-right {[m
+[31m-        gap: 6px;[m
+[32m+[m[32m        width: min(520px, 92vw);[m
+[32m+[m[32m        max-height: 56vh;[m
+       }[m
+ [m
+[32m+[m[32m      /* prevent icons from going off-screen */[m
+       .icon-btn {[m
+         width: 34px;[m
+         height: 34px;[m
+       }[m
+ [m
+       .lang-btn {[m
+[32m+[m[32m        min-width: 30px;[m
+         padding: 4px 8px;[m
+[31m-        min-width: 32px;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      .nav-right {[m
+[32m+[m[32m        gap: 8px;[m
+       }[m
+     }[m
+ [m
+[36m@@ -811,40 +799,38 @@[m
+ [m
+     /* MOBILE: headings above images for Eat & Connect (portrait) */[m
+     @media (max-width: 768px) {[m
+[31m-[m
+       #eat .grid-2,[m
+       #connect .grid-2 {[m
+         display: flex;[m
+         flex-direction: column;[m
+       }[m
+ [m
+[31m-      #eat .grid-2>.reveal,[m
+[31m-      #connect .grid-2>.reveal {[m
+[32m+[m[32m      #eat .grid-2 > .reveal,[m
+[32m+[m[32m      #connect .grid-2 > .reveal {[m
+         order: 1;[m
+       }[m
+ [m
+[31m-      #eat .grid-2>.media-grid,[m
+[31m-      #connect .grid-2>.media-grid {[m
+[32m+[m[32m      #eat .grid-2 > .media-grid,[m
+[32m+[m[32m      #connect .grid-2 > .media-grid {[m
+         order: 2;[m
+       }[m
+     }[m
+ [m
+     /* MOBILE: headings above images for Eat & Connect (landscape) */[m
+     @media (orientation: landscape) and (max-height: 720px) {[m
+[31m-[m
+       #eat .grid-2,[m
+       #connect .grid-2 {[m
+         display: flex;[m
+         flex-direction: column;[m
+       }[m
+ [m
+[31m-      #eat .grid-2>.reveal,[m
+[31m-      #connect .grid-2>.reveal {[m
+[32m+[m[32m      #eat .grid-2 > .reveal,[m
+[32m+[m[32m      #connect .grid-2 > .reveal {[m
+         order: 1;[m
+       }[m
+ [m
+[31m-      #eat .grid-2>.media-grid,[m
+[31m-      #connect .grid-2>.media-grid {[m
+[32m+[m[32m      #eat .grid-2 > .media-grid,[m
+[32m+[m[32m      #connect .grid-2 > .media-grid {[m
+         order: 2;[m
+       }[m
+     }[m
+[36m@@ -862,7 +848,7 @@[m
+         </a>[m
+       </div>[m
+ [m
+[31m-      <nav class="nav-links" aria-label="Primary navigation">[m
+[32m+[m[32m      <nav class="nav-links" aria-label="Main navigation">[m
+         <a href="#about">About</a>[m
+         <a href="#eat">Eat</a>[m
+         <a href="#play">Play</a>[m
+[36m@@ -873,38 +859,38 @@[m
+       </nav>[m
+ [m
+       <div class="nav-right">[m
+[31m-        <!-- Mobile menu button (client: mobile-friendly menu) -->[m
+[31m-        <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">[m
+[32m+[m[32m        <!-- Mobile menu toggle (visible on mobile only) -->[m
+[32m+[m[32m        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">[m
+           <svg viewBox="0 0 24 24" aria-hidden="true">[m
+[31m-            <path d="M4 7h16v2H4V7zm0 6h16v2H4v-2zm0 6h16v2H4v-2z"></path>[m
+[32m+[m[32m            <path d="M4 7h16v2H4V7zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />[m
+           </svg>[m
+         </button>[m
+ [m
+         <div class="nav-social" aria-label="Social links">[m
+[31m-          <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">[m
+[32m+[m[32m          <!-- WhatsApp (CLIENT REQUEST: add WhatsApp icon next to Instagram/Facebook) -->[m
+[32m+[m[32m          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[31m-                d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />[m
+[32m+[m[32m                d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.53 0 .25 5.28.25 11.8c0 2.08.55 4.11 1.59 5.9L0 24l6.45-1.69a11.77 11.77 0 0 0 5.61 1.43h.01c6.52 0 11.8-5.28 11.8-11.8 0-3.15-1.23-6.11-3.35-8.46zM12.07 21.55h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.83 1 1.03-3.73-.24-.39a9.79 9.79 0 0 1-1.5-5.14c0-5.4 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.87a9.75 9.75 0 0 1 2.86 6.93c0 5.41-4.4 9.84-9.69 9.84zm5.66-7.35c-.31-.16-1.82-.9-2.1-1-.28-.1-.49-.16-.7.16-.2.31-.8 1-.98 1.2-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.54-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.13-.64.14-.14.31-.36.47-.54.16-.18.2-.31.31-.52.1-.2.05-.39-.03-.54-.08-.16-.7-1.68-.96-2.3-.25-.6-.5-.52-.7-.53h-.6c-.2 0-.54.08-.82.39-.28.31-1.08 1.06-1.08 2.58s1.1 2.99 1.26 3.2c.16.2 2.16 3.3 5.24 4.63.73.32 1.3.51 1.75.66.74.23 1.42.2 1.95.12.6-.09 1.82-.74 2.08-1.45.26-.7.26-1.31.18-1.45-.08-.13-.28-.21-.59-.36z" />[m
+             </svg>[m
+           </a>[m
+ [m
+[31m-          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">[m
+[32m+[m[32m          <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[31m-                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />[m
+[32m+[m[32m                d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />[m
+             </svg>[m
+           </a>[m
+ [m
+[31m-          <!-- Client: add WhatsApp icon (same style as other icons) -->[m
+[31m-          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">[m
+[32m+[m[32m          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[31m-                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />[m
+[32m+[m[32m                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />[m
+             </svg>[m
+           </a>[m
+         </div>[m
+ [m
+[31m-        <div class="lang-switch">[m
+[32m+[m[32m        <div class="lang-switch" aria-label="Language switch">[m
+           <a href="index.html" class="lang-btn active">EN</a>[m
+           <a href="index-pt.html" class="lang-btn">PT</a>[m
+         </div>[m
+[36m@@ -928,6 +914,7 @@[m
+     <section class="landing" id="home">[m
+       <div class="landing-inner reveal revealed">[m
+         <img class="landing-logo" src="assets/assetslogo-header.png" alt="Family Hub Café logo" />[m
+[32m+[m
+         <div class="scroll-hint">[m
+           <a class="scroll-btn" href="#about" aria-label="Scroll to about">[m
+             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">[m
+[36m@@ -954,12 +941,9 @@[m
+           Family Hub Café is a perfect spot for everyone.[m
+           Whether you are a family with little ones, a couple,[m
+           or enjoying time solo, our vibrant and welcoming space[m
+[31m-          is designed to bring people together.[m
+[31m-        </p>[m
+[31m-        <p class="section-text">[m
+[31m-[m
+[31m-          We provide a fun and safe environment where children can play,[m
+[31m-          learn & explore, and everyone can enjoy delicious food and company.[m
+[32m+[m[32m          is designed to bring people together. We provide a fun[m
+[32m+[m[32m          and safe environment where children can play, learn[m
+[32m+[m[32m          &amp; explore, and everyone can enjoy delicious food and company.[m
+         </p>[m
+       </div>[m
+     </section>[m
+[36m@@ -970,16 +954,17 @@[m
+         <div class="reveal">[m
+           <h2 class="section-title">About us</h2>[m
+           <p class="section-text">[m
+[31m-            We are a family who made the leap to move to Portugal. We know firsthand how[m
+[31m-            challenging it can be to integrate into a new community and meet new people.[m
+[31m-            We missed the feeling of having “a village” around you, especially as new parents.[m
+[31m-            We also understand the struggle of trying to grab a bite to eat with a little one in tow:[m
+[31m-            the limited options and the constant juggle to keep everyone happy.[m
+[32m+[m[32m            We are a family who made the leap to move to Portugal. We know firsthand how challenging it can be to[m
+[32m+[m[32m            integrate into a new community and meet new people.[m
+[32m+[m[32m          </p>[m
+[32m+[m[32m          <p class="section-text">[m
+[32m+[m[32m            We missed the feeling of having “a village” around you, especially as new parents. We also understand the[m
+[32m+[m[32m            struggle of trying to grab a bite to eat with a little one in tow — the limited options, the constant juggle[m
+[32m+[m[32m            to keep everyone happy.[m
+           </p>[m
+           <p class="section-text">[m
+[31m-            At Family Hub Café, our vision is to create a space where children can play and explore,[m
+[31m-            while adults unwind and enjoy good food and company — a spot where everyone can dine together[m
+[31m-            stress-free and feel included.[m
+[32m+[m[32m            At Family Hub Café, our vision is to create a space where children can play and explore, while adults unwind[m
+[32m+[m[32m            and enjoy good food and company — a spot where everyone can dine together stress-free and feel included.[m
+           </p>[m
+         </div>[m
+ [m
+[36m@@ -1022,9 +1007,8 @@[m
+         <div class="reveal">[m
+           <h2 class="section-title">Eat</h2>[m
+           <p class="section-text">[m
+[31m-            Our menu features a range of healthy and tasty options sourced from local suppliers.[m
+[31m-            We strive to use organic ingredients where possible.[m
+[31m-            We have options for all members of the family.[m
+[32m+[m[32m            Our menu features a range of healthy and tasty options sourced from local suppliers. We strive to use[m
+[32m+[m[32m            organic ingredients where possible. We have options for all members of the family.[m
+           </p>[m
+         </div>[m
+       </div>[m
+[36m@@ -1044,8 +1028,7 @@[m
+             <li>Sensory play areas and imagination stations</li>[m
+             <li>Outdoor play space (weather permitting)</li>[m
+             <li>Events and other interactive activities for parents and children</li>[m
+[31m-            <li>We aim to host various events and interactive activities for parents and children throughout the year[m
+[31m-            </li>[m
+[32m+[m[32m            <li>We aim to host various events and interactive activities for parents and children throughout the year</li>[m
+           </ul>[m
+         </div>[m
+ [m
+[36m@@ -1058,7 +1041,7 @@[m
+           <div class="media-item">[m
+             <img[m
+               src="https://images.pexels.com/photos/3662875/pexels-photo-3662875.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-              alt="Kids play corner" />[m
+[32m+[m[32m              alt="Children play corner" />[m
+           </div>[m
+           <div class="media-item">[m
+             <img[m
+[36m@@ -1089,16 +1072,28 @@[m
+           <h2 class="section-title">Connect</h2>[m
+ [m
+           <p class="section-text">[m
+[31m-            We understand that parenting can be isolating, which is why we’ve created a space where you can meet fellow[m
+[31m-            parents, share experiences, and make new friends. Our comfortable seating areas and outdoor spaces are[m
+[31m-            perfect for catching up over food and a drink while keeping a watchful eye on your little ones.[m
+[32m+[m[32m            We understand that parenting can be isolating, which is why we've created a space where you can meet fellow[m
+[32m+[m[32m            parents, share experiences, and make new friends.[m
+           </p>[m
+ [m
+           <p class="section-text">[m
+[31m-            At Family Hub Café, we’re creating a supportive community for expecting parents. Join us for a safe space to[m
+[31m-            connect with others. We aim to host various activities and events for expecting parents throughout the year.[m
+[32m+[m[32m            Our comfortable seating areas and outdoor spaces are perfect for catching up over food and a drink, while[m
+[32m+[m[32m            keeping a watchful eye on your little ones.[m
+           </p>[m
+ [m
+[32m+[m[32m          <p class="section-text">[m
+[32m+[m[32m            At Family Hub Café, we're creating a supportive community for expecting parents. Join us for a safe space to[m
+[32m+[m[32m            connect with others. We aim to host various activities and events aimed at expecting parents throughout the[m
+[32m+[m[32m            year.[m
+[32m+[m[32m          </p>[m
+[32m+[m
+[32m+[m[32m          <h3 class="subheading">A supportive community for expecting parents</h3>[m
+[32m+[m
+[32m+[m[32m          <ul class="section-text" style="margin-top:8px; padding-left:18px;">[m
+[32m+[m[32m            <li>A safe space to connect with other expecting parents</li>[m
+[32m+[m[32m            <li>Prenatal yoga and parenting workshops</li>[m
+[32m+[m[32m            <li>Baby-friendly events and activities to prepare for parenthood</li>[m
+[32m+[m[32m          </ul>[m
+         </div>[m
+       </div>[m
+     </section>[m
+[36m@@ -1107,41 +1102,34 @@[m
+     <section id="parties">[m
+       <div class="container">[m
+         <h2 class="section-title">Parties</h2>[m
+[31m-[m
+         <p class="section-text reveal">[m
+           A perfect spot for birthday parties and special occasions. Contact us for availability and cost.[m
+         </p>[m
+ [m
+[31m-        <!--<h3 class="subheading reveal delay-1">Party Times</h3>-->[m
+[31m-[m
+[31m-        <p class="section-text reveal delay-1" style="margin-top:8px;">[m
+[31m-          <strong>Just</strong> pick a time:[m
+[31m-        </p>[m
+[31m-[m
+[32m+[m[32m        <h3 class="subheading reveal delay-1">Party sessions</h3>[m
+         <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">[m
+[31m-          <li>4:30PM – 6:30PM (Monday–Friday) <span style="opacity:0.8;">(weekend timings apply between[m
+[31m-              July–September)</span></li>[m
+[31m-          <li>5:30PM – 7:30PM (Saturday &amp; Sunday)</li>[m
+[32m+[m[32m          <li>4:30PM – 6:30PM on Monday – Friday (weekend timings apply between July – September).</li>[m
+[32m+[m[32m          <li>5:30PM – 7:30PM on Saturday &amp; Sunday.</li>[m
+         </ul>[m
+[31m-      </div>[m
+[31m-    </section>[m
+ [m
+[31m-[m
+[31m-    <div class="media-grid reveal delay-1" style="margin-top:32px;">[m
+[31m-      <div class="media-item">[m
+[31m-        <img src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-          alt="Family celebrating a child's birthday party" />[m
+[31m-      </div>[m
+[31m-      <div class="media-item">[m
+[31m-        <img src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-          alt="Festive celebration" />[m
+[31m-      </div>[m
+[31m-      <div class="media-item">[m
+[31m-        <img src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[31m-          alt="Party donuts on a plate" />[m
+[32m+[m[32m        <div class="media-grid reveal delay-1" style="margin-top:32px;">[m
+[32m+[m[32m          <div class="media-item">[m
+[32m+[m[32m            <img[m
+[32m+[m[32m              src="https://images.pexels.com/photos/27177693/pexels-photo-27177693.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[32m+[m[32m              alt="Family celebrating a child's birthday party" />[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m          <div class="media-item">[m
+[32m+[m[32m            <img[m
+[32m+[m[32m              src="https://images.pexels.com/photos/8385033/pexels-photo-8385033.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[32m+[m[32m              alt="Festive celebration" />[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m          <div class="media-item">[m
+[32m+[m[32m            <img[m
+[32m+[m[32m              src="https://images.pexels.com/photos/5582253/pexels-photo-5582253.jpeg?auto=compress&cs=tinysrgb&w=800"[m
+[32m+[m[32m              alt="Party donuts on a plate" />[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+       </div>[m
+[31m-    </div>[m
+[31m-    </div>[m
+     </section>[m
+ [m
+     <!-- FAQ -->[m
+[36m@@ -1152,6 +1140,7 @@[m
+         <div class="faq-list">[m
+           <div class="faq-item reveal delay-2">[m
+             <div class="faq-q">Cost of using play area</div>[m
+[32m+[m[32m            <!-- CLIENT REQUEST: replace with text below (no full stops needed) -->[m
+             <div class="faq-a">It costs €5 to use the play area per child (siblings go free)</div>[m
+           </div>[m
+ [m
+[36m@@ -1179,7 +1168,7 @@[m
+       </div>[m
+     </section>[m
+ [m
+[31m-    <!-- COMMUNITY / SOCIAL -->[m
+[32m+[m[32m    <!-- COMMUNITY / SOCIAL (CLIENT REQUEST: move back to left, heading above text) -->[m
+     <section id="social">[m
+       <div class="container">[m
+         <h2 class="section-title">Join our community</h2>[m
+[36m@@ -1196,36 +1185,26 @@[m
+           <div class="reveal">[m
+             <h2 class="section-title">Contacts</h2>[m
+             <div class="contact-info">[m
+[31m-              <!-- Client: new address -->[m
+[31m-              <p class="section-text">[m
+[31m-                <strong>Address:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos[m
+[31m-                Descobrimentos,[m
+[31m-                8600-645, Lagos, Portugal[m
+[31m-              </p>[m
+[31m-[m
+[31m-              <!-- Client: opening hours format like picture (no lines) -->[m
+[31m-              <p><strong>Opening hours:</strong></p>[m
+[31m-              <div class="hours" aria-label="Opening hours">[m
+[31m-                <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">9am – 4pm</span>[m
+[31m-                </div>[m
+[31m-                <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">9am – 4pm</span>[m
+[31m-                </div>[m
+[31m-                <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">9am – 4pm</span>[m
+[31m-                </div>[m
+[31m-                <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">9am – 4pm</span>[m
+[31m-                </div>[m
+[31m-                <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">9am – 4pm</span>[m
+[31m-                </div>[m
+[31m-                <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9am – 5pm</span>[m
+[31m-                </div>[m
+[31m-                <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">9am – 5pm</span>[m
+[31m-                </div>[m
+[31m-[m
+[31m-                <div class="hours-note">Weekend hours apply between June and September</div>[m
+[32m+[m[32m              <!-- CLIENT REQUEST: new address -->[m
+[32m+[m[32m              <p><strong>Address:</strong> Loja E, Bloco 1, Edifício Antiga Fábrica da Ribeira, Avenida dos Descobrimentos,[m
+[32m+[m[32m                8600-645, Lagos, Portugal</p>[m
+[32m+[m
+[32m+[m[32m              <!-- CLIENT REQUEST: opening hours in list style -->[m
+[32m+[m[32m              <p style="margin-top:12px;"><strong>Opening hours:</strong></p>[m
+[32m+[m[32m              <div class="hours-wrap" aria-label="Opening hours">[m
+[32m+[m[32m                <div class="hours-row"><span>Monday</span><span>9am – 4pm</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span>Tuesday</span><span>9am – 4pm</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span>Wednesday</span><span>9am – 4pm</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span>Thursday</span><span>9am – 4pm</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span>Friday</span><span>9am – 4pm</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span>Saturday</span><span>9am – 5pm</span></div>[m
+[32m+[m[32m                <div class="hours-row"><span>Sunday</span><span>9am – 5pm</span></div>[m
+[32m+[m[32m                <div class="hours-note">Weekend hours apply between June and September.</div>[m
+               </div>[m
+ [m
+[31m-              <p style="margin-top: 12px;"><strong>Email:</strong> <a[m
+[32m+[m[32m              <p style="margin-top:12px;"><strong>Email:</strong> <a[m
+                   href="mailto:info@familyhubcafe.com">info@familyhubcafe.com</a></p>[m
+[32m+[m
+               <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank"[m
+                   rel="noopener">+00 0000 0000</a></p>[m
+             </div>[m
+[36m@@ -1247,33 +1226,36 @@[m
+ [m
+       <div>[m
+         <div class="footer-title">Stay in the loop</div>[m
+[31m-        <!-- Client: remove green-marked part ("Sign up...") -->[m
+[32m+[m[32m        <!-- CLIENT REQUEST: remove marked green areas (shorter copy only) -->[m
+         <p class="section-text" style="max-width:none;">[m
+[31m-          Keep an eye on our social media for timetable updates, classes and events.[m
+[32m+[m[32m          Keep an eye on our social media for opening date, timetable updates, classes and events.[m
+         </p>[m
+ [m
+[31m-[m
+[32m+[m[32m        <div class="footer-input-row">[m
+[32m+[m[32m          <input type="email" placeholder="Your email address" />[m
+[32m+[m[32m          <button class="btn btn-primary" style="padding:8px 18px; font-size: var(--fs-nav);">Join</button>[m
+[32m+[m[32m        </div>[m
+ [m
+         <div class="footer-social-icons" aria-label="Social links">[m
+[31m-          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">[m
+[32m+[m[32m          <!-- CLIENT REQUEST: add WhatsApp icon here too -->[m
+[32m+[m[32m          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[31m-                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />[m
+[32m+[m[32m                d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.53 0 .25 5.28.25 11.8c0 2.08.55 4.11 1.59 5.9L0 24l6.45-1.69a11.77 11.77 0 0 0 5.61 1.43h.01c6.52 0 11.8-5.28 11.8-11.8 0-3.15-1.23-6.11-3.35-8.46zM12.07 21.55h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.83 1 1.03-3.73-.24-.39a9.79 9.79 0 0 1-1.5-5.14c0-5.4 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.87a9.75 9.75 0 0 1 2.86 6.93c0 5.41-4.4 9.84-9.69 9.84zm5.66-7.35c-.31-.16-1.82-.9-2.1-1-.28-.1-.49-.16-.7.16-.2.31-.8 1-.98 1.2-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.54-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.13-.64.14-.14.31-.36.47-.54.16-.18.2-.31.31-.52.1-.2.05-.39-.03-.54-.08-.16-.7-1.68-.96-2.3-.25-.6-.5-.52-.7-.53h-.6c-.2 0-.54.08-.82.39-.28.31-1.08 1.06-1.08 2.58s1.1 2.99 1.26 3.2c.16.2 2.16 3.3 5.24 4.63.73.32 1.3.51 1.75.66.74.23 1.42.2 1.95.12.6-.09 1.82-.74 2.08-1.45.26-.7.26-1.31.18-1.45-.08-.13-.28-.21-.59-.36z" />[m
+             </svg>[m
+           </a>[m
+ [m
+[31m-          <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">[m
+[32m+[m[32m          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[31m-                d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />[m
+[32m+[m[32m                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />[m
+             </svg>[m
+           </a>[m
+ [m
+[31m-          <!-- Client: add WhatsApp icon here too -->[m
+[31m-          <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">[m
+[32m+[m[32m          <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">[m
+             <svg viewBox="0 0 24 24" aria-hidden="true">[m
+               <path[m
+[31m-                d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a11.9 11.9 0 0 0 5.76 1.47h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.24-6.17-3.49-8.43ZM12.07 21.9h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.21-3.74.96.99-3.65-.24-.38a9.92 9.92 0 0 1-1.53-5.29C2.12 6.44 6.55 2.01 12.06 2.01c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.91 7.03c0 5.5-4.43 9.96-9.91 9.96Zm5.74-7.42c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.8 1.01-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.16-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.51 1.11 2.97 1.26 3.17.16.2 2.18 3.33 5.28 4.67.74.32 1.31.52 1.76.67.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />[m
+[32m+[m[32m                d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />[m
+             </svg>[m
+           </a>[m
+         </div>[m
+[36m@@ -1286,7 +1268,7 @@[m
+   </footer>[m
+ [m
+   <script>[m
+[31m-    // Reveal on scroll[m
+[32m+[m[32m    // Reveal animations[m
+     const reveals = document.querySelectorAll(".reveal");[m
+ [m
+     const observer = new IntersectionObserver([m
+[36m@@ -1302,33 +1284,32 @@[m
+     );[m
+ [m
+     reveals.forEach((el) => observer.observe(el));[m
+[31m-[m
+     document.getElementById("year").textContent = new Date().getFullYear();[m
+ [m
+     // Mobile menu toggle[m
+[31m-    const menuBtn = document.querySelector(".menu-btn");[m
+[32m+[m[32m    const menuBtn = document.getElementById("menuBtn");[m
+     const mobileMenu = document.getElementById("mobileMenu");[m
+ [m
+[31m-    function closeMobileMenu() {[m
+[32m+[m[32m    function closeMenu() {[m
+       mobileMenu.classList.remove("open");[m
+       menuBtn.setAttribute("aria-expanded", "false");[m
+     }[m
+ [m
+     menuBtn.addEventListener("click", () => {[m
+       const isOpen = mobileMenu.classList.toggle("open");[m
+[31m-      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");[m
+[32m+[m[32m      menuBtn.setAttribute("aria-expanded", String(isOpen));[m
+     });[m
+ [m
+[31m-    // Close menu when clicking a link[m
+[32m+[m[32m    // Close menu after clicking a link[m
+     mobileMenu.querySelectorAll("a").forEach((a) => {[m
+[31m-      a.addEventListener("click", closeMobileMenu);[m
+[32m+[m[32m      a.addEventListener("click", closeMenu);[m
+     });[m
+ [m
+     // Close menu on resize to desktop[m
+     window.addEventListener("resize", () => {[m
+[31m-      if (window.innerWidth > 768) closeMobileMenu();[m
+[32m+[m[32m      if (window.innerWidth > 768) closeMenu();[m
+     });[m
+   </script>[m
+ </body>[m
+ [m
+[31m-</html>[m
+\ No newline at end of file[m
+[32m+[m[32m</html>[m
