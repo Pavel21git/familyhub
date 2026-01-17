@@ -1301,6 +1301,15 @@
       });
     });
 
+    // Logo click: always scroll exactly to top (HOME как при первом заходе)
+    const logoLink = document.querySelector(".logo-link");
+    if (logoLink) {
+      logoLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
     // Mobile menu toggle
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
@@ -1326,5 +1335,4 @@
     });
   </script>
 </body>
-
 </html>
