@@ -619,7 +619,6 @@
       gap: 18px;
       padding: 6px 0;
       font-size: var(--fs-body);
-      /* было var(--fs-small) */
       color: rgba(18, 18, 18, 0.84);
     }
 
@@ -751,9 +750,10 @@
       }
     }
 
-    @media (max-width: 768px) {
+    /* Мобильный хедер и логотип – до 900px */
+    @media (max-width: 900px) {
       .nav {
-        padding: 10px 16px;
+        padding: 10px 8px 10px 16px;
       }
 
       .menu-btn {
@@ -772,9 +772,10 @@
         padding: 64px 16px;
       }
 
+      /* mobile: smaller landing logo */
       .landing-logo {
-        width: min(480px, 88vw);
-        max-height: 48vh;
+        width: min(360px, 75vw);
+        max-height: 38vh;
       }
 
       .icon-btn {
@@ -788,7 +789,11 @@
       }
 
       .nav-right {
-        gap: 8px;
+        gap: 4px;
+      }
+
+      .nav-social {
+        gap: 6px;
       }
     }
 
@@ -1333,9 +1338,9 @@
       a.addEventListener("click", closeMenu);
     });
 
-    // Close menu on resize to desktop
+    // Close menu on resize to desktop (порог 900px, как в CSS)
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) closeMenu();
+      if (window.innerWidth > 900) closeMenu();
     });
   </script>
 </body>
