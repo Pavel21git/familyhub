@@ -192,14 +192,17 @@
     .logo {
       width: 44px;
       height: 44px;
-      background: #ffffff;
+
+      /* FIX: remove white border/background */
+      background: transparent;
+      border: none;
+      box-shadow: none;
+
       border-radius: 50%;
-      border: 1px solid #ffffff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       justify-self: start;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s ease;
     }
 
@@ -425,11 +428,11 @@
       gap: 22px;
       text-align: center;
     }
-    
-    /* ===== Landing logo reduced by 1/3 ===== */
+
+    /* FIX: desktop landing logo bigger (+1) */
     .landing-logo {
-      width: min(560px, 65vw);
-      max-height: 46vh;
+      width: min(640px, 70vw);
+      max-height: 52vh;
       height: auto;
       display: block;
       object-fit: contain;
@@ -454,6 +457,7 @@
       justify-content: center;
       cursor: pointer;
       transition: transform 0.2s ease, background 0.2s ease;
+      padding: 0;
     }
 
     .scroll-btn:hover {
@@ -643,72 +647,70 @@
       height: 280px;
     }
 
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: rgba(255, 255, 255, 0.45);
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 28px 20px 36px;
-    }
+/* ---------- FOOTER ---------- */
+footer {
+  background: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 28px 20px 36px;
+}
 
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 28px;
-      font-size: var(--fs-small);
-      align-items: stretch;
-    }
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;          /* ← СДВИГ ВЛЕВО */
+  gap: 28px;
+  font-size: var(--fs-small);
+  align-items: flex-start;             /* ← ВЫРАВНИВАНИЕ */
+}
 
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-height: 100%;
-    }
+.footer-left {
+  display: none;                       /* ← НЕ НУЖЕН, ЧТОБЫ НЕ СМЕЩАЛ */
+}
 
-    .footer-title {
-      font-family: var(--ff-display);
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      color: rgba(111, 53, 38, 0.72);
-    }
+.footer-title {
+  font-family: var(--ff-display);
+  font-size: 16px;                     /* ← БОЛЬШЕ */
+  font-weight: 700;                    /* ← BOLD */
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: rgba(111, 53, 38, 0.85);
+}
 
-    .footer-input-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
+.footer-input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
 
-    .footer-input-row input {
-      flex: 1;
-      min-width: 160px;
-      border-radius: 999px;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      padding: 8px 10px;
-      font-size: var(--fs-small);
-      background: rgba(255, 255, 255, 0.75);
-    }
+.footer-input-row input {
+  flex: 1;
+  min-width: 160px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 8px 10px;
+  font-size: var(--fs-small);
+  background: rgba(255, 255, 255, 0.75);
+}
 
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 20px auto 0;
-      padding: 14px 20px 0;
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-      font-size: 12px;
-      color: rgba(18, 18, 18, 0.62);
-    }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 20px auto 0;
+  padding: 14px 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 12px;
+  color: rgba(18, 18, 18, 0.62);
+}
 
-    .footer-social-icons {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+.footer-social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
     /* ---------- REVEAL ---------- */
     .reveal {
@@ -772,9 +774,10 @@
         padding: 64px 16px;
       }
 
+      /* FIX: mobile landing logo smaller (-1) */
       .landing-logo {
-        width: min(520px, 92vw);
-        max-height: 56vh;
+        width: min(480px, 88vw);
+        max-height: 48vh;
       }
 
       /* prevent icons from going off-screen */
@@ -871,7 +874,7 @@
         </button>
 
         <div class="nav-social" aria-label="Social links">
-          <!-- WhatsApp (CLIENT REQUEST: add WhatsApp icon next to Instagram/Facebook) -->
+          <!-- ORDER: WhatsApp → Facebook → Instagram -->
           <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -920,12 +923,13 @@
         <img class="landing-logo" src="assets/assetslogo-header.png" alt="Family Hub Café logo" />
 
         <div class="scroll-hint">
-          <a class="scroll-btn" href="#about" aria-label="Scroll to about">
+          <!-- FIX: button + JS scroll (no jumping) -->
+          <button class="scroll-btn" type="button" data-scroll="#about" aria-label="Scroll to about">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -1077,7 +1081,8 @@
           <h2 class="section-title">Connect</h2>
 
           <p class="section-text">
-            We understand that parenting can be isolating, which is why we have created a space where you can meet fellow
+            We understand that parenting can be isolating, which is why we have created a space where you can meet
+            fellow
             parents, share experiences, and make new friends.
           </p>
 
@@ -1087,7 +1092,8 @@
           </p>
 
           <p class="section-text">
-            At Family Hub Café, we are creating a supportive community for expecting parents. Join us for a safe space to
+            At Family Hub Café, we are creating a supportive community for expecting parents. Join us for a safe space
+            to
             connect with others. We aim to host various activities and events aimed at expecting parents throughout the
             year.
           </p>
@@ -1106,9 +1112,13 @@
 
         <h3 class="subheading reveal delay-1">Party sessions</h3>
         <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">
-          <li>4:30PM – 6:30PM on Monday – Friday (weekend timings apply between July – September).</li>
-          <li>5:30PM – 7:30PM on Saturday &amp; Sunday.</li>
+          <li>Monday – Friday: 4:30PM – 6:30PM</li>
+          <li>Saturday &amp; Sunday: 5:30PM – 7:30PM</li>
         </ul>
+
+        <p class="section-text reveal delay-1" style="margin-top:6px;">
+          Weekend timings apply between July and September.
+        </p>
 
         <div class="media-grid reveal delay-1" style="margin-top:32px;">
           <div class="media-item">
@@ -1160,7 +1170,8 @@
 
           <div class="faq-item reveal delay-3">
             <div class="faq-q">When is the next class?</div>
-            <div class="faq-a">Keep up to date with classes and events on our Instagram and Facebook.</div>
+            <div class="faq-a">Follow our page on instagram and facebook to keep up-to-date
+              on events and classes throughout the month.</div>
           </div>
         </div>
       </div>
@@ -1230,9 +1241,9 @@
           Keep an eye on our social media for opening date, timetable updates, classes and events.
         </p>
 
-
         <div class="footer-social-icons" aria-label="Social links">
-          <!-- CLIENT REQUEST: add WhatsApp icon here too -->
+          <!-- ORDER FIXED: WhatsApp → Facebook → Instagram -->
+
           <a class="icon-btn" href="https://wa.me/0000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -1240,17 +1251,17 @@
             </svg>
           </a>
 
-          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
-            </svg>
-          </a>
-
           <a class="icon-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
+            </svg>
+          </a>
+
+          <a class="icon-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
             </svg>
           </a>
         </div>
@@ -1280,6 +1291,21 @@
 
     reveals.forEach((el) => observer.observe(el));
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // FIX: landing scroll button (no jumping; accounts for fixed header)
+    document.querySelectorAll("[data-scroll]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const selector = btn.getAttribute("data-scroll");
+        const target = document.querySelector(selector);
+        if (!target) return;
+
+        const header = document.querySelector("header");
+        const headerH = header ? header.offsetHeight : 0;
+
+        const y = target.getBoundingClientRect().top + window.pageYOffset - headerH;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      });
+    });
 
     // Mobile menu toggle
     const menuBtn = document.getElementById("menuBtn");
