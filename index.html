@@ -744,7 +744,6 @@
     .delay-3 {
       transition-delay: 0.3s;
     }
-
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
       .grid-2 {
@@ -761,35 +760,54 @@
 
       /* Мобильный хедер и логотип – до 900px */
       .nav {
-        padding: 10px 16px;
-        /* симметричный отступ: слева/справа по 16px */
+        padding: 10px 16px;              /* одинаковый отступ слева/справа */
+        display: flex;                   /* вместо grid */
+        align-items: center;
+        justify-content: space-between;  /* логотип слева, иконки справа */
+        gap: 10px;
       }
 
-      /* показать кнопку мобильного меню */
+      /* бургер показываем, текстовое меню прячем */
       .menu-btn {
         display: inline-flex;
       }
 
-      /* скрыть десктопные ссылки */
       .nav-links {
         display: none;
       }
 
+      .logo {
+        flex: 0 0 auto;
+      }
+
       .logo-img {
         height: 54px;
+        width: auto;
+      }
+
+      .nav-right {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;      /* меньше расстояние между группами справа */
+      }
+
+      .nav-social {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;      /* меньше зазор между кружками */
       }
 
       section {
         padding: 64px 16px;
       }
 
-      /* логотип на первом экране – поменьше на мобилке */
+      /* логотип на первом экране – меньше на мобилке */
       .landing-logo {
         width: min(360px, 75vw);
         max-height: 38vh;
       }
 
-      /* иконки соцсетей немного меньше */
       .icon-btn {
         width: 34px;
         height: 34px;
@@ -798,16 +816,6 @@
       .lang-btn {
         min-width: 30px;
         padding: 4px 8px;
-      }
-
-      .nav-right {
-        gap: 4px;
-        /* меньше расстояние между группами справа */
-      }
-
-      .nav-social {
-        gap: 6px;
-        /* иконки ближе друг к другу */
       }
     }
 
@@ -826,13 +834,13 @@
         flex-direction: column;
       }
 
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
+      #eat .grid-2 > .reveal,
+      #connect .grid-2 > .reveal {
         order: 1;
       }
 
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
+      #eat .grid-2 > .media-grid,
+      #connect .grid-2 > .media-grid {
         order: 2;
       }
     }
@@ -846,13 +854,13 @@
         flex-direction: column;
       }
 
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
+      #eat .grid-2 > .reveal,
+      #connect .grid-2 > .reveal {
         order: 1;
       }
 
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
+      #eat .grid-2 > .media-grid,
+      #connect .grid-2 > .media-grid {
         order: 2;
       }
     }
