@@ -758,20 +758,19 @@
       .footer-inner {
         grid-template-columns: 1fr;
       }
-    }
 
-    /* Мобильный хедер и логотип – до 900px */
-    @media (max-width: 900px) {
+      /* Мобильный хедер и логотип – до 900px */
       .nav {
-        padding: 10px 8px 10px 16px; /* справа меньше, слева как было */
+        padding: 10px 16px;
+        /* симметричный отступ: слева/справа по 16px */
       }
 
-      /* show mobile menu button */
+      /* показать кнопку мобильного меню */
       .menu-btn {
         display: inline-flex;
       }
 
-      /* hide desktop links */
+      /* скрыть десктопные ссылки */
       .nav-links {
         display: none;
       }
@@ -784,13 +783,13 @@
         padding: 64px 16px;
       }
 
-      /* mobile: smaller landing logo */
+      /* логотип на первом экране – поменьше на мобилке */
       .landing-logo {
         width: min(360px, 75vw);
         max-height: 38vh;
       }
 
-      /* prevent icons from going off-screen */
+      /* иконки соцсетей немного меньше */
       .icon-btn {
         width: 34px;
         height: 34px;
@@ -802,11 +801,13 @@
       }
 
       .nav-right {
-        gap: 4px; /* меньше расстояние между группами */
+        gap: 4px;
+        /* меньше расстояние между группами справа */
       }
 
       .nav-social {
-        gap: 6px; /* иконки чуть ближе друг к другу */
+        gap: 6px;
+        /* иконки ближе друг к другу */
       }
     }
 
@@ -857,6 +858,8 @@
     }
   </style>
 </head>
+
+
 
 <body>
   <!-- NAVBAR -->
