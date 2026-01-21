@@ -743,7 +743,7 @@
       transition-delay: 0.3s;
     }
 
-    /* ---------- RESPONSIVE ---------- */
+      /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
       .grid-2 {
         grid-template-columns: 1fr;
@@ -759,13 +759,10 @@
 
       /* Мобильный хедер и логотип – до 900px */
       .nav {
-        padding: 10px 16px;
-        /* одинаковый отступ слева/справа */
-        display: flex;
-        /* вместо grid */
+        padding: 10px 16px;              /* одинаковый отступ слева/справа */
+        display: flex;                   /* вместо grid */
         align-items: center;
-        justify-content: space-between;
-        /* логотип слева, иконки справа */
+        justify-content: space-between;  /* логотип слева, иконки справа */
         gap: 10px;
       }
 
@@ -791,15 +788,13 @@
         margin-left: auto;
         display: inline-flex;
         align-items: center;
-        gap: 4px;
-        /* меньше расстояние между группами справа */
+        gap: 4px;    /* меньше расстояние между группами справа */
       }
 
       .nav-social {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        /* меньше зазор между кружками */
+        gap: 6px;    /* меньше зазор между кружками */
       }
 
       section {
@@ -823,14 +818,14 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .hero-title {
-        font-size: 36px;
-      }
-    }
-
-    /* MOBILE: headings above images for Eat & Connect (portrait) */
+    /* MOBILE: hero-заголовок и порядок блоков Eat / Connect (портрет) */
     @media (max-width: 768px) {
+
+      /* ↓ делаем "Comer • Brincar • Conectar" меньше, чтобы влезало */
+      .hero-title {
+        font-size: clamp(22px, 4.2vw, 28px);
+        max-width: 100%;
+      }
 
       #eat .grid-2,
       #connect .grid-2 {
@@ -838,14 +833,21 @@
         flex-direction: column;
       }
 
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
+      #eat .grid-2 > .reveal,
+      #connect .grid-2 > .reveal {
         order: 1;
       }
 
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
+      #eat .grid-2 > .media-grid,
+      #connect .grid-2 > .media-grid {
         order: 2;
+      }
+    }
+
+    /* EXTRA SMALL: совсем маленькие телефоны */
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 24px;  /* ещё чуть меньше на очень узких экранах */
       }
     }
 
@@ -858,13 +860,13 @@
         flex-direction: column;
       }
 
-      #eat .grid-2>.reveal,
-      #connect .grid-2>.reveal {
+      #eat .grid-2 > .reveal,
+      #connect .grid-2 > .reveal {
         order: 1;
       }
 
-      #eat .grid-2>.media-grid,
-      #connect .grid-2>.media-grid {
+      #eat .grid-2 > .media-grid,
+      #connect .grid-2 > .media-grid {
         order: 2;
       }
     }
@@ -1142,8 +1144,8 @@
 
         <h3 class="subheading reveal delay-1">Sessões de festa</h3>
         <ul class="section-text reveal delay-1" style="margin-top:8px; padding-left:18px;">
-          <li>Segunda – Sexta: 16:30 – 18:30</li>
-          <li>Sábado &amp; Domingo: 17:30 – 19:30</li>
+          <li>Segunda – Sexta: 16:30h – 18:30h</li>
+          <li>Sábado &amp; Domingo: 17:30h – 19:30h</li>
         </ul>
 
         <p class="section-text reveal delay-1" style="margin-top:6px;">
@@ -1230,13 +1232,13 @@
 
               <p style="margin-top:12px;"><strong>Horário:</strong></p>
               <div class="hours-wrap" aria-label="Horário de funcionamento">
-                <div class="hours-row"><span>Segunda</span><span>9h – 16h</span></div>
-                <div class="hours-row"><span>Terça</span><span>9h – 16h</span></div>
-                <div class="hours-row"><span>Quarta</span><span>9h – 16h</span></div>
-                <div class="hours-row"><span>Quinta</span><span>9h – 16h</span></div>
-                <div class="hours-row"><span>Sexta</span><span>9h – 16h</span></div>
-                <div class="hours-row"><span>Sábado</span><span>9h – 17h</span></div>
-                <div class="hours-row"><span>Domingo</span><span>9h – 17h</span></div>
+                <div class="hours-row"><span>Segunda</span><span>9:00h – 16:00h</span></div>
+                <div class="hours-row"><span>Terça</span><span>9:00h – 16:00h</span></div>
+                <div class="hours-row"><span>Quarta</span><span>9:00h – 16:00h</span></div>
+                <div class="hours-row"><span>Quinta</span><span>9:00h – 16:00hh</span></div>
+                <div class="hours-row"><span>Sexta</span><span>9:00h – 16:00h</span></div>
+                <div class="hours-row"><span>Sábado</span><span>9:00h – 17:00h</span></div>
+                <div class="hours-row"><span>Domingo</span><span>9:00h – 17:00h</span></div>
                 <div class="hours-note">O horário de fim de semana aplica-se entre junho e setembro.</div>
               </div>
 
