@@ -743,7 +743,7 @@
       transition-delay: 0.3s;
     }
 
-      /* ---------- RESPONSIVE ---------- */
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
       .grid-2 {
         grid-template-columns: 1fr;
@@ -759,10 +759,13 @@
 
       /* Мобильный хедер и логотип – до 900px */
       .nav {
-        padding: 10px 16px;              /* одинаковый отступ слева/справа */
-        display: flex;                   /* вместо grid */
+        padding: 10px 16px;
+        /* одинаковый отступ слева/справа */
+        display: flex;
+        /* вместо grid */
         align-items: center;
-        justify-content: space-between;  /* логотип слева, иконки справа */
+        justify-content: space-between;
+        /* логотип слева, иконки справа */
         gap: 10px;
       }
 
@@ -788,13 +791,15 @@
         margin-left: auto;
         display: inline-flex;
         align-items: center;
-        gap: 4px;    /* меньше расстояние между группами справа */
+        gap: 4px;
+        /* меньше расстояние между группами справа */
       }
 
       .nav-social {
         display: inline-flex;
         align-items: center;
-        gap: 6px;    /* меньше зазор между кружками */
+        gap: 6px;
+        /* меньше зазор между кружками */
       }
 
       section {
@@ -833,13 +838,13 @@
         flex-direction: column;
       }
 
-      #eat .grid-2 > .reveal,
-      #connect .grid-2 > .reveal {
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
         order: 1;
       }
 
-      #eat .grid-2 > .media-grid,
-      #connect .grid-2 > .media-grid {
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
         order: 2;
       }
     }
@@ -847,7 +852,8 @@
     /* EXTRA SMALL: совсем маленькие телефоны */
     @media (max-width: 480px) {
       .hero-title {
-        font-size: 24px;  /* ещё чуть меньше на очень узких экранах */
+        font-size: 24px;
+        /* ещё чуть меньше на очень узких экранах */
       }
     }
 
@@ -860,13 +866,13 @@
         flex-direction: column;
       }
 
-      #eat .grid-2 > .reveal,
-      #connect .grid-2 > .reveal {
+      #eat .grid-2>.reveal,
+      #connect .grid-2>.reveal {
         order: 1;
       }
 
-      #eat .grid-2 > .media-grid,
-      #connect .grid-2 > .media-grid {
+      #eat .grid-2>.media-grid,
+      #connect .grid-2>.media-grid {
         order: 2;
       }
     }
@@ -913,7 +919,8 @@
             </svg>
           </a>
 
-          <a class="icon-btn" href="https://www.facebook.com/share/p/1bQgG3jw9z/" target="_blank" rel="noopener" aria-label="Facebook">
+          <a class="icon-btn" href="https://www.facebook.com/share/p/1bQgG3jw9z/" target="_blank" rel="noopener"
+            aria-label="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
@@ -1244,8 +1251,16 @@
               <p style="margin-top:12px;"><strong>Email:</strong> <a
                   href="mailto:info@familyhubcafe.com">info@familyhubcafe.com</a></p>
 
-              <p><strong>Telefone / WhatsApp:</strong> <a href="https://wa.me/0000000000" target="_blank"
-                  rel="noopener">+351 961 454 692</a></p>
+              <p>
+                <strong>Telefone:</strong>
+                <a href="tel:+351961454692">+351 961 454 692</a>
+              </p>
+              <p>
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/351961454692" target="_blank" rel="noopener">
+                  +351 961 454 692
+                </a>
+              </p>
             </div>
           </div>
 
@@ -1279,7 +1294,8 @@
             </svg>
           </a>
 
-          <a class="icon-btn" href="https://www.facebook.com/share/p/1bQgG3jw9z/" target="_blank" rel="noopener" aria-label="Facebook">
+          <a class="icon-btn" href="https://www.facebook.com/share/p/1bQgG3jw9z/" target="_blank" rel="noopener"
+            aria-label="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
