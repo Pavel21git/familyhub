@@ -716,6 +716,26 @@
       border-top: 1px solid rgba(0, 0, 0, 0.06);
       font-size: 12px;
       color: rgba(18, 18, 18, 0.62);
+
+      /* НОВОЕ: делаем строку гибкой, текст слева, ссылка справа */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-link {
+      text-decoration: none;
+      font-size: 12px;
+      color: rgba(18, 18, 18, 0.72);
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-bottom-link:hover {
+      color: rgba(18, 18, 18, 0.9);
+      transform: translateY(-1px);
     }
 
     .footer-social-icons {
@@ -1054,8 +1074,9 @@
         <div class="reveal">
           <h2 class="section-title">Eat</h2>
           <p class="section-text">
-            Our menu features a range of healthy and tasty options sourced from local suppliers. We strive to use
-            organic ingredients where possible. We have options for all members of the family.
+            Our menu features a range of healthy and tasty options.
+            We strive to use organic ingredients and local suppliers where possible.
+            We have options for all members of the family.
           </p>
         </div>
       </div>
@@ -1318,7 +1339,13 @@
     </div>
 
     <div class="footer-bottom">
-      © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. All rights reserved
+      <span>
+        © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. All rights reserved
+      </span>
+
+      <a href="privacy.html" class="footer-bottom-link">
+        Privacy Policy
+      </a>
     </div>
   </footer>
 

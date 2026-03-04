@@ -709,6 +709,26 @@
       border-top: 1px solid rgba(0, 0, 0, 0.06);
       font-size: 12px;
       color: rgba(18, 18, 18, 0.62);
+
+      /* НОВОЕ: делаем строку гибкой, текст слева, ссылка справа */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-link {
+      text-decoration: none;
+      font-size: 12px;
+      color: rgba(18, 18, 18, 0.72);
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-bottom-link:hover {
+      color: rgba(18, 18, 18, 0.9);
+      transform: translateY(-1px);
     }
 
     .footer-social-icons {
@@ -1315,7 +1335,13 @@
     </div>
 
     <div class="footer-bottom">
-      © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. Todos os direitos reservados
+      <span>
+        © <span id="year"></span> Vjaceslavs &amp; Eritobi Lda t/a Family Hub Café. All rights reserved
+      </span>
+
+      <a href="privacy-pt.html" class="footer-bottom-link">
+        Política de Privacidade
+      </a>
     </div>
   </footer>
 
